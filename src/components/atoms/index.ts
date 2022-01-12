@@ -1,4 +1,5 @@
+import { IconLink } from "./IconLink";
 import { Logo } from "./Logo";
 import { ToolbarButton } from "./ToolbarButton";
 
-export { ToolbarButton, Logo };
+export { ToolbarButton, Logo, IconLink };

@@ -14,11 +14,13 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".",
     "paths": {
       "@lib/atoms": ["./src/components/atoms"],
       "@lib/molecules": ["./src/components/molecules"],
       "@lib/organisms": ["./src/components/organisms"],
-      "@lib/templates": ["./src/components/templates"]
+      "@lib/templates": ["./src/components/templates"],
+      "@lib/helpers": ["./src/components/helpers"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -6,6 +6,8 @@ interface Props {
 
 export const ToolbarButton: FC<Props> = ({ children }) => {
   return (
-    <div className="h-20 flex items-center px-6 bg-rs-primary text-white font-normal">{children}</div>
+    <div className="cursor-pointer transition duration-500 ease-in-out h-20 w-40 flex justify-center items-center bg-rs-primary text-white font-medium text-sm hover:bg-black">
+      {children}
+    </div>
   );
 };

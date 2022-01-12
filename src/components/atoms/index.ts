@@ -1,3 +1,4 @@
+import { Logo } from "./Logo";
 import { ToolbarButton } from "./ToolbarButton";
 
-export { ToolbarButton };
+export { ToolbarButton, Logo };

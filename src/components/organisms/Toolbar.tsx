@@ -14,7 +14,9 @@ export const Toolbar: FC = () => {
         <div className="container flex items-center h-full justify-between">
           <Image src="/logo.svg" alt="logo" width={285} height={65.96} />
           <div>
-              <ToolbarButton/>
+             <ToolbarButton>
+               Escuchar
+             </ToolbarButton>
           </div>
         </div>
       </div>

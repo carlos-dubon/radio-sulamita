@@ -4,7 +4,10 @@ import {
   faWhatsapp,
   faFacebookMessenger,
 } from "@fortawesome/free-brands-svg-icons";
-import { faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHandHoldingHeart,
+  faHeadphonesAlt,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Toolbar: FC = () => {
@@ -45,7 +48,8 @@ export const Toolbar: FC = () => {
               textColor="text-white"
               primary={true}
             >
-              Escúchanos
+              Reproducir
+              <FontAwesomeIcon icon={faHeadphonesAlt} className="w-4 ml-3" />
             </ToolbarButton>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Logo, ToolbarButton, IconLink } from "@lib/atoms";
+import { Logo, ToolbarButton, IconLink, Countdown } from "@lib/atoms";
 import {
   faWhatsapp,
   faFacebookMessenger,
@@ -22,7 +22,7 @@ export const Toolbar: FC = () => {
             />
             <IconLink icon={faWhatsapp} href="https://wa.link/logvtp" />
           </div>
-          <div className="text-rs-primary text-sm">Siguiente aniversario:</div>
+          <Countdown />
         </div>
       </div>
       <div className="h-20 flex justify-center bg-white">

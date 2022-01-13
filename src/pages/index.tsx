@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Toolbar } from "@lib/organisms";
+import { HeroSlider } from "@lib/templates";
 
 const Home: NextPage = () => {
   return (
@@ -16,7 +17,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Toolbar></Toolbar>
+      <Toolbar />
+      <HeroSlider />
     </div>
   );
 };

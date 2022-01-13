@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+
 export const Toolbar: FC = () => {
   return (
     <div className="flex flex-col drop-shadow-2xl">

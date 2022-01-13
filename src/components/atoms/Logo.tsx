@@ -6,7 +6,7 @@ export const Logo: FC = () => {
   return (
     <Link href="/">
       <a className="h-full">
-        <Image src="/logo.svg" alt="logo" width={299.9} height={40} />
+        <Image src="/logo.svg" alt="logo" width={193} height={42} />
       </a>
     </Link>
   );

@@ -1,5 +1,5 @@
-import "../styles/globals.css";
-import "../styles/logoAnimation.css";
+import "../styles/globals.scss";
+import "../styles/logoAnimation.scss";
 import type { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {

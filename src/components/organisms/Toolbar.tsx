@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import dynamic from "next/dynamic";
+import { StickyScrollUp, StickyProvider } from "react-stickup";
 
 export const Toolbar: FC = () => {
   // fix to: Text content did not match. Server Client
@@ -17,7 +18,7 @@ export const Toolbar: FC = () => {
 
   return (
     <>
-      <div className="relative z-20 h-16 flex items-center justify-center bg-rs-secondary">
+      <div className="relative top-0 z-30  h-16 flex items-center justify-center bg-rs-secondary">
         <div className="container flex justify-between">
           <div className="flex gap-4 items-center">
             <IconLink
@@ -29,35 +30,43 @@ export const Toolbar: FC = () => {
           <Countdown />
         </div>
       </div>
-      <div className="sticky top-0 z-10 h-20 flex justify-center bg-white drop-shadow-2xl">
-        <div className="container flex items-center h-full justify-between">
-          <Logo />
-          <div className="flex">
-            <ToolbarButton>Inicio</ToolbarButton>
-            <ToolbarButton>Videos</ToolbarButton>
-            <ToolbarButton>Colaboradores</ToolbarButton>
-            <ToolbarButton
-              className="group"
-              hoverBackgroundColor="hover:bg-black"
-              primary={true}
-            >
-              <FontAwesomeIcon
-                icon={faHandHoldingHeart}
-                className="group-hover:text-white w-4"
-              />
-            </ToolbarButton>
-            <ToolbarButton
-              backgroundColor="bg-rs-primary"
-              hoverBackgroundColor="hover:bg-black"
-              textColor="text-white"
-              primary={true}
-            >
-              Reproducir
-              <FontAwesomeIcon icon={faHeadphonesAlt} className="w-4 ml-3" />
-            </ToolbarButton>
+
+      <StickyProvider>
+        <StickyScrollUp className="z-20">
+          <div className="h-20 flex justify-center bg-white drop-shadow-2xl">
+            <div className="container flex items-center h-full justify-between">
+              <Logo />
+              <div className="flex">
+                <ToolbarButton>Inicio</ToolbarButton>
+                <ToolbarButton>Videos</ToolbarButton>
+                <ToolbarButton>Colaboradores</ToolbarButton>
+                <ToolbarButton
+                  className="group"
+                  hoverBackgroundColor="hover:bg-black"
+                  primary={true}
+                >
+                  <FontAwesomeIcon
+                    icon={faHandHoldingHeart}
+                    className="group-hover:text-white w-4"
+                  />
+                </ToolbarButton>
+                <ToolbarButton
+                  backgroundColor="bg-rs-primary"
+                  hoverBackgroundColor="hover:bg-black"
+                  textColor="text-white"
+                  primary={true}
+                >
+                  Reproducir
+                  <FontAwesomeIcon
+                    icon={faHeadphonesAlt}
+                    className="w-4 ml-3"
+                  />
+                </ToolbarButton>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </StickyScrollUp>
+      </StickyProvider>
     </>
   );
 };

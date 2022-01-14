@@ -7,7 +7,7 @@ export const Logo: FC = () => {
   useEffect(() => {
     setTimeout(() => {
       setAnimateClass("active");
-    }, 300);
+    }, 200);
   }, []);
 
   return (

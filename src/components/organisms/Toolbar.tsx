@@ -16,8 +16,8 @@ export const Toolbar: FC = () => {
   );
 
   return (
-    <div className="flex flex-col drop-shadow-2xl">
-      <div className="h-16 flex items-center justify-center bg-rs-secondary">
+    <>
+      <div className="relative z-20 h-16 flex items-center justify-center bg-rs-secondary">
         <div className="container flex justify-between">
           <div className="flex gap-4 items-center">
             <IconLink
@@ -29,8 +29,7 @@ export const Toolbar: FC = () => {
           <Countdown />
         </div>
       </div>
-
-      <div className="sticky top-0 h-20 flex justify-center bg-white">
+      <div className="sticky top-0 z-10 h-20 flex justify-center bg-white drop-shadow-2xl">
         <div className="container flex items-center h-full justify-between">
           <Logo />
           <div className="flex">
@@ -59,6 +58,6 @@ export const Toolbar: FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };

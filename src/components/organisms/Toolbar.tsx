@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Logo, ToolbarButton, IconLink, Countdown } from "@lib/atoms";
+import { Logo, ToolbarButton, IconLink } from "@lib/atoms";
 import {
   faWhatsapp,
   faFacebookMessenger,
@@ -9,9 +9,15 @@ import {
   faHeadphonesAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import dynamic from "next/dynamic";
 
 export const Toolbar: FC = () => {
+  // fix to: Text content did not match. Server Client
+  const Countdown = dynamic<{}>(
+    import("../atoms/Countdown").then((module) => module.Countdown),
+    { ssr: false }
+  );
+
   return (
     <div className="flex flex-col drop-shadow-2xl">
       <div className="h-16 flex items-center justify-center bg-rs-secondary">

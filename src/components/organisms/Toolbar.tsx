@@ -14,7 +14,7 @@ import dynamic from "next/dynamic";
 export const Toolbar: FC = () => {
   // fix to: Text content did not match. Server Client
   const Countdown = dynamic<{}>(
-    import("../atoms/Countdown").then((module) => module.Countdown),
+    import("@lib/atoms").then((module) => module.Countdown),
     { ssr: false }
   );
 

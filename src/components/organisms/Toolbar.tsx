@@ -1,9 +1,6 @@
 import { FC } from "react";
 import { Logo, ToolbarButton, IconLink } from "@lib/atoms";
-import {
-  faWhatsapp,
-  faFacebookMessenger,
-} from "@fortawesome/free-brands-svg-icons";
+import { faWhatsapp, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import {
   faHandHoldingHeart,
   faHeadphonesAlt,
@@ -24,7 +21,7 @@ export const Toolbar: FC = () => {
         <div className="container flex justify-between">
           <div className="flex gap-4 items-center">
             <IconLink
-              icon={faFacebookMessenger}
+              icon={faFacebook}
               href="https://www.facebook.com/estereo.sulamita"
             />
             <IconLink icon={faWhatsapp} href="https://wa.link/logvtp" />
@@ -32,6 +29,7 @@ export const Toolbar: FC = () => {
           <Countdown />
         </div>
       </div>
+
       <div className="h-20 flex justify-center bg-white">
         <div className="container flex items-center h-full justify-between">
           <Logo />

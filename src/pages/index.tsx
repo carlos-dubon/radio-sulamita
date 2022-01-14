@@ -19,6 +19,7 @@ const Home: NextPage = () => {
 
       <Toolbar />
       <HeroSlider />
+      <div style={{ height: "1000vh" }}>s</div>
     </div>
   );
 };

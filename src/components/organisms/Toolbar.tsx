@@ -30,7 +30,7 @@ export const Toolbar: FC = () => {
         </div>
       </div>
 
-      <div className="h-20 flex justify-center bg-white">
+      <div className="sticky top-0 h-20 flex justify-center bg-white">
         <div className="container flex items-center h-full justify-between">
           <Logo />
           <div className="flex">

@@ -5,7 +5,7 @@ import { HeroSlider } from "@lib/templates";
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <>
       <Head>
         <title>
           Radio Sulamita 90.1FM, Melchor de Mencos, Petén, Guatemala.
@@ -19,8 +19,8 @@ const Home: NextPage = () => {
 
       <Toolbar />
       <HeroSlider />
-      <div style={{ height: "1000vh" }}>s</div>
-    </div>
+      <div style={{ height: "1000vh" }}></div>
+    </>
   );
 };
 

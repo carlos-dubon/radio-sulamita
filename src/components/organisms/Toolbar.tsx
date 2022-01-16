@@ -8,8 +8,16 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import dynamic from "next/dynamic";
 import { StickyScrollUp, StickyProvider } from "react-stickup";
+import { useSelector, useDispatch } from "react-redux";
+import { toggle } from "src/state/slices/playerSlice";
 
 export const Toolbar: FC = () => {
+  const playerState = useSelector((state: any) => state.player);
+
+  console.log(playerState);
+
+  const dispatch = useDispatch();
+
   // fix to: Text content did not match. Server Client
   const Countdown = dynamic<{}>(
     import("@lib/atoms").then((module) => module.Countdown),
@@ -67,6 +75,9 @@ export const Toolbar: FC = () => {
           </div>
         </StickyScrollUp>
       </StickyProvider>
+
+      <h1>{JSON.stringify(playerState)}</h1>
+      <button onClick={() => dispatch(toggle())}>Change state</button>
     </>
   );
 };

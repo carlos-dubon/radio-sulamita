@@ -20,7 +20,8 @@
       "@lib/molecules": ["./src/components/molecules"],
       "@lib/organisms": ["./src/components/organisms"],
       "@lib/templates": ["./src/components/templates"],
-      "@lib/helpers": ["./src/components/helpers"]
+      "@lib/helpers": ["./src/components/helpers"],
+      "@state/store": ["./src/state"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

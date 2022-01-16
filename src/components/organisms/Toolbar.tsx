@@ -8,8 +8,16 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import dynamic from "next/dynamic";
 import { StickyScrollUp, StickyProvider } from "react-stickup";
+import { useAppSelector, useAppDispatch } from "@app/hooks";
+import { toggle } from "src/state/slices/playerSlice";
+import { RootState } from "src/state/store";
 
 export const Toolbar: FC = () => {
+  const playerState: boolean = useAppSelector(
+    (state: RootState) => state.player.value
+  );
+  const dispatch = useAppDispatch();
+
   // fix to: Text content did not match. Server Client
   const Countdown = dynamic<{}>(
     import("@lib/atoms").then((module) => module.Countdown),
@@ -55,8 +63,9 @@ export const Toolbar: FC = () => {
                   hoverBackgroundColor="hover:bg-black"
                   textColor="text-white"
                   primary={true}
+                  onClick={() => dispatch(toggle())}
                 >
-                  Reproducir
+                  {playerState ? "Pausar" : "Reproducir"}
                   <FontAwesomeIcon
                     icon={faHeadphonesAlt}
                     className="w-4 ml-3"
@@ -67,6 +76,9 @@ export const Toolbar: FC = () => {
           </div>
         </StickyScrollUp>
       </StickyProvider>
+
+      <h1>{JSON.stringify(playerState)}</h1>
+      <button onClick={() => dispatch(toggle())}>Change state</button>
     </>
   );
 };

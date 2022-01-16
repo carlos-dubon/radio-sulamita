@@ -1,21 +1,37 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface PlayerState {
-  value: boolean;
+  loading: boolean;
+  playing: boolean;
 }
 
-const initialState: PlayerState = { value: false };
+interface LoadingAction {
+  payload: boolean;
+}
+
+const initialState: PlayerState = { loading: false, playing: false };
 
 export const playerSlice = createSlice({
   name: "player",
   initialState,
   reducers: {
     toggle: (state: PlayerState) => {
-      state.value = !state.value;
+      if (state.playing) {
+        // pause
+        state.loading = false;
+        state.playing = false;
+      } else {
+        // play
+        state.loading = true;
+        state.playing = true;
+      }
+    },
+    loading: (state: PlayerState, action: LoadingAction) => {
+      state.loading = action.payload;
     },
   },
 });
 
-export const { toggle } = playerSlice.actions;
+export const { toggle, loading } = playerSlice.actions;
 
 export default playerSlice.reducer;

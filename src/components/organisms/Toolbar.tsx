@@ -16,8 +16,13 @@ import Link from "next/link";
 
 export const Toolbar: FC = () => {
   const playerState: boolean = useAppSelector(
-    (state: RootState) => state.player.value
+    (state: RootState) => state.player.playing
   );
+
+  const isAudioLoading: boolean = useAppSelector(
+    (state: RootState) => state.player.loading
+  );
+
   const dispatch = useAppDispatch();
 
   // fix to: Text content did not match. Server Client
@@ -71,20 +76,23 @@ export const Toolbar: FC = () => {
                   primary={true}
                   onClick={() => dispatch(toggle())}
                 >
-                  {playerState ? "Pausar" : "Reproducir"}
-                  <FontAwesomeIcon
-                    icon={playerState ? faPauseCircle : faHeadphonesAlt}
-                    className="w-4 ml-3"
-                  />
+                  {isAudioLoading
+                    ? "Cargando..."
+                    : playerState
+                    ? "Pausar"
+                    : "Reproducir"}
+                  {!isAudioLoading ? (
+                    <FontAwesomeIcon
+                      icon={playerState ? faPauseCircle : faHeadphonesAlt}
+                      className="w-4 ml-3"
+                    />
+                  ) : null}
                 </ToolbarButton>
               </div>
             </div>
           </div>
         </StickyScrollUp>
       </StickyProvider>
-
-      <h1>{JSON.stringify(playerState)}</h1>
-      <button onClick={() => dispatch(toggle())}>Change state</button>
     </>
   );
 };

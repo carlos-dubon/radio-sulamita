@@ -4,6 +4,7 @@ import { faWhatsapp, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import {
   faHandHoldingHeart,
   faHeadphonesAlt,
+  faPauseCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import dynamic from "next/dynamic";
@@ -11,6 +12,7 @@ import { StickyScrollUp, StickyProvider } from "react-stickup";
 import { useAppSelector, useAppDispatch } from "@app/hooks";
 import { toggle } from "src/state/slices/playerSlice";
 import { RootState } from "src/state/store";
+import Link from "next/link";
 
 export const Toolbar: FC = () => {
   const playerState: boolean = useAppSelector(
@@ -45,7 +47,11 @@ export const Toolbar: FC = () => {
             <div className="container flex items-center h-full justify-between">
               <Logo />
               <div className="flex">
-                <ToolbarButton>Inicio</ToolbarButton>
+                <ToolbarButton>
+                  <Link href="/">
+                    <a className="h-full w-full">Inicio</a>
+                  </Link>
+                </ToolbarButton>
                 <ToolbarButton>Videos</ToolbarButton>
                 <ToolbarButton>Colaboradores</ToolbarButton>
                 <ToolbarButton
@@ -67,7 +73,7 @@ export const Toolbar: FC = () => {
                 >
                   {playerState ? "Pausar" : "Reproducir"}
                   <FontAwesomeIcon
-                    icon={faHeadphonesAlt}
+                    icon={playerState ? faPauseCircle : faHeadphonesAlt}
                     className="w-4 ml-3"
                   />
                 </ToolbarButton>

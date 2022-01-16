@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FC, useState, useEffect } from "react";
 
 export const Logo: FC = () => {
-  const [animateClass, setAnimateClass] = useState<string>("");
+  const [animateClass, setAnimateClass] = useState<"" | "active">("");
 
   useEffect(() => {
     setTimeout(() => {

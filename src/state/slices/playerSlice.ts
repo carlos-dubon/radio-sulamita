@@ -1,18 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface PlayerState {
+  value: boolean;
+}
+
+const initialState: PlayerState = { value: false };
+
 export const playerSlice = createSlice({
   name: "player",
-  initialState: {
-    value: false,
-  },
+  initialState,
   reducers: {
-    start: (state) => {
+    start: (state: PlayerState) => {
       state.value = true;
     },
-    stop: (state) => {
+    stop: (state: PlayerState) => {
       state.value = false;
     },
-    toggle: (state) => {
+    toggle: (state: PlayerState) => {
       state.value = !state.value;
     },
   },

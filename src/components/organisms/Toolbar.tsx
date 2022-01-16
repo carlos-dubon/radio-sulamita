@@ -8,15 +8,15 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import dynamic from "next/dynamic";
 import { StickyScrollUp, StickyProvider } from "react-stickup";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "@app/hooks";
 import { toggle } from "src/state/slices/playerSlice";
+import { RootState } from "src/state/store";
 
 export const Toolbar: FC = () => {
-  const playerState = useSelector((state: any) => state.player);
-
-  console.log(playerState);
-
-  const dispatch = useDispatch();
+  const playerState: boolean = useAppSelector(
+    (state: RootState) => state.player.value
+  );
+  const dispatch = useAppDispatch();
 
   // fix to: Text content did not match. Server Client
   const Countdown = dynamic<{}>(
@@ -63,8 +63,9 @@ export const Toolbar: FC = () => {
                   hoverBackgroundColor="hover:bg-black"
                   textColor="text-white"
                   primary={true}
+                  onClick={() => dispatch(toggle())}
                 >
-                  Reproducir
+                  {playerState ? "Pausar" : "Reproducir"}
                   <FontAwesomeIcon
                     icon={faHeadphonesAlt}
                     className="w-4 ml-3"

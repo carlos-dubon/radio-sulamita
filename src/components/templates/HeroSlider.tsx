@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export const HeroSlider: FC = () => {
   return (
-    <Swiper modules={[Autoplay]} autoplay={{ delay: 6000 }}>
+    <Swiper loop={true} modules={[Autoplay]} autoplay={{ delay: 6000 }}>
       <SwiperSlide className="relative" style={{ height: "820px" }}>
         <div
           className="w-full relative top-0 left-0 -z-10"

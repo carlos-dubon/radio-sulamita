@@ -75,6 +75,7 @@ export const Toolbar: FC = () => {
                   textColor="text-white"
                   primary={true}
                   onClick={() => dispatch(toggle())}
+                  disabled={isAudioLoading}
                 >
                   {isAudioLoading
                     ? "Cargando..."

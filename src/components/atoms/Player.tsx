@@ -2,14 +2,20 @@ import { useAppSelector, useAppDispatch } from "@app/hooks";
 import { FC, useEffect, useMemo } from "react";
 import { RootState } from "src/state/store";
 import { loading } from "src/state/slices/playerSlice";
+import { Howl } from "howler";
 
 const Player: FC = () => {
   const dispatch = useAppDispatch();
 
   const streamUrl: string = "https://stream1.srvnetplus.com:18122/stream";
 
-  const stream: HTMLAudioElement = useMemo(
-    () => new Audio(streamUrl),
+  const stream: Howl = useMemo(
+    () =>
+      new Howl({
+        src: [streamUrl],
+        html5: true,
+        preload: true,
+      }),
     [streamUrl]
   );
 
@@ -19,7 +25,8 @@ const Player: FC = () => {
 
   useEffect(() => {
     if (playerState) {
-      stream.play().then(() => {
+      stream.play();
+      stream.on("play", () => {
         dispatch(loading(false));
       });
     } else {

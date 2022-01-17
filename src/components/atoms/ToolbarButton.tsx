@@ -10,6 +10,7 @@ interface Props {
   hoverTextColor?: string;
   primary?: boolean;
   onClick?: () => any;
+  disabled?: boolean;
 }
 
 export const ToolbarButton: FC<Props> = ({
@@ -21,6 +22,7 @@ export const ToolbarButton: FC<Props> = ({
   hoverTextColor,
   primary,
   onClick,
+  disabled,
 }) => {
   const classStr = classNames(
     "transition-all duration-500 ease-in-out",
@@ -37,7 +39,7 @@ export const ToolbarButton: FC<Props> = ({
   return (
     <div
       onClick={() => {
-        if (onClick) {
+        if (onClick && !disabled) {
           onClick();
         }
       }}

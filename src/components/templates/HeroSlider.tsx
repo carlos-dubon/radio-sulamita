@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, A11y, Navigation } from "swiper";
+import { Autoplay, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import { FC } from "react";
@@ -12,7 +12,7 @@ export const HeroSlider: FC = () => {
       <Swiper
         loop={true}
         navigation
-        modules={[Autoplay, A11y, Navigation]}
+        modules={[Autoplay, Navigation]}
         autoplay={{ delay: 6000 }}
       >
         <SwiperSlide className="relative" style={{ height: "820px" }}>

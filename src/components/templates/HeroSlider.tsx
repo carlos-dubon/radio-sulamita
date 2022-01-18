@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "swiper/css";
 import { FC } from "react";
-import Image from "next/image";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export const HeroSlider: FC = () => {
   return (
@@ -12,13 +12,13 @@ export const HeroSlider: FC = () => {
           className="w-full relative top-0 left-0 -z-10"
           style={{ height: "820px" }}
         >
-          <Image
-            className="brightness-75 bg-left-bottom"
+          <LazyLoadImage
+            height={820}
+            width="100%"
+            placeholderSrc="/slider/lazy-load/slide-1.jpg"
             src="/slider/slide-1.jpg"
             alt="slide-1"
-            layout="fill"
-            objectFit="cover"
-            priority={true}
+            className="brightness-75"
           />
         </div>
         <div className="flex justify-center items-center absolute top-0 left-0 h-full w-full">
@@ -47,13 +47,13 @@ export const HeroSlider: FC = () => {
           className="w-full relative top-0 left-0 -z-10"
           style={{ height: "820px" }}
         >
-          <Image
-            className="brightness-75 bg-top"
+          <LazyLoadImage
+            height={820}
+            width="100%"
+            placeholderSrc="/slider/lazy-load/slide-2.jpg"
             src="/slider/slide-2.jpg"
-            alt="slide-2"
-            layout="fill"
-            objectFit="cover"
-            priority={true}
+            alt="slide-1"
+            className="brightness-75"
           />
         </div>
         <div className="flex justify-center items-center absolute top-0 left-0 h-full w-full">
@@ -77,13 +77,13 @@ export const HeroSlider: FC = () => {
           className="w-full relative top-0 left-0 -z-10"
           style={{ height: "820px" }}
         >
-          <Image
-            className="brightness-75 bg-bottom"
+          <LazyLoadImage
+            height={820}
+            width="100%"
+            placeholderSrc="/slider/lazy-load/slide-1.jpg"
             src="/slider/slide-3.jpg"
             alt="slide-3"
-            layout="fill"
-            objectFit="cover"
-            priority={true}
+            className="brightness-75"
           />
         </div>
         <div className="flex justify-center items-center absolute top-0 left-0 h-full w-full">

@@ -6,8 +6,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export const HeroSlider: FC = () => {
   return (
-    <Swiper>
-     {/* <Swiper loop={true} modules={[Autoplay]} autoplay={{ delay: 6000 }}> */}
+    <Swiper loop={true} modules={[Autoplay]} autoplay={{ delay: 6000 }}>
       <SwiperSlide className="relative" style={{ height: "820px" }}>
         <div
           className="w-full relative top-0 left-0 -z-10"
@@ -20,8 +19,6 @@ export const HeroSlider: FC = () => {
             src="/slider/slide-1.jpg"
             alt="slide-1"
             className="brightness-75 object-cover object-bottom h-[820px]"
-            
-            // style={{backgroundRepeat: "no-repeat", backgroundPosition: "bottom", backgroundSize: "cover"}}
           />
         </div>
         <div className="flex justify-center items-center absolute top-0 left-0 h-full w-full">
@@ -56,7 +53,7 @@ export const HeroSlider: FC = () => {
             placeholderSrc="/slider/lazy-load/slide-2.jpg"
             src="/slider/slide-2.jpg"
             alt="slide-1"
-            className="brightness-75"
+            className="brightness-75 object-cover object-center h-[820px]"
           />
         </div>
         <div className="flex justify-center items-center absolute top-0 left-0 h-full w-full">
@@ -86,7 +83,7 @@ export const HeroSlider: FC = () => {
             placeholderSrc="/slider/lazy-load/slide-1.jpg"
             src="/slider/slide-3.jpg"
             alt="slide-3"
-            className="brightness-75"
+            className="brightness-75 object-cover object-bottom h-[820px]"
           />
         </div>
         <div className="flex justify-center items-center absolute top-0 left-0 h-full w-full">

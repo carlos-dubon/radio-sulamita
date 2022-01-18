@@ -1,12 +1,18 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
+import { Autoplay, A11y, Navigation } from "swiper";
 import "swiper/css";
+import 'swiper/css/navigation';
 import { FC } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export const HeroSlider: FC = () => {
   return (
-    <Swiper loop={true} modules={[Autoplay]} autoplay={{ delay: 6000 }}>
+    <Swiper
+      loop={true}
+      navigation
+      modules={[Autoplay, A11y, Navigation]}
+      autoplay={{ delay: 6000 }}
+    >
       <SwiperSlide className="relative" style={{ height: "820px" }}>
         <div
           className="w-full relative top-0 left-0 -z-10"

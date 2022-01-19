@@ -1,2 +1,4 @@
 import { SectionQuote } from "./SectionQuote";
-export { SectionQuote };
+import { Section } from "./Section";
+
+export { SectionQuote, Section };

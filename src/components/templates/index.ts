@@ -1,3 +1,4 @@
 import { HeroSlider } from "./HeroSlider";
+import { Videos } from "./Videos";
 
-export { HeroSlider };
+export { HeroSlider, Videos };

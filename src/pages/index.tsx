@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Toolbar } from "@lib/organisms";
-import { HeroSlider } from "@lib/templates";
+import { HeroSlider, Videos } from "@lib/templates";
 
 const Home: NextPage = () => {
   return (
@@ -19,6 +19,7 @@ const Home: NextPage = () => {
 
       <Toolbar />
       <HeroSlider />
+      <Videos />
       <div style={{ height: "1000vh" }}></div>
     </>
   );

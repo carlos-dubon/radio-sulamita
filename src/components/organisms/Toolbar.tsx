@@ -14,7 +14,11 @@ import { toggle } from "src/state/slices/playerSlice";
 import { RootState } from "src/state/store";
 import Link from "next/link";
 
-export const Toolbar: FC = () => {
+interface Props {
+  goToVideos: () => void;
+}
+
+export const Toolbar: FC<Props> = ({ goToVideos }) => {
   const playerState: boolean = useAppSelector(
     (state: RootState) => state.player.playing
   );
@@ -57,7 +61,13 @@ export const Toolbar: FC = () => {
                     <a className="h-full w-full">Inicio</a>
                   </Link>
                 </ToolbarButton>
-                <ToolbarButton>Videos</ToolbarButton>
+                <ToolbarButton
+                  onClick={() => {
+                    goToVideos();
+                  }}
+                >
+                  Videos
+                </ToolbarButton>
                 <ToolbarButton>Colaboradores</ToolbarButton>
                 <ToolbarButton
                   className="group"

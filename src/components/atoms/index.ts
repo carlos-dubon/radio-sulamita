@@ -4,5 +4,14 @@ import { Logo } from "./Logo";
 import { ToolbarButton } from "./ToolbarButton";
 import { Player } from "./Player";
 import { Button } from "./Button";
+import { YouTubeVideo } from "./YouTubeVideo";
 
-export { ToolbarButton, Logo, IconLink, Countdown, Player, Button };
+export {
+  ToolbarButton,
+  Logo,
+  IconLink,
+  Countdown,
+  Player,
+  Button,
+  YouTubeVideo,
+};

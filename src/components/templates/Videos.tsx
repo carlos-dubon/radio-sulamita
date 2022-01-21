@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Section } from "@lib/molecules";
+import { YouTubeVideo } from "@lib/atoms";
 
 const Videos: FC = () => {
   return (
@@ -15,12 +16,17 @@ const Videos: FC = () => {
             ¿Existen pruebas de que la vida tenga un diseñador? Todos los seres
             vivos tienen algo en común que los relaciona entre sí.
           </div>
+          <YouTubeVideo title="El diseño de la vida" videoId="5hlNk7IcZFs" />
         </div>
         <div className="w-4/5">
-          <div className="mb-1 font-medium">Haz sacrificios por otros</div>
+          <div className="mb-1 font-medium">Hay que saber perdonar</div>
           <div className="text-rs-primary text-sm mb-2 h-10">
-            Demuestra tu amor poniendo a los demás en primer lugar.
+            ¿Sabes lo que significa perdonar?
           </div>
+          <YouTubeVideo
+            title="Haz sacrificios por otros"
+            videoId="L4UpEYxKBak"
+          />
         </div>
       </div>
     </Section>

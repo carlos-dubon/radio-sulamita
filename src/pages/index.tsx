@@ -30,7 +30,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Toolbar goToVideos={goToVideos} goToDonations={goToDonations} />
-      <HeroSlider />
+      <HeroSlider goToDonations={goToDonations} />
       <div ref={videosRef}>
         <Videos />
       </div>

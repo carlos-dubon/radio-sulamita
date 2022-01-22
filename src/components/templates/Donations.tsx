@@ -53,6 +53,9 @@ const Donations: FC = () => {
       <SectionQuote
         heading="¿Necesitas de oración? Escríbenos, queremos orar por ti."
         buttonText="Contacto"
+        buttonClick={() => {
+          console.log("[goto] Contacto");
+        }}
       />
     </>
   );

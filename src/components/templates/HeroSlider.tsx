@@ -6,7 +6,11 @@ import { FC } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { SectionQuote } from "@lib/molecules";
 
-export const HeroSlider: FC = () => {
+interface Props {
+  goToDonations: () => void;
+}
+
+export const HeroSlider: FC<Props> = ({ goToDonations }) => {
   return (
     <>
       <Swiper
@@ -119,6 +123,9 @@ export const HeroSlider: FC = () => {
         heading="El que es generoso prospera; el que reanima será reanimado."
         subHeading="Proverbios 11:25"
         buttonText="Donar"
+        buttonClick={() => {
+          goToDonations();
+        }}
       />
     </>
   );

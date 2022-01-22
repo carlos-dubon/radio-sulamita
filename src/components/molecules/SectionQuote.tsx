@@ -3,7 +3,7 @@ import { Button } from "@lib/atoms";
 
 interface Props {
   heading: string;
-  subHeading: string;
+  subHeading?: string;
   buttonText: string;
   // buttonClick: () => void;
 }
@@ -14,7 +14,9 @@ const SectionQuote: FC<Props> = ({ heading, subHeading }) => {
       <div className="container flex justify-between">
         <div className="flex flex-col gap-1">
           <div className="text-xl text-white">{heading}</div>
-          <div className="text-sm text-stone-200">{subHeading}</div>
+          {subHeading ? (
+            <div className="text-sm text-stone-200">{subHeading}</div>
+          ) : null}
         </div>
         <Button text="Donar" onClick={() => {}} />
       </div>

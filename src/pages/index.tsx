@@ -1,14 +1,19 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Toolbar } from "@lib/organisms";
-import { HeroSlider, Videos } from "@lib/templates";
+import { HeroSlider, Videos, Donations } from "@lib/templates";
 import { useRef } from "react";
 
 const Home: NextPage = () => {
   const videosRef = useRef<HTMLDivElement | null>(null);
+  const donationsRef = useRef<HTMLDivElement | null>(null);
 
   const goToVideos = (): void => {
     videosRef.current?.scrollIntoView();
+  };
+
+  const goToDonations = (): void => {
+    donationsRef.current?.scrollIntoView();
   };
 
   return (
@@ -24,10 +29,13 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Toolbar goToVideos={goToVideos} />
+      <Toolbar goToVideos={goToVideos} goToDonations={goToDonations} />
       <HeroSlider />
       <div ref={videosRef}>
         <Videos />
+      </div>
+      <div ref={donationsRef}>
+        <Donations />
       </div>
       <div style={{ height: "1000vh" }}></div>
     </>

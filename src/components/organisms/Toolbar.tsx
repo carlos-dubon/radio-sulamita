@@ -16,9 +16,10 @@ import Link from "next/link";
 
 interface Props {
   goToVideos: () => void;
+  goToDonations: () => void;
 }
 
-export const Toolbar: FC<Props> = ({ goToVideos }) => {
+export const Toolbar: FC<Props> = ({ goToVideos, goToDonations }) => {
   const playerState: boolean = useAppSelector(
     (state: RootState) => state.player.playing
   );
@@ -73,6 +74,9 @@ export const Toolbar: FC<Props> = ({ goToVideos }) => {
                   className="group"
                   hoverBackgroundColor="hover:bg-black"
                   primary={true}
+                  onClick={() => {
+                    goToDonations();
+                  }}
                 >
                   <FontAwesomeIcon
                     icon={faHandHoldingHeart}

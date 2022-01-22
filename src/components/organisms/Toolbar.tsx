@@ -17,9 +17,14 @@ import Link from "next/link";
 interface Props {
   goToVideos: () => void;
   goToDonations: () => void;
+  goToColaborators: () => void;
 }
 
-export const Toolbar: FC<Props> = ({ goToVideos, goToDonations }) => {
+export const Toolbar: FC<Props> = ({
+  goToVideos,
+  goToDonations,
+  goToColaborators,
+}) => {
   const playerState: boolean = useAppSelector(
     (state: RootState) => state.player.playing
   );
@@ -69,7 +74,13 @@ export const Toolbar: FC<Props> = ({ goToVideos, goToDonations }) => {
                 >
                   Videos
                 </ToolbarButton>
-                <ToolbarButton>Colaboradores</ToolbarButton>
+                <ToolbarButton
+                  onClick={() => {
+                    goToColaborators();
+                  }}
+                >
+                  Colaboradores
+                </ToolbarButton>
                 <ToolbarButton
                   className="group"
                   hoverBackgroundColor="hover:bg-black"

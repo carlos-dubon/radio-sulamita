@@ -85,7 +85,7 @@ const ChatBox: FC = () => {
   ];
 
   return (
-    <div className="w-full h-full overflow-y-scroll flex flex-col gap-4">
+    <div className="w-full h-[25rem] overflow-auto flex flex-col gap-4">
       {messages.map((m: Message) => {
         return (
           <div
@@ -137,7 +137,7 @@ const Contact: FC = () => {
       subtitle="Y todo lo que pidiereis al Padre en mi nombre, lo haré, para que el Padre sea glorificado en el Hijo."
       bibleVerse="Juan 14:13"
     >
-      <div className="w-full bg-rs-gray h-[620px] grid grid-cols-2 py-6">
+      <div className="w-full bg-rs-gray grid grid-cols-2 py-6">
         <Column title="Mensajes recientes">
           <ChatBox />
         </Column>

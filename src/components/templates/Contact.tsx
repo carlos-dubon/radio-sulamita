@@ -33,7 +33,7 @@ const Column: FC<ColumnProps> = ({ title, children, className }) => {
 const ChatBox: FC = () => {
   const messages: Message[] = [
     {
-      id: "1111",
+      id: "1",
       name: "John Doe",
       email: "john@email.com",
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim. Etiam sodales maximus sem quis tincidunt. Proin interdum metus eu rutrum sagittis. Morbi venenatis ne.",
@@ -42,14 +42,14 @@ const ChatBox: FC = () => {
       date: "23 de enero del 2021, 02:38 PM",
     },
     {
-      id: "1111",
+      id: "3",
       name: "RADIO SULAMITA",
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim.",
       admin: true,
       date: "23 de enero del 2021, 02:38 PM",
     },
     {
-      id: "1111",
+      id: "4",
       name: "John Doe",
       email: "john@email.com",
       body: "Hello world",
@@ -58,7 +58,7 @@ const ChatBox: FC = () => {
       date: "23 de enero del 2021, 02:38 PM",
     },
     {
-      id: "1111",
+      id: "5",
       name: "John Doe",
       email: "john@email.com",
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim. Etiam sodales maximus sem quis tincidunt. Proin interdum metus eu rutrum sagittis. Morbi venenatis ne.",
@@ -67,7 +67,7 @@ const ChatBox: FC = () => {
       date: "23 de enero del 2021, 02:38 PM",
     },
     {
-      id: "1111",
+      id: "6",
       name: "John Doe",
       email: "john@email.com",
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim. ne.",
@@ -76,14 +76,14 @@ const ChatBox: FC = () => {
       date: "23 de enero del 2021, 02:38 PM",
     },
     {
-      id: "1111",
+      id: "7",
       name: "RADIO SULAMITA",
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim.",
       admin: true,
       date: "23 de enero del 2021, 02:38 PM",
     },
     {
-      id: "1111",
+      id: "8",
       name: "John Doe",
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim. ne.",
       admin: false,

@@ -82,6 +82,14 @@ const ChatBox: FC = () => {
       admin: true,
       date: "23 de enero del 2021, 02:38 PM",
     },
+    {
+      id: "1111",
+      name: "John Doe",
+      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim. ne.",
+      admin: false,
+      country: "MX",
+      date: "23 de enero del 2021, 02:38 PM",
+    },
   ];
 
   return (
@@ -105,7 +113,7 @@ const ChatBox: FC = () => {
 
             {m.admin ? null : (
               <div className="flex justify-between text-stone-500">
-                <div>{m.email}</div>
+                {m.email ? <div>{m.email}</div> : <div>-</div>}
                 <div>
                   <Image
                     src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${m.country}.svg`}

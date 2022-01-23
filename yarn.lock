@@ -1544,11 +1544,6 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
-memoize-one@^5.1.1:
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-5.2.1.tgz#8337aa3c4335581839ec01c3d594090cebe8f00e"
-  integrity sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==
-
 merge-stream@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/merge-stream/-/merge-stream-2.0.0.tgz"
@@ -1945,20 +1940,6 @@ react-refresh@0.8.3:
   version "0.8.3"
   resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.8.3.tgz"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
-
-react-stickup@^1.12.0:
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/react-stickup/-/react-stickup-1.12.0.tgz#0cca378cb0cb7dce41af42631fdea9896bc72379"
-  integrity sha512-47E9pOXmfDaII+w4EJ9aqe7jSMgFI4ZL2Kcl/nx3EpcUFBLiX1hREyaVuoOw/A/TBeHbbEwjvEkXTOFs20KU7Q==
-  dependencies:
-    react-viewport-utils "^1.12.1"
-
-react-viewport-utils@^1.12.1:
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/react-viewport-utils/-/react-viewport-utils-1.12.1.tgz#7e2cf3f4818f96132d9327c1142a67704cbc5f69"
-  integrity sha512-sjj8rNIKSlzwhVf3mJJJl3Z+34ILFrMxCdP2jmzkAGtwXjdvKm2my9lZMV54oh837bUGx3k6XZlF/988Up3GZg==
-  dependencies:
-    memoize-one "^5.1.1"
 
 react@17.0.2:
   version "17.0.2"

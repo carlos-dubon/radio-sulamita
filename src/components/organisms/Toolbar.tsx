@@ -8,7 +8,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import dynamic from "next/dynamic";
-import { StickyScrollUp, StickyProvider } from "react-stickup";
 import { useAppSelector, useAppDispatch } from "@app/hooks";
 import { toggle } from "src/state/slices/playerSlice";
 import { RootState } from "src/state/store";
@@ -43,7 +42,7 @@ export const Toolbar: FC<Props> = ({
 
   return (
     <>
-      <div className="relative top-0 z-30  h-16 flex items-center justify-center bg-rs-secondary">
+      <div className="relative top-0 left-0 z-30  h-16 flex items-center justify-center bg-rs-secondary">
         <div className="container flex justify-between">
           <div className="flex gap-4 items-center">
             <IconLink
@@ -56,69 +55,67 @@ export const Toolbar: FC<Props> = ({
         </div>
       </div>
 
-      <StickyProvider>
-        <StickyScrollUp className="z-20">
-          <div className="h-20 flex justify-center bg-white drop-shadow-2xl">
-            <div className="container flex items-center h-full justify-between">
-              <Logo />
-              <div className="flex">
-                <ToolbarButton>
-                  <Link href="/">
-                    <a className="h-full w-full">Inicio</a>
-                  </Link>
-                </ToolbarButton>
-                <ToolbarButton
-                  onClick={() => {
-                    goToVideos();
-                  }}
-                >
-                  Videos
-                </ToolbarButton>
-                <ToolbarButton
-                  onClick={() => {
-                    goToColaborators();
-                  }}
-                >
-                  Colaboradores
-                </ToolbarButton>
-                <ToolbarButton
-                  className="group"
-                  hoverBackgroundColor="hover:bg-black"
-                  primary={true}
-                  onClick={() => {
-                    goToDonations();
-                  }}
-                >
+      <div className="sticky top-0 left-0 z-20">
+        <div className="h-20 flex justify-center bg-white drop-shadow-2xl">
+          <div className="container flex items-center h-full justify-between">
+            <Logo />
+            <div className="flex">
+              <ToolbarButton>
+                <Link href="/">
+                  <a className="h-full w-full">Inicio</a>
+                </Link>
+              </ToolbarButton>
+              <ToolbarButton
+                onClick={() => {
+                  goToVideos();
+                }}
+              >
+                Videos
+              </ToolbarButton>
+              <ToolbarButton
+                onClick={() => {
+                  goToColaborators();
+                }}
+              >
+                Colaboradores
+              </ToolbarButton>
+              <ToolbarButton
+                className="group"
+                hoverBackgroundColor="hover:bg-black"
+                primary={true}
+                onClick={() => {
+                  goToDonations();
+                }}
+              >
+                <FontAwesomeIcon
+                  icon={faHandHoldingHeart}
+                  className="group-hover:text-white w-4"
+                />
+              </ToolbarButton>
+              <ToolbarButton
+                backgroundColor="bg-rs-primary"
+                hoverBackgroundColor="hover:bg-black"
+                textColor="text-white"
+                primary={true}
+                onClick={() => dispatch(toggle())}
+                disabled={isAudioLoading}
+              >
+                {isAudioLoading
+                  ? "Cargando..."
+                  : playerState
+                  ? "Pausar"
+                  : "Reproducir"}
+                {!isAudioLoading ? (
                   <FontAwesomeIcon
-                    icon={faHandHoldingHeart}
-                    className="group-hover:text-white w-4"
+                    icon={playerState ? faPauseCircle : faHeadphonesAlt}
+                    className="w-4 ml-3"
                   />
-                </ToolbarButton>
-                <ToolbarButton
-                  backgroundColor="bg-rs-primary"
-                  hoverBackgroundColor="hover:bg-black"
-                  textColor="text-white"
-                  primary={true}
-                  onClick={() => dispatch(toggle())}
-                  disabled={isAudioLoading}
-                >
-                  {isAudioLoading
-                    ? "Cargando..."
-                    : playerState
-                    ? "Pausar"
-                    : "Reproducir"}
-                  {!isAudioLoading ? (
-                    <FontAwesomeIcon
-                      icon={playerState ? faPauseCircle : faHeadphonesAlt}
-                      className="w-4 ml-3"
-                    />
-                  ) : null}
-                </ToolbarButton>
-              </div>
+                ) : null}
+              </ToolbarButton>
             </div>
           </div>
-        </StickyScrollUp>
-      </StickyProvider>
+        </div>
+      </div>
     </>
   );
 };

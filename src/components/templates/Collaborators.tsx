@@ -10,22 +10,22 @@ interface CollaboratorsI {
 
 const listOfCollaborators: CollaboratorsI[] = [
   {
-    photoSrc: "/colaborators/robin-sucup.jpg",
+    photoSrc: "/collaborators/robin-sucup.jpg",
     name: "Robin Sucup",
     occupation: "Locutor",
   },
   {
-    photoSrc: "/colaborators/jose-pop.jpg",
+    photoSrc: "/collaborators/jose-pop.jpg",
     name: "Jose Pop",
     occupation: "Locutor",
   },
   {
-    photoSrc: "/colaborators/sindi-pop.jpg",
+    photoSrc: "/collaborators/sindi-pop.jpg",
     name: "Sindi Pop",
     occupation: "Locutora",
   },
   {
-    photoSrc: "/colaborators/maria-perez.jpg",
+    photoSrc: "/collaborators/maria-perez.jpg",
     name: "María del Carmen",
     occupation: "Locutora",
   },

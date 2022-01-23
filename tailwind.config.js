@@ -6,7 +6,11 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: { "rs-primary": "#AC8A74", "rs-secondary": "#191919" },
+      colors: {
+        "rs-primary": "#AC8A74",
+        "rs-secondary": "#191919",
+        "rs-gray": "#EFF4F6",
+      },
     },
   },
   plugins: [],

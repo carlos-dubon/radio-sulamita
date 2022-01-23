@@ -1,7 +1,13 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Toolbar } from "@lib/organisms";
-import { HeroSlider, Videos, Donations, Collaborators } from "@lib/templates";
+import {
+  HeroSlider,
+  Videos,
+  Donations,
+  Collaborators,
+  FounderMessage,
+} from "@lib/templates";
 import { useRef } from "react";
 
 const Home: NextPage = () => {
@@ -39,16 +45,23 @@ const Home: NextPage = () => {
         goToDonations={goToDonations}
         goToColaborators={goToColaborators}
       />
+
       <HeroSlider goToDonations={goToDonations} />
+
       <div ref={videosRef}>
         <Videos />
       </div>
+
       <div ref={donationsRef}>
         <Donations />
       </div>
+
       <div ref={colaboratorsRef}>
         <Collaborators />
       </div>
+
+      <FounderMessage />
+
       <div style={{ height: "1000vh" }}></div>
     </>
   );

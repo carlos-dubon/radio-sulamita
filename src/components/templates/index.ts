@@ -1,6 +1,6 @@
 import { HeroSlider } from "./HeroSlider";
 import { Videos } from "./Videos";
 import { Donations } from "./Donations";
-import { Colaborators } from "./Colaborators";
+import { Collaborators } from "./Collaborators";
 
-export { HeroSlider, Videos, Donations, Colaborators };
+export { HeroSlider, Videos, Donations, Collaborators };

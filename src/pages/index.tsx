@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Toolbar } from "@lib/organisms";
-import { HeroSlider, Videos, Donations, Colaborators } from "@lib/templates";
+import { HeroSlider, Videos, Donations, Collaborators } from "@lib/templates";
 import { useRef } from "react";
 
 const Home: NextPage = () => {
@@ -47,7 +47,7 @@ const Home: NextPage = () => {
         <Donations />
       </div>
       <div ref={colaboratorsRef}>
-        <Colaborators />
+        <Collaborators />
       </div>
       <div style={{ height: "1000vh" }}></div>
     </>

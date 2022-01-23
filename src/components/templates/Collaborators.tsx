@@ -2,13 +2,13 @@ import { FC } from "react";
 import { Section } from "@lib/molecules";
 import Image from "next/image";
 
-interface ColaboratorsI {
+interface CollaboratorsI {
   photoSrc: string;
   name: string;
   occupation: string;
 }
 
-const listOfColaborators: ColaboratorsI[] = [
+const listOfCollaborators: CollaboratorsI[] = [
   {
     photoSrc: "/colaborators/robin-sucup.jpg",
     name: "Robin Sucup",
@@ -31,7 +31,7 @@ const listOfColaborators: ColaboratorsI[] = [
   },
 ];
 
-const Colaborators: FC = () => {
+const Collaborators: FC = () => {
   return (
     <Section
       title="Colaboradores"
@@ -39,11 +39,11 @@ const Colaborators: FC = () => {
       bibleVerse="Juan 12:26"
     >
       <div className="flex justify-center flex-wrap gap-8">
-        {listOfColaborators.map((colaborator: ColaboratorsI) => {
+        {listOfCollaborators.map((collaborator: CollaboratorsI) => {
           return (
             <div
               className="flex flex-col items-center"
-              key={colaborator.photoSrc}
+              key={collaborator.photoSrc}
             >
               <div className="w-60 h-60 rs-inner-shadow  flex items-center justify-center rounded-full mb-4">
                 <div className="rounded-full border-rs-primary border-2 w-[210px] h-[210px]">
@@ -51,14 +51,14 @@ const Colaborators: FC = () => {
                     className="rounded-full"
                     width={210}
                     height={210}
-                    src={colaborator.photoSrc}
-                    alt={colaborator.photoSrc}
+                    src={collaborator.photoSrc}
+                    alt={collaborator.photoSrc}
                   />
                 </div>
               </div>
-              <div>{colaborator.name}</div>
+              <div>{collaborator.name}</div>
               <div className="text-rs-primary text-sm">
-                {colaborator.occupation}
+                {collaborator.occupation}
               </div>
             </div>
           );
@@ -68,4 +68,4 @@ const Colaborators: FC = () => {
   );
 };
 
-export { Colaborators };
+export { Collaborators };

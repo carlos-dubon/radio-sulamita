@@ -3,8 +3,10 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import Image from "next/image";
 import { Button } from "@lib/atoms";
 import { SectionQuote } from "@lib/molecules";
+import { useRouter } from "next/router";
 
 const Donations: FC = () => {
+  const router = useRouter();
   return (
     <>
       <div className="h-[745px] relative">
@@ -30,19 +32,28 @@ const Donations: FC = () => {
               width={47}
               height={42}
             />
-            <div className="text-white text-4xl font-semibold mb-10 mt-10">Donaciones</div>
+            <div className="text-white text-4xl font-semibold mb-10 mt-10">
+              Donaciones
+            </div>
             <div className="text-white text-center text-lg w-4/5 mb-2">
               En todo os mostré que así, trabajando, debéis ayudar a los
               débiles, y recordar las palabras del Señor Jesús, que dijo: “Más
               bienaventurado es dar que recibir.”
             </div>
-            <div className="text-stone-400 text-lg mb-10">Hechos 20:35</div>
+            <div className="text-stone-300 text-lg mb-10">Hechos 20:35</div>
             <div className="text-stone-300 text-center text-sm w-4/5 mb-4">
               Si en su corazón desea apoyar a este ministerio económicamente,
               puede hacerlo atreves de la cuenta de Banrural No. 3020005791, a
               nombre de Fabiola Migdalia Guerra.
             </div>
-            <Button text="Ir a banca virtual" onClick={() => {}} />
+            <Button
+              text="Ir a banca virtual"
+              onClick={() => {
+                router.push(
+                  "https://www.banrural.com.gt/cb/pages/jsp-ns/login-cons.jsp"
+                );
+              }}
+            />
           </div>
         </div>
       </div>
@@ -50,9 +61,7 @@ const Donations: FC = () => {
       <SectionQuote
         heading="¿Necesitas de oración? Escríbenos, queremos orar por ti."
         buttonText="Contacto"
-        buttonClick={() => {
-          console.log("[goto] Contacto");
-        }}
+        buttonClick={() => {}}
       />
     </>
   );

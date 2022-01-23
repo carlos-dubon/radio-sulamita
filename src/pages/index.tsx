@@ -60,7 +60,7 @@ const Home: NextPage = () => {
         <Collaborators />
       </div>
 
-      <FounderMessage />
+      <FounderMessage goToDonations={goToDonations} />
 
       <div style={{ height: "1000vh" }}></div>
     </>

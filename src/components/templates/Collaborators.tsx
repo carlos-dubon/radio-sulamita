@@ -46,7 +46,7 @@ const Collaborators: FC = () => {
               key={collaborator.photoSrc}
             >
               <div className="w-60 h-60 rs-inner-shadow  flex items-center justify-center rounded-full mb-4">
-                <div className="rounded-full border-rs-primary border-2 w-[210px] h-[210px]">
+                <div className="rounded-full border-rs-primary border-[3px] w-[210px] h-[210px]">
                   <Image
                     className="rounded-full"
                     width={210}

@@ -43,7 +43,7 @@ const Donations: FC = () => {
             <div className="text-stone-300 text-lg mb-10">Hechos 20:35</div>
             <div className="text-stone-300 text-center text-sm w-4/5 mb-4">
               Si en su corazón desea apoyar a este ministerio económicamente,
-              puede hacerlo atreves de la cuenta de Banrural No. 3020005791, a
+              puede hacerlo a través de la cuenta de Banrural No. 3020005791, a
               nombre de Fabiola Migdalia Guerra.
             </div>
             <Button

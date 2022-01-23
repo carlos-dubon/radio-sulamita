@@ -18,16 +18,24 @@ const FounderMessage: FC = () => {
         </div>
         <div className="flex flex-col justify-center max-w-[555px] p-14">
           <div className="text-3xl font-medium mb-1">Carlos Dubón</div>
-          <div className="text-stone-600 mb-6">
+          <div className="text-stone-600 mb-6 text-sm">
             Ex-Director General y Fundador
           </div>
+          <div className="absolute z-10 -translate-y-[4.6rem] translate-x-[13.8rem] -rotate-12">
+            <Image
+              src="/black-ribbon.svg"
+              alt="black ribbon"
+              width={28.25}
+              height={31}
+            />
+          </div>
           <div className="text-sm text-stone-600 leading-7">
-            Radio Sulamita 90.1 FM, es una emisora evangélica destinada a
+            “Radio Sulamita 90.1 FM, es una emisora evangélica destinada a
             difundir un mensaje de cambio que permita la restauración,
             edificación, renovación y salvación fundamentada en la palabra de
             Dios. Con una programación variada y bien nutrida, emite su señal
-            las 24 horas del día, llegando a casas y lugares recónditos del
-            planeta a través de su señal online.
+            las veinticuatro horas del día, llegando a casas y lugares
+            recónditos del planeta a través de su señal online.”
           </div>
         </div>
       </div>

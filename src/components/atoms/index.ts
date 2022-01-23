@@ -5,6 +5,8 @@ import { ToolbarButton } from "./ToolbarButton";
 import { Player } from "./Player";
 import { Button } from "./Button";
 import { YouTubeVideo } from "./YouTubeVideo";
+import { Input } from "./Input";
+import { TextArea } from "./TextArea";
 
 export {
   ToolbarButton,
@@ -14,4 +16,6 @@ export {
   Player,
   Button,
   YouTubeVideo,
+  Input,
+  TextArea,
 };

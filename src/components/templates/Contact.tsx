@@ -17,7 +17,7 @@ interface Message {
   email?: string;
   body: string;
   admin: boolean;
-  country: string;
+  country?: string;
   date: string;
 }
 
@@ -43,6 +43,13 @@ const ChatBox: FC = () => {
     },
     {
       id: "1111",
+      name: "RADIO SULAMITA",
+      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim.",
+      admin: true,
+      date: "23 de enero del 2021, 02:38 PM",
+    },
+    {
+      id: "1111",
       name: "John Doe",
       email: "john@email.com",
       body: "Hello world",
@@ -58,26 +65,39 @@ const ChatBox: FC = () => {
         return (
           <div
             key={m.id}
-            className="flex flex-col bg-white p-3 text-xs w-11/12"
+            className={`flex flex-col ${
+              m.admin ? "bg-rs-primary" : "bg-white"
+            } p-3 text-xs w-11/12`}
           >
-            <div className="flex justify-between text-stone-500 mb-1">
+            <div
+              className={`flex justify-between ${
+                m.admin ? "text-stone-200" : "text-stone-500"
+              } mb-1`}
+            >
               <div>{m.name}</div>
               <div>{m.date}</div>
             </div>
 
-            <div className="flex justify-between text-stone-500 mb-2">
-              <div>{m.email}</div>
-              <div>
-                <Image
-                  src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${m.country}.svg`}
-                  alt={`${m.country} flag`}
-                  width={20.37}
-                  height={14}
-                />
+            {m.admin ? null : (
+              <div className="flex justify-between text-stone-500">
+                <div>{m.email}</div>
+                <div>
+                  <Image
+                    src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${m.country}.svg`}
+                    alt={`${m.country} flag`}
+                    title={`${m.country}`}
+                    width={20.37}
+                    height={14}
+                  />
+                </div>
               </div>
-            </div>
+            )}
 
-            <div className="leading-[150%]">{m.body}</div>
+            <div
+              className={`leading-[150%] mt-2 ${m.admin ? "text-white" : null}`}
+            >
+              {m.body}
+            </div>
           </div>
         );
       })}

@@ -3,6 +3,7 @@ import { Input, TextArea } from "@lib/atoms";
 import { Section } from "@lib/molecules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
 
 interface ColumnProps {
   title: string;
@@ -10,11 +11,76 @@ interface ColumnProps {
   className?: string;
 }
 
+interface Message {
+  id: string;
+  name: string;
+  email?: string;
+  body: string;
+  admin: boolean;
+  country: string;
+  date: string;
+}
+
 const Column: FC<ColumnProps> = ({ title, children, className }) => {
   return (
     <div className="flex flex-col p-16">
       <div className="text-lg mb-8">{title}</div>
       <div className={className}>{children}</div>
+    </div>
+  );
+};
+
+const ChatBox: FC = () => {
+  const messages: Message[] = [
+    {
+      id: "1111",
+      name: "John Doe",
+      email: "john@email.com",
+      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim. Etiam sodales maximus sem quis tincidunt. Proin interdum metus eu rutrum sagittis. Morbi venenatis ne.",
+      admin: false,
+      country: "US",
+      date: "23 de enero del 2021, 02:38 PM",
+    },
+    {
+      id: "1111",
+      name: "John Doe",
+      email: "john@email.com",
+      body: "Hello world",
+      admin: false,
+      country: "US",
+      date: "23 de enero del 2021, 02:38 PM",
+    },
+  ];
+
+  return (
+    <div className="w-full h-full overflow-y-scroll flex flex-col gap-4">
+      {messages.map((m: Message) => {
+        return (
+          <div
+            key={m.id}
+            className="flex flex-col bg-white p-3 text-xs w-11/12"
+          >
+            <div className="flex justify-between text-stone-500 mb-1">
+              <div>{m.name}</div>
+              <div>{m.date}</div>
+            </div>
+
+            <div className="flex justify-between text-stone-500 mb-2">
+              <div>{m.email}</div>
+              <div>
+                <Image
+                  src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${m.country}.svg`}
+                  alt={`${m.country} flag`}
+                  width={20.37}
+                  height={14}
+                />
+              </div>
+            </div>
+
+            <div className="leading-[150%]">{m.body}</div>
+          </div>
+        );
+      })}
     </div>
   );
 };
@@ -27,7 +93,9 @@ const Contact: FC = () => {
       bibleVerse="Juan 14:13"
     >
       <div className="w-full bg-rs-gray h-[620px] grid grid-cols-2 py-6">
-        <Column title="Mensajes recientes">hh</Column>
+        <Column title="Mensajes recientes">
+          <ChatBox />
+        </Column>
         <Column title="Envíanos un mensaje" className="flex flex-col gap-4">
           <Input placeholder="Nombre" />
           <Input placeholder="Correo electrónico (Opcional)" />

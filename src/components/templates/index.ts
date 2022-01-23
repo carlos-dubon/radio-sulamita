@@ -3,5 +3,13 @@ import { Videos } from "./Videos";
 import { Donations } from "./Donations";
 import { Collaborators } from "./Collaborators";
 import { FounderMessage } from "./FounderMessage";
+import { Contact } from "./Contact";
 
-export { HeroSlider, Videos, Donations, Collaborators, FounderMessage };
+export {
+  HeroSlider,
+  Videos,
+  Donations,
+  Collaborators,
+  FounderMessage,
+  Contact,
+};

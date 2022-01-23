@@ -17,12 +17,14 @@ interface Props {
   goToVideos: () => void;
   goToDonations: () => void;
   goToColaborators: () => void;
+  goToContact: () => void;
 }
 
 export const Toolbar: FC<Props> = ({
   goToVideos,
   goToDonations,
   goToColaborators,
+  goToContact,
 }) => {
   const playerState: boolean = useAppSelector(
     (state: RootState) => state.player.playing
@@ -78,6 +80,13 @@ export const Toolbar: FC<Props> = ({
                 }}
               >
                 Colaboradores
+              </ToolbarButton>
+              <ToolbarButton
+                onClick={() => {
+                  goToContact();
+                }}
+              >
+                Contacto
               </ToolbarButton>
               <ToolbarButton
                 className="group"

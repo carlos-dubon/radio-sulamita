@@ -5,7 +5,11 @@ import { Button } from "@lib/atoms";
 import { SectionQuote } from "@lib/molecules";
 import { useRouter } from "next/router";
 
-const Donations: FC = () => {
+interface Props {
+  goToContact: () => void;
+}
+
+const Donations: FC<Props> = ({ goToContact }) => {
   const router = useRouter();
   return (
     <>
@@ -61,7 +65,9 @@ const Donations: FC = () => {
       <SectionQuote
         heading="¿Necesitas de oración? Escríbenos, queremos orar por ti."
         buttonText="Contacto"
-        buttonClick={() => {}}
+        buttonClick={() => {
+          goToContact();
+        }}
       />
     </>
   );

@@ -7,6 +7,7 @@ import {
   Donations,
   Collaborators,
   FounderMessage,
+  Contact,
 } from "@lib/templates";
 import { useRef } from "react";
 
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
   const videosRef = useRef<HTMLDivElement | null>(null);
   const donationsRef = useRef<HTMLDivElement | null>(null);
   const colaboratorsRef = useRef<HTMLDivElement | null>(null);
+  const contactRef = useRef<HTMLDivElement | null>(null);
 
   const goToVideos = (): void => {
     videosRef.current?.scrollIntoView();
@@ -25,6 +27,10 @@ const Home: NextPage = () => {
 
   const goToColaborators = (): void => {
     colaboratorsRef.current?.scrollIntoView();
+  };
+
+  const goToContact = (): void => {
+    contactRef.current?.scrollIntoView();
   };
 
   return (
@@ -44,6 +50,7 @@ const Home: NextPage = () => {
         goToVideos={goToVideos}
         goToDonations={goToDonations}
         goToColaborators={goToColaborators}
+        goToContact={goToContact}
       />
 
       <HeroSlider goToDonations={goToDonations} />
@@ -53,7 +60,7 @@ const Home: NextPage = () => {
       </div>
 
       <div ref={donationsRef}>
-        <Donations />
+        <Donations goToContact={goToContact} />
       </div>
 
       <div ref={colaboratorsRef}>
@@ -61,6 +68,10 @@ const Home: NextPage = () => {
       </div>
 
       <FounderMessage goToDonations={goToDonations} />
+
+      <div ref={contactRef}>
+        <Contact />
+      </div>
 
       <div style={{ height: "1000vh" }}></div>
     </>

@@ -57,6 +57,31 @@ const ChatBox: FC = () => {
       country: "US",
       date: "23 de enero del 2021, 02:38 PM",
     },
+    {
+      id: "1111",
+      name: "John Doe",
+      email: "john@email.com",
+      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim. Etiam sodales maximus sem quis tincidunt. Proin interdum metus eu rutrum sagittis. Morbi venenatis ne.",
+      admin: false,
+      country: "GT",
+      date: "23 de enero del 2021, 02:38 PM",
+    },
+    {
+      id: "1111",
+      name: "John Doe",
+      email: "john@email.com",
+      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim. ne.",
+      admin: false,
+      country: "BZ",
+      date: "23 de enero del 2021, 02:38 PM",
+    },
+    {
+      id: "1111",
+      name: "RADIO SULAMITA",
+      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim.",
+      admin: true,
+      date: "23 de enero del 2021, 02:38 PM",
+    },
   ];
 
   return (
@@ -67,7 +92,7 @@ const ChatBox: FC = () => {
             key={m.id}
             className={`flex flex-col ${
               m.admin ? "bg-rs-primary" : "bg-white"
-            } p-3 text-xs w-11/12`}
+            } p-3 text-xs w-11/12 ${m.admin ? "ml-auto" : null}`}
           >
             <div
               className={`flex justify-between ${

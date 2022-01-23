@@ -16,7 +16,7 @@ const FounderMessage: FC = () => {
             layout="fill"
           />
         </div>
-        <div className="flex flex-col justify-center w-2/3 pl-16">
+        <div className="flex flex-col justify-center max-w-[555px] p-14">
           <div className="text-3xl font-medium mb-1">Carlos Dubón</div>
           <div className="text-stone-600 mb-6">
             Ex-Director General y Fundador

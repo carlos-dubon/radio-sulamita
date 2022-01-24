@@ -47,7 +47,7 @@ const ChatBox: FC = () => {
                   m.admin ? "text-stone-200" : "text-stone-500"
                 } mb-1`}
               >
-                <div>{m.name}</div>
+                <div>{m.admin ? "RADIO SULAMITA" : m.name}</div>
                 <div>{formatTimestamp(m.date)}</div>
               </div>
 

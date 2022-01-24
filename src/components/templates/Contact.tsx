@@ -26,10 +26,10 @@ const Contact: FC = () => {
 
   useEffect(() => {
     const getIp = async () => {
-      const response = await axios.get(
-        "https://radio-sulamita-1czjoc1nz-carlos-dubon.vercel.app/api/ip"
+      const { data } = await axios.get(
+        "https://radio-sulamita.vercel.app/api/ip"
       );
-      console.log(response);
+      console.log(data.ip);
     };
 
     getIp();

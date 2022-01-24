@@ -19,6 +19,10 @@ export interface Message {
 const Contact: FC = () => {
   const [form, setForm] = useState({ name: "", email: "", body: "" });
 
+  const sendMessage = () => {
+    console.log(form);
+  };
+
   return (
     <Section
       title="Contacto"
@@ -44,10 +48,16 @@ const Contact: FC = () => {
               setForm((prevState) => ({ ...prevState, email: value }));
             }}
           />
-          <TextArea placeholder="Mensaje" />
+          <TextArea
+            placeholder="Mensaje"
+            onChange={(e: ChangeEvent<HTMLTextAreaElement>) => {
+              const value: string = e.target.value;
+              setForm((prevState) => ({ ...prevState, body: value }));
+            }}
+          />
           <button
             onClick={() => {
-              console.log("sad");
+              sendMessage();
             }}
             className="text-sm flex justify-center items-center text-white bg-rs-primary w-36 h-14 transition duration-500 hover:bg-black cursor-pointer hover:drop-shadow-[0_0_16px_rgba(255,221,200,0.25)]"
           >

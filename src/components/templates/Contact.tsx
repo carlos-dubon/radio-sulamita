@@ -4,6 +4,10 @@ import { Section } from "@lib/molecules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
+import { useCollectionData } from "react-firebase-hooks/firestore";
+import { db } from "@app/firebase";
+import { collection, CollectionReference, Timestamp } from "firebase/firestore";
+import { formatTimestamp } from "@lib/helpers";
 
 interface ColumnProps {
   title: string;
@@ -18,7 +22,7 @@ interface Message {
   body: string;
   admin: boolean;
   country?: string;
-  date: string;
+  date: Timestamp;
 }
 
 const Column: FC<ColumnProps> = ({ title, children, className }) => {
@@ -33,66 +37,13 @@ const Column: FC<ColumnProps> = ({ title, children, className }) => {
 const ChatBox: FC = () => {
   const chatBoxRef = useRef<HTMLDivElement | null>(null);
 
-  const messages: Message[] = [
-    {
-      id: "1",
-      name: "John Doe",
-      email: "john@email.com",
-      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim. Etiam sodales maximus sem quis tincidunt. Proin interdum metus eu rutrum sagittis. Morbi venenatis ne.",
-      admin: false,
-      country: "US",
-      date: "23 de enero del 2021, 02:38 PM",
-    },
-    {
-      id: "3",
-      name: "RADIO SULAMITA",
-      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim.",
-      admin: true,
-      date: "23 de enero del 2021, 02:38 PM",
-    },
-    {
-      id: "4",
-      name: "John Doe",
-      email: "john@email.com",
-      body: "Hello world",
-      admin: false,
-      country: "US",
-      date: "23 de enero del 2021, 02:38 PM",
-    },
-    {
-      id: "5",
-      name: "John Doe",
-      email: "john@email.com",
-      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim. Etiam sodales maximus sem quis tincidunt. Proin interdum metus eu rutrum sagittis. Morbi venenatis ne.",
-      admin: false,
-      country: "GT",
-      date: "23 de enero del 2021, 02:38 PM",
-    },
-    {
-      id: "6",
-      name: "John Doe",
-      email: "john@email.com",
-      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim. ne.",
-      admin: false,
-      country: "BZ",
-      date: "23 de enero del 2021, 02:38 PM",
-    },
-    {
-      id: "7",
-      name: "RADIO SULAMITA",
-      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim.",
-      admin: true,
-      date: "23 de enero del 2021, 02:38 PM",
-    },
-    {
-      id: "8",
-      name: "John Doe",
-      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim. ne.",
-      admin: false,
-      country: "MX",
-      date: "23 de enero del 2021, 02:38 PM",
-    },
-  ];
+  // change document data for my interface
+  const messagesRef: CollectionReference<Message> = collection(
+    db,
+    "chat"
+  ) as CollectionReference<Message>;
+
+  const [messages] = useCollectionData(messagesRef);
 
   const chatBoxScrollToBottom = (): void => {
     const chatBox: HTMLDivElement | null = chatBoxRef.current;
@@ -111,46 +62,49 @@ const ChatBox: FC = () => {
       ref={chatBoxRef}
       className="w-full h-[25rem] overflow-auto flex flex-col gap-4"
     >
-      {messages.map((m: Message) => {
-        return (
-          <div
-            key={m.id}
-            className={`flex flex-col ${
-              m.admin ? "bg-rs-primary" : "bg-white"
-            } p-3 text-xs w-11/12 ${m.admin ? "ml-auto" : null}`}
-          >
+      {messages &&
+        messages.map((m: Message) => {
+          return (
             <div
-              className={`flex justify-between ${
-                m.admin ? "text-stone-200" : "text-stone-500"
-              } mb-1`}
+              key={m.id}
+              className={`flex flex-col ${
+                m.admin ? "bg-rs-primary" : "bg-white"
+              } p-3 text-xs w-11/12 ${m.admin ? "ml-auto" : null}`}
             >
-              <div>{m.name}</div>
-              <div>{m.date}</div>
-            </div>
-
-            {m.admin ? null : (
-              <div className="flex justify-between text-stone-500">
-                {m.email ? <div>{m.email}</div> : <div>-</div>}
-                <div>
-                  <Image
-                    src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${m.country}.svg`}
-                    alt={`${m.country} flag`}
-                    title={`${m.country}`}
-                    width={20.37}
-                    height={14}
-                  />
-                </div>
+              <div
+                className={`flex justify-between ${
+                  m.admin ? "text-stone-200" : "text-stone-500"
+                } mb-1`}
+              >
+                <div>{m.name}</div>
+                <div>{formatTimestamp(m.date)}</div>
               </div>
-            )}
 
-            <div
-              className={`leading-[150%] mt-2 ${m.admin ? "text-white" : null}`}
-            >
-              {m.body}
+              {m.admin ? null : (
+                <div className="flex justify-between text-stone-500">
+                  {m.email ? <div>{m.email}</div> : <div>-</div>}
+                  <div>
+                    <Image
+                      src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${m.country}.svg`}
+                      alt={`${m.country} flag`}
+                      title={`${m.country}`}
+                      width={20.37}
+                      height={14}
+                    />
+                  </div>
+                </div>
+              )}
+
+              <div
+                className={`leading-[150%] mt-2 ${
+                  m.admin ? "text-white" : null
+                }`}
+              >
+                {m.body}
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 };

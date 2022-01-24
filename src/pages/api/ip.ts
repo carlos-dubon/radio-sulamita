@@ -1,13 +1,14 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
+import requestIp from "request-ip";
 
 type Data = {
-  name: string;
+  ip: string;
 };
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ name: "John Doe" });
+  const detectedIp: string = requestIp.getClientIp(req) as string;
+  res.status(200).json({ ip: detectedIp });
 }

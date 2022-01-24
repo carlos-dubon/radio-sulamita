@@ -110,6 +110,8 @@ const ChatBox: FC = () => {
 };
 
 const Contact: FC = () => {
+  const form = { name: "", email: "" };
+
   return (
     <Section
       title="Contacto"
@@ -121,12 +123,15 @@ const Contact: FC = () => {
           <ChatBox />
         </Column>
         <Column title="Envíanos un mensaje" className="flex flex-col gap-4">
-          <Input placeholder="Nombre" />
-          <Input placeholder="Correo electrónico (Opcional)" />
+          <Input placeholder="Nombre" value={form.name} />
+          <Input
+            placeholder="Correo electrónico (Opcional)"
+            value={form.email}
+          />
           <TextArea placeholder="Mensaje" />
           <button
             onClick={() => {
-              console.log("Sent");
+              console.log(form);
             }}
             className="text-sm flex justify-center items-center text-white bg-rs-primary w-36 h-14 transition duration-500 hover:bg-black cursor-pointer hover:drop-shadow-[0_0_16px_rgba(255,221,200,0.25)]"
           >

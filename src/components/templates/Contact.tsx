@@ -1,11 +1,10 @@
 import { FC, useState, ChangeEvent } from "react";
-import { Input, TextArea } from "@lib/atoms";
+import { Input, TextArea, Column } from "@lib/atoms";
 import { Section } from "@lib/molecules";
+import { ChatBox } from "@lib/organisms";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { Timestamp } from "firebase/firestore";
-import { Column } from "./components/Column";
-import { ChatBox } from "./components/ChatBox";
 
 export interface Message {
   id: string;

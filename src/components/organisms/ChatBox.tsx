@@ -1,6 +1,6 @@
 import { collection, CollectionReference } from "firebase/firestore";
 import { FC, useEffect, useRef } from "react";
-import { Message } from "../Contact";
+import { Message } from "../templates/Contact";
 import { db } from "@app/firebase";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { formatTimestamp } from "@lib/helpers";

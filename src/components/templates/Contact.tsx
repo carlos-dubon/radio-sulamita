@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useRef, useEffect } from "react";
 import { Input, TextArea } from "@lib/atoms";
 import { Section } from "@lib/molecules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -31,6 +31,8 @@ const Column: FC<ColumnProps> = ({ title, children, className }) => {
 };
 
 const ChatBox: FC = () => {
+  const chatBoxRef = useRef<HTMLDivElement | null>(null);
+
   const messages: Message[] = [
     {
       id: "1",
@@ -92,8 +94,23 @@ const ChatBox: FC = () => {
     },
   ];
 
+  const chatBoxScrollToBottom = (): void => {
+    const chatBox: HTMLDivElement | null = chatBoxRef.current;
+
+    if (chatBox) {
+      chatBox.scrollTop = chatBox.scrollHeight - chatBox.clientHeight;
+    }
+  };
+
+  useEffect(() => {
+    chatBoxScrollToBottom();
+  }, []);
+
   return (
-    <div className="w-full h-[25rem] overflow-auto flex flex-col gap-4">
+    <div
+      ref={chatBoxRef}
+      className="w-full h-[25rem] overflow-auto flex flex-col gap-4"
+    >
       {messages.map((m: Message) => {
         return (
           <div

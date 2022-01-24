@@ -1,10 +1,11 @@
-import { FC, useState, ChangeEvent } from "react";
+import { FC, useState, ChangeEvent, useEffect } from "react";
 import { Input, TextArea, Column } from "@lib/atoms";
 import { Section } from "@lib/molecules";
 import { ChatBox } from "@lib/organisms";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { Timestamp } from "firebase/firestore";
+import axios from "axios";
 
 export interface Message {
   id: string;
@@ -22,6 +23,17 @@ const Contact: FC = () => {
   const sendMessage = () => {
     console.log(form);
   };
+
+  useEffect(() => {
+    const getIp = async () => {
+      const response = await axios.get(
+        "https://radio-sulamita-1czjoc1nz-carlos-dubon.vercel.app/api/ip"
+      );
+      console.log(response);
+    };
+
+    getIp();
+  }, []);
 
   return (
     <Section

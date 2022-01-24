@@ -1,4 +1,4 @@
-import { collection, CollectionReference } from "firebase/firestore";
+import { collection, CollectionReference, query, orderBy } from "firebase/firestore";
 import { FC, useEffect, useRef } from "react";
 import { Message } from "../templates/Contact";
 import { db } from "@app/firebase";
@@ -14,7 +14,9 @@ const ChatBox: FC = () => {
     "chat"
   ) as CollectionReference<Message>;
 
-  const [messages] = useCollectionData(messagesRef);
+  const messagesQuery = query(messagesRef, orderBy("date", "desc"))
+
+  const [messages] = useCollectionData(messagesQuery);
 
   const chatBoxScrollToBottom = (): void => {
     const chatBox: HTMLDivElement | null = chatBoxRef.current;

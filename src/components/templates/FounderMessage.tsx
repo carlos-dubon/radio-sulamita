@@ -31,6 +31,7 @@ const FounderMessage: FC<Props> = ({ goToDonations }) => {
               alt="black ribbon"
               width={28.25}
               height={31}
+              title="Descanse en paz."
             />
           </div>
           <div className="text-sm text-stone-600 leading-7">

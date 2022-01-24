@@ -1,161 +1,28 @@
-import { FC, ReactNode, useRef, useEffect } from "react";
-import { Input, TextArea } from "@lib/atoms";
+import { FC, useState, ChangeEvent } from "react";
+import { Input, TextArea, Column } from "@lib/atoms";
 import { Section } from "@lib/molecules";
+import { ChatBox } from "@lib/organisms";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import Image from "next/image";
+import { Timestamp } from "firebase/firestore";
 
-interface ColumnProps {
-  title: string;
-  children?: ReactNode;
-  className?: string;
-}
-
-interface Message {
+export interface Message {
   id: string;
   name: string;
   email?: string;
   body: string;
   admin: boolean;
   country?: string;
-  date: string;
+  date: Timestamp;
 }
 
-const Column: FC<ColumnProps> = ({ title, children, className }) => {
-  return (
-    <div className="flex flex-col p-16">
-      <div className="text-lg mb-8">{title}</div>
-      <div className={className}>{children}</div>
-    </div>
-  );
-};
+const Contact: FC = () => {
+  const [form, setForm] = useState({ name: "", email: "", body: "" });
 
-const ChatBox: FC = () => {
-  const chatBoxRef = useRef<HTMLDivElement | null>(null);
-
-  const messages: Message[] = [
-    {
-      id: "1",
-      name: "John Doe",
-      email: "john@email.com",
-      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim. Etiam sodales maximus sem quis tincidunt. Proin interdum metus eu rutrum sagittis. Morbi venenatis ne.",
-      admin: false,
-      country: "US",
-      date: "23 de enero del 2021, 02:38 PM",
-    },
-    {
-      id: "3",
-      name: "RADIO SULAMITA",
-      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim.",
-      admin: true,
-      date: "23 de enero del 2021, 02:38 PM",
-    },
-    {
-      id: "4",
-      name: "John Doe",
-      email: "john@email.com",
-      body: "Hello world",
-      admin: false,
-      country: "US",
-      date: "23 de enero del 2021, 02:38 PM",
-    },
-    {
-      id: "5",
-      name: "John Doe",
-      email: "john@email.com",
-      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim. Etiam sodales maximus sem quis tincidunt. Proin interdum metus eu rutrum sagittis. Morbi venenatis ne.",
-      admin: false,
-      country: "GT",
-      date: "23 de enero del 2021, 02:38 PM",
-    },
-    {
-      id: "6",
-      name: "John Doe",
-      email: "john@email.com",
-      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim. ne.",
-      admin: false,
-      country: "BZ",
-      date: "23 de enero del 2021, 02:38 PM",
-    },
-    {
-      id: "7",
-      name: "RADIO SULAMITA",
-      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim.",
-      admin: true,
-      date: "23 de enero del 2021, 02:38 PM",
-    },
-    {
-      id: "8",
-      name: "John Doe",
-      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id ligula a tellus eleifend dignissim. ne.",
-      admin: false,
-      country: "MX",
-      date: "23 de enero del 2021, 02:38 PM",
-    },
-  ];
-
-  const chatBoxScrollToBottom = (): void => {
-    const chatBox: HTMLDivElement | null = chatBoxRef.current;
-
-    if (chatBox) {
-      chatBox.scrollTop = chatBox.scrollHeight - chatBox.clientHeight;
-    }
+  const sendMessage = () => {
+    console.log(form);
   };
 
-  useEffect(() => {
-    chatBoxScrollToBottom();
-  }, []);
-
-  return (
-    <div
-      ref={chatBoxRef}
-      className="w-full h-[25rem] overflow-auto flex flex-col gap-4"
-    >
-      {messages.map((m: Message) => {
-        return (
-          <div
-            key={m.id}
-            className={`flex flex-col ${
-              m.admin ? "bg-rs-primary" : "bg-white"
-            } p-3 text-xs w-11/12 ${m.admin ? "ml-auto" : null}`}
-          >
-            <div
-              className={`flex justify-between ${
-                m.admin ? "text-stone-200" : "text-stone-500"
-              } mb-1`}
-            >
-              <div>{m.name}</div>
-              <div>{m.date}</div>
-            </div>
-
-            {m.admin ? null : (
-              <div className="flex justify-between text-stone-500">
-                {m.email ? <div>{m.email}</div> : <div>-</div>}
-                <div>
-                  <Image
-                    src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${m.country}.svg`}
-                    alt={`${m.country} flag`}
-                    title={`${m.country}`}
-                    width={20.37}
-                    height={14}
-                  />
-                </div>
-              </div>
-            )}
-
-            <div
-              className={`leading-[150%] mt-2 ${m.admin ? "text-white" : null}`}
-            >
-              {m.body}
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
-
-const Contact: FC = () => {
   return (
     <Section
       title="Contacto"
@@ -167,12 +34,30 @@ const Contact: FC = () => {
           <ChatBox />
         </Column>
         <Column title="Envíanos un mensaje" className="flex flex-col gap-4">
-          <Input placeholder="Nombre" />
-          <Input placeholder="Correo electrónico (Opcional)" />
-          <TextArea placeholder="Mensaje" />
+          <Input
+            placeholder="Nombre"
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              const value: string = e.target.value;
+              setForm((prevState) => ({ ...prevState, name: value }));
+            }}
+          />
+          <Input
+            placeholder="Correo electrónico (Opcional)"
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              const value: string = e.target.value;
+              setForm((prevState) => ({ ...prevState, email: value }));
+            }}
+          />
+          <TextArea
+            placeholder="Mensaje"
+            onChange={(e: ChangeEvent<HTMLTextAreaElement>) => {
+              const value: string = e.target.value;
+              setForm((prevState) => ({ ...prevState, body: value }));
+            }}
+          />
           <button
             onClick={() => {
-              console.log("Sent");
+              sendMessage();
             }}
             className="text-sm flex justify-center items-center text-white bg-rs-primary w-36 h-14 transition duration-500 hover:bg-black cursor-pointer hover:drop-shadow-[0_0_16px_rgba(255,221,200,0.25)]"
           >

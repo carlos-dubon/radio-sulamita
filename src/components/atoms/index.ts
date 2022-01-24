@@ -7,6 +7,7 @@ import { Button } from "./Button";
 import { YouTubeVideo } from "./YouTubeVideo";
 import { Input } from "./Input";
 import { TextArea } from "./TextArea";
+import { Column } from "./Column";
 
 export {
   ToolbarButton,
@@ -18,4 +19,5 @@ export {
   YouTubeVideo,
   Input,
   TextArea,
+  Column,
 };

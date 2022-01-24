@@ -22,7 +22,8 @@
       "@lib/templates": ["./src/components/templates"],
       "@lib/helpers": ["./src/helpers"],
       "@state/store": ["./src/state"],
-      "@app/hooks": ["./src/hooks"]
+      "@app/hooks": ["./src/hooks"],
+      "@app/firebase": ["./src/firebase"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

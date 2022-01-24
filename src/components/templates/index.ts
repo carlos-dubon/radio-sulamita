@@ -3,7 +3,7 @@ import { Videos } from "./Videos";
 import { Donations } from "./Donations";
 import { Collaborators } from "./Collaborators";
 import { FounderMessage } from "./FounderMessage";
-import { Contact } from "./Contact";
+import { Contact } from "./Contact/Contact";
 
 export {
   HeroSlider,

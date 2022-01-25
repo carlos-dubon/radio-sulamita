@@ -24,6 +24,7 @@ const Contact: FC = () => {
       name: "",
       email: "",
       body: "",
+      country: "",
     },
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2));
@@ -35,7 +36,7 @@ const Contact: FC = () => {
       const { data } = await axios.get(
         "https://radio-sulamita.vercel.app/api/ip"
       );
-      console.log(data.ip);
+      form.setFieldValue("country", data.ip);
     };
 
     getIp();

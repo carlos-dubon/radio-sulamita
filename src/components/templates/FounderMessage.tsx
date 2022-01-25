@@ -1,5 +1,6 @@
 import { FC } from "react";
 import Image from "next/image";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { SectionQuote } from "@lib/molecules";
 
 interface Props {
@@ -11,13 +12,13 @@ const FounderMessage: FC<Props> = ({ goToDonations }) => {
     <>
       <div className="grid grid-cols-2 h-[530px] bg-rs-gray">
         <div className="w-full h-full relative">
-          <Image
+          <LazyLoadImage
+            width="100%"
+            height="100%"
+            placeholderSrc="/carlos-dubon-lazy-load.jpg"
             src="/carlos-dubon.jpg"
             alt="Pastor Carlos Dubón"
-            className="w-full h-full"
-            objectFit="cover"
-            objectPosition="right top"
-            layout="fill"
+            className="object-cover object-right-top h-[530px]"
           />
         </div>
         <div className="flex flex-col justify-center max-w-[555px] p-14">

@@ -1,4 +1,4 @@
-import { FC, useState, ChangeEvent, useEffect } from "react";
+import { FC, useEffect } from "react";
 import { Input, TextArea, Column } from "@lib/atoms";
 import { Section } from "@lib/molecules";
 import { ChatBox } from "@lib/organisms";
@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { Timestamp } from "firebase/firestore";
 import axios from "axios";
+import { useFormik } from "formik";
 
 export interface Message {
   id: string;
@@ -18,11 +19,16 @@ export interface Message {
 }
 
 const Contact: FC = () => {
-  const [form, setForm] = useState({ name: "", email: "", body: "" });
-
-  const sendMessage = () => {
-    console.log(form);
-  };
+  const form = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      body: "",
+    },
+    onSubmit: (values) => {
+      console.log(JSON.stringify(values, null, 2));
+    },
+  });
 
   useEffect(() => {
     const getIp = async () => {
@@ -45,37 +51,34 @@ const Contact: FC = () => {
         <Column title="Mensajes recientes">
           <ChatBox />
         </Column>
-        <Column title="Envíanos un mensaje" className="flex flex-col gap-4">
-          <Input
-            placeholder="Nombre"
-            onChange={(e: ChangeEvent<HTMLInputElement>) => {
-              const value: string = e.target.value;
-              setForm((prevState) => ({ ...prevState, name: value }));
-            }}
-          />
-          <Input
-            placeholder="Correo electrónico (Opcional)"
-            onChange={(e: ChangeEvent<HTMLInputElement>) => {
-              const value: string = e.target.value;
-              setForm((prevState) => ({ ...prevState, email: value }));
-            }}
-          />
-          <TextArea
-            placeholder="Mensaje"
-            onChange={(e: ChangeEvent<HTMLTextAreaElement>) => {
-              const value: string = e.target.value;
-              setForm((prevState) => ({ ...prevState, body: value }));
-            }}
-          />
-          <button
-            onClick={() => {
-              sendMessage();
-            }}
-            className="text-sm flex justify-center items-center text-white bg-rs-primary w-36 h-14 transition duration-500 hover:bg-black cursor-pointer hover:drop-shadow-[0_0_16px_rgba(255,221,200,0.25)]"
-          >
-            Enviar
-            <FontAwesomeIcon icon={faPaperPlane} className="w-4 ml-3" />
-          </button>
+        <Column title="Envíanos un mensaje">
+          <form className="flex flex-col gap-4" onSubmit={form.handleSubmit}>
+            <Input
+              placeholder="Nombre"
+              onChange={form.handleChange}
+              value={form.values.name}
+              name="name"
+            />
+            <Input
+              placeholder="Correo electrónico (Opcional)"
+              onChange={form.handleChange}
+              value={form.values.email}
+              name="email"
+            />
+            <TextArea
+              placeholder="Mensaje"
+              onChange={form.handleChange}
+              value={form.values.body}
+              name="body"
+            />
+            <button
+              type="submit"
+              className="text-sm flex justify-center items-center text-white bg-rs-primary w-36 h-14 transition duration-500 hover:bg-black cursor-pointer hover:drop-shadow-[0_0_16px_rgba(255,221,200,0.25)]"
+            >
+              Enviar
+              <FontAwesomeIcon icon={faPaperPlane} className="w-4 ml-3" />
+            </button>
+          </form>
         </Column>
       </div>
     </Section>

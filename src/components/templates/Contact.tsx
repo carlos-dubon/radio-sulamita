@@ -48,22 +48,23 @@ const Contact: FC = () => {
       return errors;
     },
     onSubmit: async (values) => {
+      const id: string = uuidv4();
+
+      const country: string = await getCountry();
+
+      const admin: boolean =
+        values.name.trim().toLowerCase() == "radio sulamita" ? true : false;
+
+      await setDoc(doc(db, "chat", id), {
+        ...values,
+        country,
+        admin,
+        id,
+        date: Timestamp.fromDate(new Date()),
+      });
       form.setFieldValue("body", "");
-
-      // const id: string = uuidv4();
-
-      // const country: string = await getCountry();
-
-      // const admin: boolean =
-      //   values.name.trim().toLowerCase() == "radio sulamita" ? true : false;
-
-      // await setDoc(doc(db, "chat", id), {
-      //   ...values,
-      //   country,
-      //   admin,
-      //   id,
-      //   date: Timestamp.fromDate(new Date()),
-      // });
+      form.setErrors({});
+      form.setTouched({});
     },
     validateOnMount: true,
   });
@@ -126,10 +127,16 @@ const Contact: FC = () => {
               ) : null}
             </div>
             <button
+              disabled={!form.isValid || form.isSubmitting}
               type="submit"
-              className="text-sm flex justify-center items-center text-white bg-rs-primary w-36 h-14 transition duration-500 hover:bg-black cursor-pointer hover:drop-shadow-[0_0_16px_rgba(255,221,200,0.25)]"
+              className={`text-sm flex justify-center items-center w-36 h-14 transition duration-500 
+              ${
+                form.isValid && !form.isSubmitting
+                  ? "text-white bg-rs-primary hover:bg-black cursor-pointer hover:drop-shadow-[0_0_16px_rgba(255,221,200,0.25)]"
+                  : "text-gray-100 bg-gray-300"
+              }`}
             >
-              Enviar
+              {form.isSubmitting ? "Enviando..." : "Enviar"}
               <FontAwesomeIcon icon={faPaperPlane} className="w-4 ml-3" />
             </button>
           </form>

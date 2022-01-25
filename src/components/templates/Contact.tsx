@@ -26,22 +26,46 @@ const Contact: FC = () => {
       name: "",
       email: "",
       body: "",
-      country: "",
+    },
+    validate: (values) => {
+      const errors: any = {};
+
+      if (!values.name) {
+        errors.name = "El campo Nombre es obligatorio.";
+      }
+
+      if (!values.body) {
+        errors.body = "El campo Mensaje es obligatorio.";
+      }
+
+      if (
+        values.email &&
+        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+      ) {
+        errors.email = "Dirección de correo electrónico no válida";
+      }
+
+      return errors;
     },
     onSubmit: async (values) => {
-      const country: string = await getCountry();
-      const admin: boolean =
-        values.name.trim().toLowerCase() == "radio sulamita" ? true : false;
-      const id: string = uuidv4();
+      form.setFieldValue("body", "");
 
-      await setDoc(doc(db, "chat", id), {
-        ...values,
-        country,
-        admin,
-        id,
-        date: Timestamp.fromDate(new Date()),
-      });
+      // const id: string = uuidv4();
+
+      // const country: string = await getCountry();
+
+      // const admin: boolean =
+      //   values.name.trim().toLowerCase() == "radio sulamita" ? true : false;
+
+      // await setDoc(doc(db, "chat", id), {
+      //   ...values,
+      //   country,
+      //   admin,
+      //   id,
+      //   date: Timestamp.fromDate(new Date()),
+      // });
     },
+    validateOnMount: true,
   });
 
   return (
@@ -55,25 +79,44 @@ const Contact: FC = () => {
           <ChatBox />
         </Column>
         <Column title="Envíanos un mensaje">
-          <form className="flex flex-col gap-4" onSubmit={form.handleSubmit}>
+          <form className="flex flex-col" onSubmit={form.handleSubmit}>
             <Input
               placeholder="Nombre"
               onChange={form.handleChange}
+              onBlur={form.handleBlur}
               value={form.values.name}
               name="name"
+              className="mb-1"
             />
+            <div className="text-xs mb-2 h-4 text-stone-600 form-error">
+              {form.touched.name && form.errors.name}
+            </div>
             <Input
               placeholder="Correo electrónico (Opcional)"
               onChange={form.handleChange}
+              onBlur={form.handleBlur}
               value={form.values.email}
               name="email"
+              className="mb-1"
             />
+            <div className="text-xs mb-2 h-4 text-stone-600 form-error">
+              {form.touched.email && form.errors.email}
+            </div>
             <TextArea
               placeholder="Mensaje"
               onChange={form.handleChange}
+              onBlur={form.handleBlur}
               value={form.values.body}
               name="body"
+              className="mb-1"
             />
+            <div className="text-xs mb-2 h-4">
+              {form.touched.body ? (
+                <div className="text-stone-600 form-error">
+                  {form.errors.body}
+                </div>
+              ) : null}
+            </div>
             <button
               type="submit"
               className="text-sm flex justify-center items-center text-white bg-rs-primary w-36 h-14 transition duration-500 hover:bg-black cursor-pointer hover:drop-shadow-[0_0_16px_rgba(255,221,200,0.25)]"

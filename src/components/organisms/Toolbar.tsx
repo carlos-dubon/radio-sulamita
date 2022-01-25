@@ -95,6 +95,7 @@ export const Toolbar: FC<Props> = ({
                 onClick={() => {
                   goToDonations();
                 }}
+                title="Donar"
               >
                 <FontAwesomeIcon
                   icon={faHandHoldingHeart}

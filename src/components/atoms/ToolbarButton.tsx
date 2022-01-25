@@ -11,6 +11,7 @@ interface Props {
   primary?: boolean;
   onClick?: () => any;
   disabled?: boolean;
+  title?: string;
 }
 
 export const ToolbarButton: FC<Props> = ({
@@ -23,6 +24,7 @@ export const ToolbarButton: FC<Props> = ({
   primary,
   onClick,
   disabled,
+  title,
 }) => {
   const classStr = classNames(
     "transition-all duration-500 ease-in-out",
@@ -38,6 +40,7 @@ export const ToolbarButton: FC<Props> = ({
 
   return (
     <div
+      title={title}
       onClick={() => {
         if (onClick && !disabled) {
           onClick();

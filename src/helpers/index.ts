@@ -2,6 +2,7 @@ import { Timestamp } from "firebase/firestore";
 import { format } from "date-fns";
 import es from "date-fns/locale/es";
 import { NextApiRequest, NextApiResponse } from "next";
+import axios from "axios";
 
 const formatTimestamp = (timestamp: Timestamp): string => {
   const date: Date = timestamp.toDate();
@@ -28,4 +29,13 @@ function runMiddleware(
   });
 }
 
-export { formatTimestamp, runMiddleware };
+// function to get the country code [US/GT/etc] based on ip
+const getCountry = async (): Promise<string> => {
+  const { data } = await axios.get(
+    "https://radio-sulamita.vercel.app/api/country"
+  );
+
+  return data.country;
+};
+
+export { formatTimestamp, runMiddleware, getCountry };

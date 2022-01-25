@@ -4,17 +4,11 @@ import { Section } from "@lib/molecules";
 import { ChatBox } from "@lib/organisms";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import { Timestamp } from "firebase/firestore";
-import axios from "axios";
+import { Timestamp, setDoc, doc } from "firebase/firestore";
 import { useFormik } from "formik";
-
-const getCountry = async (): Promise<string> => {
-  const { data } = await axios.get(
-    "https://radio-sulamita.vercel.app/api/country"
-  );
-
-  return data.country;
-};
+import { getCountry } from "@lib/helpers";
+import { db } from "@app/firebase";
+import { v4 as uuidv4 } from "uuid";
 
 export interface Message {
   id: string;
@@ -38,7 +32,15 @@ const Contact: FC = () => {
       const country: string = await getCountry();
       const admin: boolean =
         values.name.trim().toLowerCase() == "radio sulamita" ? true : false;
-      console.log({ ...values, country, admin });
+      const id: string = uuidv4();
+
+      await setDoc(doc(db, "chat", id), {
+        ...values,
+        country,
+        admin,
+        id,
+        date: Timestamp.fromDate(new Date()),
+      });
     },
   });
 

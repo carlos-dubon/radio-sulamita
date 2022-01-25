@@ -39,8 +39,7 @@ const ChatBox: FC = () => {
 
   useEffect(() => {
     chatBoxScrollToBottom();
-    // add messages to the array
-  }, []);
+  }, [messages]);
 
   return (
     <div

@@ -3,6 +3,8 @@ import {
   CollectionReference,
   query,
   orderBy,
+  limitToLast,
+  Query,
 } from "firebase/firestore";
 import { FC, useEffect, useRef } from "react";
 import { Message } from "../templates/Contact";
@@ -19,7 +21,11 @@ const ChatBox: FC = () => {
     "chat"
   ) as CollectionReference<Message>;
 
-  const messagesQuery = query(messagesRef, orderBy("date", "asc"));
+  const messagesQuery: Query<Message> = query(
+    messagesRef,
+    orderBy("date", "asc"),
+    limitToLast(30)
+  );
 
   const [messages] = useCollectionData(messagesQuery);
 

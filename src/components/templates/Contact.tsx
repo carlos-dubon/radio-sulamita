@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { Input, TextArea, Column } from "@lib/atoms";
 import { Section } from "@lib/molecules";
 import { ChatBox } from "@lib/organisms";
@@ -7,6 +7,14 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { Timestamp } from "firebase/firestore";
 import axios from "axios";
 import { useFormik } from "formik";
+
+const getCountry = async (): Promise<string> => {
+  const { data } = await axios.get(
+    "https://radio-sulamita.vercel.app/api/country"
+  );
+
+  return data.country;
+};
 
 export interface Message {
   id: string;
@@ -26,21 +34,13 @@ const Contact: FC = () => {
       body: "",
       country: "",
     },
-    onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
+    onSubmit: async (values) => {
+      const country: string = await getCountry();
+      const admin: boolean =
+        values.name.trim().toLowerCase() == "radio sulamita" ? true : false;
+      console.log({ ...values, country, admin });
     },
   });
-
-  useEffect(() => {
-    const getIp = async () => {
-      const { data } = await axios.get(
-        "https://radio-sulamita.vercel.app/api/country"
-      );
-      form.setFieldValue("country", data.ip);
-    };
-
-    getIp();
-  }, []);
 
   return (
     <Section

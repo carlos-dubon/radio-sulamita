@@ -1,15 +1,15 @@
-import { FC } from "react";
+import { FC, MouseEventHandler } from "react";
 
 interface Props {
   text: string;
-  onClick: () => void;
+  onClick?: MouseEventHandler<HTMLDivElement>;
   secondary?: boolean;
 }
 
 const Button: FC<Props> = ({ text, onClick, secondary = false }) => {
   return (
     <div
-      onClick={() => onClick()}
+      onClick={onClick}
       className={`text-sm flex justify-center items-center text-white ${
         secondary ? "bg-rs-secondary" : "bg-rs-primary"
       } w-36 h-14 transition duration-500 ${

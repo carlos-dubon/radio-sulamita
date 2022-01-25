@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Image from "next/image";
-import { Button } from "@lib/atoms";
 import { SectionQuote } from "@lib/molecules";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 interface Props {
   goToContact: () => void;
@@ -50,14 +50,13 @@ const Donations: FC<Props> = ({ goToContact }) => {
               puede hacerlo a través de la cuenta de Banrural No. 3020005791, a
               nombre de Fabiola Migdalia Guerra.
             </div>
-            <Button
-              text="Ir a banca virtual"
-              onClick={() => {
-                router.push(
-                  "https://www.banrural.com.gt/cb/pages/jsp-ns/login-cons.jsp"
-                );
-              }}
-            />
+            <div className="text-sm flex justify-center items-center text-white bg-rs-primary w-36 h-14 transition duration-500 hover:bg-black cursor-pointer hover:drop-shadow-[0_0_16px_rgba(255,221,200,0.25)]">
+              <Link href="https://www.banrural.com.gt/cb/pages/jsp-ns/login-cons.jsp">
+                <a className="w-full h-full grid items-center">
+                  Ir a banca virtual
+                </a>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

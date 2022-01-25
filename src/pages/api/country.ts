@@ -2,13 +2,14 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import requestIp from "request-ip";
 import Cors from "cors";
 import { runMiddleware } from "@lib/helpers";
+import { Lookup, lookup } from "geoip-country";
 
 const cors = Cors({
   methods: ["GET", "HEAD"],
 });
 
 type Data = {
-  ip: string;
+  country: string;
 };
 
 export default async function handler(
@@ -19,5 +20,8 @@ export default async function handler(
   await runMiddleware(req, res, cors);
 
   const detectedIp: string = requestIp.getClientIp(req) as string;
-  res.status(200).json({ ip: detectedIp });
+
+  const geo: Lookup = lookup(detectedIp) as Lookup;
+
+  res.status(200).json({ country: geo.country });
 }

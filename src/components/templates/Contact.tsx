@@ -34,7 +34,7 @@ const Contact: FC = () => {
   useEffect(() => {
     const getIp = async () => {
       const { data } = await axios.get(
-        "https://radio-sulamita.vercel.app/api/ip"
+        "https://radio-sulamita.vercel.app/api/country"
       );
       form.setFieldValue("country", data.ip);
     };

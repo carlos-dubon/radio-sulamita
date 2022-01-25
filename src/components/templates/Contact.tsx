@@ -88,8 +88,12 @@ const Contact: FC = () => {
               name="name"
               className="mb-1"
             />
-            <div className="text-xs mb-2 h-4 text-stone-600 form-error">
-              {form.touched.name && form.errors.name}
+            <div className="text-[0.65rem] mb-2 h-4">
+              {form.touched.name ? (
+                <div className="text-stone-600 form-error">
+                  {form.errors.name}
+                </div>
+              ) : null}
             </div>
             <Input
               placeholder="Correo electrónico (Opcional)"
@@ -99,8 +103,12 @@ const Contact: FC = () => {
               name="email"
               className="mb-1"
             />
-            <div className="text-xs mb-2 h-4 text-stone-600 form-error">
-              {form.touched.email && form.errors.email}
+            <div className="text-[0.65rem] mb-2 h-4">
+              {form.touched.email ? (
+                <div className="text-stone-600 form-error">
+                  {form.errors.email}
+                </div>
+              ) : null}
             </div>
             <TextArea
               placeholder="Mensaje"
@@ -110,7 +118,7 @@ const Contact: FC = () => {
               name="body"
               className="mb-1"
             />
-            <div className="text-xs mb-2 h-4">
+            <div className="text-[0.65rem] mb-2 h-4">
               {form.touched.body ? (
                 <div className="text-stone-600 form-error">
                   {form.errors.body}

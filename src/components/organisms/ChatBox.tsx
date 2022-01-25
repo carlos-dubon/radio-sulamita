@@ -14,6 +14,8 @@ import { formatTimestamp } from "@lib/helpers";
 import Image from "next/image";
 
 const ChatBox: FC = () => {
+  const showLast: number = 30;
+
   const chatBoxRef = useRef<HTMLDivElement | null>(null);
 
   const messagesRef: CollectionReference<Message> = collection(
@@ -24,7 +26,7 @@ const ChatBox: FC = () => {
   const messagesQuery: Query<Message> = query(
     messagesRef,
     orderBy("date", "asc"),
-    limitToLast(30)
+    limitToLast(showLast)
   );
 
   const [messages] = useCollectionData(messagesQuery);
@@ -44,8 +46,11 @@ const ChatBox: FC = () => {
   return (
     <div
       ref={chatBoxRef}
-      className="w-full h-[25rem] overflow-auto flex flex-col gap-4"
+      className="w-full h-[27.2rem] overflow-auto flex flex-col gap-4"
     >
+      <div className="w-full text-xs text-center text-stone-600">
+        Mostrando los últimos {showLast} mensajes
+      </div>
       {messages &&
         messages.map((m: Message) => {
           return (

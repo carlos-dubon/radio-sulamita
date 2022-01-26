@@ -13,6 +13,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
+    "@googlemaps/js-api-loader": "^1.13.2",
     "@reduxjs/toolkit": "^1.7.1",
     "axios": "^0.25.0",
     "cors": "^2.8.5",

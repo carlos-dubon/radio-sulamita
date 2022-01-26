@@ -1,23 +1,13 @@
-import { FC, useEffect, useRef } from "react";
+import { FC, MutableRefObject, useEffect, useRef } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
 
-interface Coordinates {
-  lat: number;
-  lng: number;
-}
-
-interface MapOptions {
-  center: Coordinates;
-  zoom: number;
-  styles: object[];
-}
-
 const Map: FC = () => {
-  const mapContainer = useRef<HTMLDivElement | null>(null);
+  const mapContainer: MutableRefObject<HTMLDivElement | null> =
+    useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const loadMap = async (): Promise<void> => {
-      const styles: object[] = [
+      const styles: google.maps.MapTypeStyle[] = [
         {
           featureType: "administrative",
           elementType: "all",
@@ -110,7 +100,10 @@ const Map: FC = () => {
         },
       ];
 
-      const radioSulamita: Coordinates = { lat: 17.058607, lng: -89.155815 };
+      const radioSulamita: google.maps.LatLngLiteral = {
+        lat: 17.058607,
+        lng: -89.155815,
+      };
 
       const loader: Loader = new Loader({
         apiKey: "AIzaSyD371NP3PWp4akEJB0HfE6hGDXN7AjItvI",
@@ -118,7 +111,7 @@ const Map: FC = () => {
         libraries: ["places"],
       });
 
-      const mapOptions: MapOptions = {
+      const mapOptions: google.maps.MapOptions = {
         center: radioSulamita,
         zoom: 16,
         styles: styles,
@@ -126,12 +119,15 @@ const Map: FC = () => {
 
       const google = await loader.load();
 
-      const map = new google.maps.Map(mapContainer.current, mapOptions);
+      const map: google.maps.Map = new google.maps.Map(
+        mapContainer.current!,
+        mapOptions
+      );
 
       new google.maps.Marker({
         position: radioSulamita,
         map: map,
-        label: "<h1>RASDASDSDA</h1>"
+        label: "Radio Sulamita",
       });
     };
 

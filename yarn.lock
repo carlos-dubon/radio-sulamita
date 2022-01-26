@@ -684,6 +684,11 @@
   resolved "https://registry.yarnpkg.com/@types/geoip-country/-/geoip-country-4.0.0.tgz#b272f262d86463e950143889d3d761d136f2159f"
   integrity sha512-RngLyEh1cMcH/fphQa4+AiMJX+t0/kD/CijkRCgZzQWwFE5ZnSP/WxVhcMAHfTY7fNgZvWtkgeKBc96dsEss9Q==
 
+"@types/google.maps@^3.47.3":
+  version "3.47.3"
+  resolved "https://registry.yarnpkg.com/@types/google.maps/-/google.maps-3.47.3.tgz#36ec9cfb421ef8db11ba7337e006143dbd374522"
+  integrity sha512-BF/BzpO0LWiwR/bBoGVriy7e2n+syuGNQMQ0r/+GtisUcgKn9P7Z4rmLNmZko9niE8JJ5dpMkxHeen7gADlNaw==
+
 "@types/hoist-non-react-statics@^3.3.0":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"

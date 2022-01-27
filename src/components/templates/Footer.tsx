@@ -14,11 +14,11 @@ const Footer: FC = () => {
                 <Logo white />
               </a>
             </Link>
-            <div className="text-sm text-white">
+            <div className="text-xs leading-6 text-white">
               Radio Sulamita 90.1 FM, Transmitiendo desde la puerta del Mundo
               Maya, Melchor de Mencos, Peten, Guatemala.
             </div>
-            <div className="text-sm text-white">
+            <div className="text-xs leading-6 text-white">
               © 2020 — {new Date().getFullYear()} Radio Sulamita. Todos los
               derechos reservados.
             </div>

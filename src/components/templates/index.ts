@@ -4,6 +4,7 @@ import { Donations } from "./Donations";
 import { Collaborators } from "./Collaborators";
 import { FounderMessage } from "./FounderMessage";
 import { Contact } from "./Contact";
+import { Footer } from "./Footer";
 
 export {
   HeroSlider,
@@ -12,4 +13,5 @@ export {
   Collaborators,
   FounderMessage,
   Contact,
+  Footer,
 };

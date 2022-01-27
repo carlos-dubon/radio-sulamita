@@ -7,6 +7,7 @@ import {
   Donations,
   Collaborators,
   FounderMessage,
+  Footer,
 } from "@lib/templates";
 import { useRef } from "react";
 import dynamic from "next/dynamic";
@@ -78,7 +79,7 @@ const Home: NextPage = () => {
         <Contact />
       </div>
 
-      <div style={{ height: "1000vh" }}></div>
+      <Footer />
     </>
   );
 };

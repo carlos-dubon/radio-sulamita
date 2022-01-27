@@ -23,7 +23,7 @@ const Donations: FC<Props> = ({ goToContact }) => {
             placeholder="blur"
             className="brightness-[.35]"
             objectFit="cover"
-            objectPosition="bottom"
+            objectPosition="center"
           />
         </div>
 

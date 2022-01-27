@@ -6,7 +6,7 @@ interface Props {
   secondary?: boolean;
 }
 
-const Button: FC<Props> = ({ text, onClick, secondary = false }) => {
+const Button: FC<Props> = ({ text, onClick, secondary }) => {
   return (
     <div
       onClick={onClick}

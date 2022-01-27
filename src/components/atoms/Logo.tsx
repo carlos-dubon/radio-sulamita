@@ -1,13 +1,12 @@
 import Link from "next/link";
-import { FC, useState, useEffect } from "react";
+import { FC, useState } from "react";
+import { useReadyStateEffect } from "react-ready-state-effect";
 
 export const Logo: FC = () => {
   const [animateClass, setAnimateClass] = useState<"" | "active">("");
 
-  useEffect(() => {
-    setTimeout(() => {
-      setAnimateClass("active");
-    }, 200);
+  useReadyStateEffect(() => {
+    setAnimateClass("active");
   }, []);
 
   return (

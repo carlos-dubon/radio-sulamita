@@ -1,13 +1,22 @@
 import Link from "next/link";
 import { FC, useState } from "react";
 import { useReadyStateEffect } from "react-ready-state-effect";
+import Image from "next/image";
 
-export const Logo: FC = () => {
+interface Props {
+  white?: boolean;
+}
+
+export const Logo: FC<Props> = ({ white }) => {
   const [animateClass, setAnimateClass] = useState<"" | "active">("");
 
   useReadyStateEffect(() => {
     setAnimateClass("active");
   }, []);
+
+  if (white) {
+    return <Image src="/logo-white.svg" alt="logo" width={193} height={44} />;
+  }
 
   return (
     <Link href="/">

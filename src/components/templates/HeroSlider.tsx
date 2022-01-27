@@ -3,8 +3,11 @@ import { Autoplay, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import { FC } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { SectionQuote } from "@lib/molecules";
+import Image from "next/image";
+import slide1 from "public/slider/slide-1.jpg";
+import slide2 from "public/slider/slide-2.jpg";
+import slide3 from "public/slider/slide-3.jpg";
 
 interface Props {
   goToDonations: () => void;
@@ -24,13 +27,15 @@ export const HeroSlider: FC<Props> = ({ goToDonations }) => {
             className="w-full relative top-0 left-0 -z-10"
             style={{ height: "820px" }}
           >
-            <LazyLoadImage
-              height="820px"
-              width="100%"
-              placeholderSrc="/slider/lazy-load/slide-1.jpg"
-              src="/slider/slide-1.jpg"
+            <Image
+              src={slide1}
               alt="slide-1"
-              className="brightness-75 object-cover object-bottom h-[820px]"
+              layout="fill"
+              placeholder="blur"
+              className="brightness-75"
+              objectFit="cover"
+              objectPosition="bottom"
+              priority
             />
           </div>
           <div className="flex justify-center items-center absolute top-0 left-0 h-full w-full">
@@ -59,13 +64,15 @@ export const HeroSlider: FC<Props> = ({ goToDonations }) => {
             className="w-full relative top-0 left-0 -z-10"
             style={{ height: "820px" }}
           >
-            <LazyLoadImage
-              height={820}
-              width="100%"
-              placeholderSrc="/slider/lazy-load/slide-2.jpg"
-              src="/slider/slide-2.jpg"
-              alt="slide-1"
-              className="brightness-75 object-cover object-center h-[820px]"
+            <Image
+              src={slide2}
+              alt="slide-2"
+              layout="fill"
+              placeholder="blur"
+              className="brightness-75"
+              objectFit="cover"
+              objectPosition="center"
+              priority
             />
           </div>
           <div className="flex justify-center items-center absolute top-0 left-0 h-full w-full">
@@ -89,13 +96,15 @@ export const HeroSlider: FC<Props> = ({ goToDonations }) => {
             className="w-full relative top-0 left-0 -z-10"
             style={{ height: "820px" }}
           >
-            <LazyLoadImage
-              height={820}
-              width="100%"
-              placeholderSrc="/slider/lazy-load/slide-1.jpg"
-              src="/slider/slide-3.jpg"
+            <Image
+              src={slide3}
               alt="slide-3"
-              className="brightness-75 object-cover object-bottom h-[820px]"
+              layout="fill"
+              placeholder="blur"
+              className="brightness-75"
+              objectFit="cover"
+              objectPosition="bottom"
+              priority
             />
           </div>
           <div className="flex justify-center items-center absolute top-0 left-0 h-full w-full">

@@ -1,36 +1,35 @@
 import { FC } from "react";
 import { Section } from "@lib/molecules";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import Image from "next/image";
+import robin_sucup from "public/collaborators/robin-sucup.jpg";
+import jose_pop from "public/collaborators/jose-pop.jpg";
+import sindi_pop from "public/collaborators/sindi-pop.jpg";
+import maria_perez from "public/collaborators/maria-perez.jpg";
 
 interface CollaboratorsI {
-  photoSrc: string;
-  lazyLoad: string;
+  photoSrc: StaticImageData;
   name: string;
   occupation: string;
 }
 
 const listOfCollaborators: CollaboratorsI[] = [
   {
-    photoSrc: "/collaborators/robin-sucup.jpg",
-    lazyLoad: "/collaborators/lazy-load/robin-sucup.jpg",
+    photoSrc: robin_sucup,
     name: "Robin Sucup",
     occupation: "Locutor",
   },
   {
-    photoSrc: "/collaborators/jose-pop.jpg",
-    lazyLoad: "/collaborators/lazy-load/jose-pop.jpg",
+    photoSrc: jose_pop,
     name: "Jose Pop",
     occupation: "Locutor",
   },
   {
-    photoSrc: "/collaborators/sindi-pop.jpg",
-    lazyLoad: "/collaborators/lazy-load/sindi-pop.jpg",
+    photoSrc: sindi_pop,
     name: "Sindi Pop",
     occupation: "Locutora",
   },
   {
-    photoSrc: "/collaborators/maria-perez.jpg",
-    lazyLoad: "/collaborators/lazy-load/maria-perez.jpg",
+    photoSrc: maria_perez,
     name: "María del Carmen",
     occupation: "Locutora",
   },
@@ -46,19 +45,17 @@ const Collaborators: FC = () => {
       <div className="flex justify-center flex-wrap gap-8">
         {listOfCollaborators.map((collaborator: CollaboratorsI) => {
           return (
-            <div
-              className="flex flex-col items-center"
-              key={collaborator.photoSrc}
-            >
+            <div className="flex flex-col items-center" key={collaborator.name}>
               <div className="w-60 h-60 rs-inner-shadow flex items-center justify-center rounded-full mb-4 overflow-hidden">
-                <LazyLoadImage
-                  height={210}
-                  width={210}
-                  placeholderSrc={collaborator.lazyLoad}
-                  src={collaborator.photoSrc}
-                  alt={collaborator.name}
-                  className="rounded-full overflow-hidden h-[210px] w-[210px] border-rs-primary border-[3px]"
-                />
+                <div className="overflow-hidden border-rs-primary border-[3px] rounded-full w-[210px] h-[210px]">
+                  <Image
+                    src={collaborator.photoSrc}
+                    alt={collaborator.name}
+                    width={210}
+                    height={210}
+                    placeholder="blur"
+                  />
+                </div>
               </div>
               <div>{collaborator.name}</div>
               <div className="text-rs-primary text-sm">

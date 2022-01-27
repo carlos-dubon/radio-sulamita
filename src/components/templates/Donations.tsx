@@ -1,16 +1,14 @@
 import { FC } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import Image from "next/image";
 import { SectionQuote } from "@lib/molecules";
-import { useRouter } from "next/router";
 import Link from "next/link";
+import bg from "public/sections/sheep.jpg";
 
 interface Props {
   goToContact: () => void;
 }
 
 const Donations: FC<Props> = ({ goToContact }) => {
-  const router = useRouter();
   return (
     <>
       <div className="h-[745px] relative">
@@ -18,13 +16,14 @@ const Donations: FC<Props> = ({ goToContact }) => {
           className="w-full relative top-0 left-0 -z-10"
           style={{ height: "745px" }}
         >
-          <LazyLoadImage
-            height="745px"
-            width="100%"
-            placeholderSrc="/sections/lazy-load/sheep.jpg"
-            src="/sections/sheep.jpg"
-            alt="sheep"
-            className="brightness-[.35] object-cover object-bottom h-[745px]"
+          <Image
+            src={bg}
+            alt="bg"
+            layout="fill"
+            placeholder="blur"
+            className="brightness-[.35]"
+            objectFit="cover"
+            objectPosition="bottom"
           />
         </div>
 

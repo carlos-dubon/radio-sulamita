@@ -24,11 +24,11 @@ const Footer: FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col">
+          <div className="flex flex-col text-sm">
             <div className="uppercase text-rs-primary">Navegacíon</div>
           </div>
 
-          <div className="flex flex-col">
+          <div className="flex flex-col text-sm">
             <div className="uppercase text-rs-primary">Contacto</div>
           </div>
         </div>

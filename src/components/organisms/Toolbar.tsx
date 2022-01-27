@@ -57,7 +57,7 @@ export const Toolbar: FC<Props> = ({
         </div>
       </div>
 
-      <div className="sticky top-0 left-0 z-20">
+      <div className="sticky top-0 left-0 z-50">
         <div className="h-20 flex justify-center bg-white drop-shadow-2xl">
           <div className="container flex items-center h-full justify-between">
             <Logo />

@@ -5,11 +5,22 @@ interface Props {
   subtitle: string;
   bibleVerse: string;
   children: ReactNode;
+  removeBottom?: boolean;
 }
 
-const Section: FC<Props> = ({ title, subtitle, bibleVerse, children }) => {
+const Section: FC<Props> = ({
+  title,
+  subtitle,
+  bibleVerse,
+  children,
+  removeBottom,
+}) => {
   return (
-    <div className="bg-white flex justify-center py-24">
+    <div
+      className={`bg-white flex justify-center ${
+        removeBottom ? "pt-24" : "py-24"
+      }`}
+    >
       <div className="container flex flex-col justify-center items-center">
         <div className="text-4xl font-semibold mb-10">{title}</div>
         <div className="text-lg w-4/5 justify-center text-center mb-3">

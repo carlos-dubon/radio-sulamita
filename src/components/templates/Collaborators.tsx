@@ -50,14 +50,14 @@ const Collaborators: FC = () => {
               className="flex flex-col items-center"
               key={collaborator.photoSrc}
             >
-              <div className="w-60 h-60 rs-inner-shadow flex items-center justify-center rounded-full mb-4">
+              <div className="w-60 h-60 rs-inner-shadow flex items-center justify-center rounded-full mb-4 overflow-hidden">
                 <LazyLoadImage
                   height={210}
                   width={210}
                   placeholderSrc={collaborator.lazyLoad}
                   src={collaborator.photoSrc}
                   alt={collaborator.name}
-                  className="rounded-full h-[210px] w-[210px] border-rs-primary border-[3px]"
+                  className="rounded-full overflow-hidden h-[210px] w-[210px] border-rs-primary border-[3px]"
                 />
               </div>
               <div>{collaborator.name}</div>

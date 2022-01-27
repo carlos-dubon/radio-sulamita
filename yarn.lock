@@ -473,6 +473,13 @@
   dependencies:
     prop-types "^15.7.2"
 
+"@googlemaps/js-api-loader@^1.13.2":
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/@googlemaps/js-api-loader/-/js-api-loader-1.13.2.tgz#1a459f995c4f64fa1aec60f2693fc5033e97d703"
+  integrity sha512-/jFmrbQjc56OcMXoPSYYX9tUxmSLCmguBaAl3HeB3SyJM5G0Zwu7JdvkJ/ROJgPxrMdS/1j8gaNPxmtbUCbkVw==
+  dependencies:
+    fast-deep-equal "^3.1.3"
+
 "@grpc/grpc-js@^1.3.2":
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/@grpc/grpc-js/-/grpc-js-1.5.3.tgz#fe78a40eab4e21a6044ff6f23798f712ea352a8f"
@@ -676,6 +683,11 @@
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/geoip-country/-/geoip-country-4.0.0.tgz#b272f262d86463e950143889d3d761d136f2159f"
   integrity sha512-RngLyEh1cMcH/fphQa4+AiMJX+t0/kD/CijkRCgZzQWwFE5ZnSP/WxVhcMAHfTY7fNgZvWtkgeKBc96dsEss9Q==
+
+"@types/google.maps@^3.47.3":
+  version "3.47.3"
+  resolved "https://registry.yarnpkg.com/@types/google.maps/-/google.maps-3.47.3.tgz#36ec9cfb421ef8db11ba7337e006143dbd374522"
+  integrity sha512-BF/BzpO0LWiwR/bBoGVriy7e2n+syuGNQMQ0r/+GtisUcgKn9P7Z4rmLNmZko9niE8JJ5dpMkxHeen7gADlNaw==
 
 "@types/hoist-non-react-statics@^3.3.0":
   version "3.3.1"

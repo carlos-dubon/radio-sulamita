@@ -18,7 +18,7 @@ const FounderMessage: FC<Props> = ({ goToDonations }) => {
             layout="fill"
             placeholder="blur"
             objectFit="cover"
-            objectPosition="right-top"
+            objectPosition="right top"
           />
         </div>
         <div className="flex flex-col justify-center max-w-[555px] p-14">

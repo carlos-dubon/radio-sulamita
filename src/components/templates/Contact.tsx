@@ -75,8 +75,9 @@ const Contact: FC = () => {
         title="Contacto"
         subtitle="Y todo lo que pidiereis al Padre en mi nombre, lo haré, para que el Padre sea glorificado en el Hijo."
         bibleVerse="Juan 14:13"
+        removeBottom
       >
-        <div className="w-full bg-rs-gray grid grid-cols-2 py-6">
+        <div className="w-full bg-rs-gray grid grid-cols-2 py-6 relative z-20">
           <Column title="Mensajes recientes">
             <ChatBox />
           </Column>

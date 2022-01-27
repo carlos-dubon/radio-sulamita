@@ -127,14 +127,18 @@ const Map: FC = () => {
       new google.maps.Marker({
         position: radioSulamita,
         map: map,
-        label: "Radio Sulamita",
       });
     };
 
     loadMap();
   }, []);
 
-  return <div ref={mapContainer} className="h-[680px] w-full"></div>;
+  return (
+    <div
+      ref={mapContainer}
+      className="h-[680px] w-full relative z-10 -top-28"
+    ></div>
+  );
 };
 
 export { Map };

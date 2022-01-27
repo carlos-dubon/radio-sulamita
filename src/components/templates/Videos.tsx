@@ -1,8 +1,27 @@
 import { FC } from "react";
 import { Section } from "@lib/molecules";
-import { YouTubeVideo } from "@lib/atoms";
+import { VideoPlayer } from "@lib/atoms";
+
+interface Video {
+  title: string;
+  description: string;
+  youtubeId: string;
+}
 
 const Videos: FC = () => {
+  const videos: Video[] = [
+    {
+      title: "Así es la vida",
+      description: `“La vida es gratis, es un regalo. Y los regalos no hay que rechazarlos.”`,
+      youtubeId: "qTybVDng6Vc",
+    },
+    {
+      title: "El vaso de agua",
+      description: "Esta es la forma de acabar con todos tus problemas.",
+      youtubeId: "9fgTo5DTzsA",
+    },
+  ];
+
   return (
     <Section
       title="Videos"
@@ -10,24 +29,17 @@ const Videos: FC = () => {
       bibleVerse="2 Timoteo 3:16-17"
     >
       <div className="grid grid-cols-2 justify-items-center">
-        <div className="w-4/5">
-          <div className="mb-1 font-medium">El diseño de la vida</div>
-          <div className="text-rs-primary text-sm mb-2 h-10">
-            ¿Existen pruebas de que la vida tenga un diseñador? Todos los seres
-            vivos tienen algo en común que los relaciona entre sí.
-          </div>
-          <YouTubeVideo title="El diseño de la vida" videoId="5hlNk7IcZFs" />
-        </div>
-        <div className="w-4/5">
-          <div className="mb-1 font-medium">Hay que saber perdonar</div>
-          <div className="text-rs-primary text-sm mb-2 h-10">
-            ¿Sabes lo que significa perdonar?
-          </div>
-          <YouTubeVideo
-            title="Haz sacrificios por otros"
-            videoId="L4UpEYxKBak"
-          />
-        </div>
+        {videos.map((video: Video) => {
+          return (
+            <div key={video.youtubeId} className="w-4/5">
+              <div className="mb-1 font-medium">{video.title}</div>
+              <div className="text-rs-primary text-sm mb-2 h-10">
+                {video.description}
+              </div>
+              <VideoPlayer title={video.title} videoId={video.youtubeId} />
+            </div>
+          );
+        })}
       </div>
     </Section>
   );

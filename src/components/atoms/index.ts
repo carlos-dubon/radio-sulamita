@@ -4,7 +4,7 @@ import { Logo } from "./Logo";
 import { ToolbarButton } from "./ToolbarButton";
 import { Player } from "./Player";
 import { Button } from "./Button";
-import { YouTubeVideo } from "./YouTubeVideo";
+import { VideoPlayer } from "./VideoPlayer";
 import { Input } from "./Input";
 import { TextArea } from "./TextArea";
 import { Column } from "./Column";
@@ -16,7 +16,7 @@ export {
   Countdown,
   Player,
   Button,
-  YouTubeVideo,
+  VideoPlayer,
   Input,
   TextArea,
   Column,

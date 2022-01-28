@@ -6,16 +6,11 @@ import {
   Videos,
   Donations,
   Collaborators,
+  Contact,
   FounderMessage,
   Footer,
 } from "@lib/templates";
 import { useRef } from "react";
-import dynamic from "next/dynamic";
-
-const Contact = dynamic<{}>(
-  import("@lib/templates").then((module) => module.Contact),
-  { ssr: false }
-);
 
 const Home: NextPage = () => {
   const videosRef = useRef<HTMLDivElement | null>(null);

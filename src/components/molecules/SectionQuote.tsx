@@ -5,8 +5,9 @@ interface Props {
   heading: string;
   subHeading?: string;
   buttonText: string;
-  buttonClick: () => void;
+  buttonClick?: () => void;
   secondary?: boolean;
+  scrollTo?: string;
 }
 
 const SectionQuote: FC<Props> = ({
@@ -15,9 +16,14 @@ const SectionQuote: FC<Props> = ({
   buttonText,
   buttonClick,
   secondary,
+  scrollTo,
 }) => {
   return (
-    <div className={`${secondary ? 'bg-rs-primary' : 'bg-rs-secondary'} flex justify-center items-center w-full py-8`}>
+    <div
+      className={`${
+        secondary ? "bg-rs-primary" : "bg-rs-secondary"
+      } flex justify-center items-center w-full py-8`}
+    >
       <div className="container flex justify-between items-center">
         <div className="flex flex-col gap-1 max-w-3xl">
           <div className="text-xl text-white">{heading}</div>
@@ -28,8 +34,9 @@ const SectionQuote: FC<Props> = ({
         <Button
           text={buttonText}
           onClick={() => {
-            buttonClick();
+            buttonClick && buttonClick();
           }}
+          scrollTo={scrollTo}
           secondary={secondary}
         />
       </div>

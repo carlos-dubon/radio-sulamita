@@ -3,11 +3,7 @@ import Image from "next/image";
 import { SectionQuote } from "@lib/molecules";
 import carlos_dubon from "public/carlos-dubon.jpg";
 
-interface Props {
-  goToDonations: () => void;
-}
-
-const FounderMessage: FC<Props> = ({ goToDonations }) => {
+const FounderMessage: FC = () => {
   return (
     <>
       <div className="grid grid-cols-2 h-[530px] bg-rs-gray">
@@ -50,9 +46,7 @@ const FounderMessage: FC<Props> = ({ goToDonations }) => {
         heading="Jesús le respondió: — Escrito está: “No sólo de pan vive el hombre, sino de toda palabra que sale de la boca de Dios.”"
         buttonText="Donar"
         subHeading="Mateo 4:4"
-        buttonClick={() => {
-          goToDonations();
-        }}
+        scrollTo="donar"
       />
     </>
   );

@@ -1,12 +1,14 @@
 import { FC, MouseEventHandler } from "react";
+import { Scrollchor, swing } from "react-scrollchor";
 
 interface Props {
   text: string;
   onClick?: MouseEventHandler<HTMLDivElement>;
   secondary?: boolean;
+  scrollTo?: string;
 }
 
-const Button: FC<Props> = ({ text, onClick, secondary }) => {
+const ButtonComponent: FC<Props> = ({ text, onClick, secondary }) => {
   return (
     <div
       onClick={onClick}
@@ -22,6 +24,24 @@ const Button: FC<Props> = ({ text, onClick, secondary }) => {
     >
       {text}
     </div>
+  );
+};
+
+const Button: FC<Props> = ({ text, onClick, secondary, scrollTo }) => {
+  return (
+    <>
+      {scrollTo ? (
+        <Scrollchor to={scrollTo} animate={{ duration: 50, easing: swing }}>
+          <ButtonComponent
+            text={text}
+            onClick={onClick}
+            secondary={secondary}
+          />
+        </Scrollchor>
+      ) : (
+        <ButtonComponent text={text} onClick={onClick} secondary={secondary} />
+      )}
+    </>
   );
 };
 

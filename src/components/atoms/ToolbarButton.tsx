@@ -1,4 +1,5 @@
 import { FC, ReactNode } from "react";
+import { Scrollchor, swing } from "react-scrollchor";
 
 interface Props {
   children: ReactNode;
@@ -11,6 +12,7 @@ interface Props {
   onClick?: () => void;
   disabled?: boolean;
   title?: string;
+  scrollTo?: string;
 }
 
 export const ToolbarButton: FC<Props> = ({
@@ -24,6 +26,7 @@ export const ToolbarButton: FC<Props> = ({
   onClick,
   disabled,
   title,
+  scrollTo,
 }) => {
   const classStr: string = `
   transition-all duration-500 ease-in-out
@@ -38,16 +41,26 @@ export const ToolbarButton: FC<Props> = ({
   `;
 
   return (
-    <div
-      title={title}
-      onClick={() => {
-        if (onClick && !disabled) {
-          onClick();
-        }
-      }}
-      className={classStr}
-    >
-      {children}
-    </div>
+    <>
+      {scrollTo ? (
+        <Scrollchor to={scrollTo} animate={{ duration: 50, easing: swing }}>
+          <div title={title} className={classStr}>
+            {children}
+          </div>
+        </Scrollchor>
+      ) : (
+        <div
+          title={title}
+          onClick={() => {
+            if (onClick && !disabled) {
+              onClick();
+            }
+          }}
+          className={classStr}
+        >
+          {children}
+        </div>
+      )}
+    </>
   );
 };

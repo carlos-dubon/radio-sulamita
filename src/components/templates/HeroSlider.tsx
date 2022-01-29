@@ -99,7 +99,7 @@ export const HeroSlider: FC = () => {
               placeholder="blur"
               className="brightness-75"
               objectFit="cover"
-              objectPosition="bottom"
+              objectPosition="top"
               priority
             />
           </div>

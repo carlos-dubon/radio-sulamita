@@ -11,9 +11,9 @@ interface Video {
 const Videos: FC = () => {
   const videos: Video[] = [
     {
-      title: "Así es la vida",
-      description: `“La vida es gratis, es un regalo. Y los regalos no hay que rechazarlos.”`,
-      youtubeId: "qTybVDng6Vc",
+      title: "El hacha",
+      description: `“Estamos tan preocupados por llegar pronto a nuestro destino, que nos olvidamos de mirar y disfrutar del paisaje.”`,
+      youtubeId: "lnLVBS5G7fQ",
     },
     {
       title: "El vaso de agua",

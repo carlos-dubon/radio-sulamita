@@ -13,19 +13,7 @@ import { toggle } from "src/state/slices/playerSlice";
 import { RootState } from "src/state/store";
 import Link from "next/link";
 
-interface Props {
-  goToVideos: () => void;
-  goToDonations: () => void;
-  goToColaborators: () => void;
-  goToContact: () => void;
-}
-
-export const Toolbar: FC<Props> = ({
-  goToVideos,
-  goToDonations,
-  goToColaborators,
-  goToContact,
-}) => {
+export const Toolbar: FC = () => {
   const playerState: boolean = useAppSelector(
     (state: RootState) => state.player.playing
   );
@@ -67,34 +55,16 @@ export const Toolbar: FC<Props> = ({
                   <a className="h-full w-full">Inicio</a>
                 </Link>
               </ToolbarButton>
-              <ToolbarButton
-                onClick={() => {
-                  goToVideos();
-                }}
-              >
-                Videos
-              </ToolbarButton>
-              <ToolbarButton
-                onClick={() => {
-                  goToColaborators();
-                }}
-              >
+              <ToolbarButton scrollTo="videos">Videos</ToolbarButton>
+              <ToolbarButton scrollTo="colaboradores">
                 Colaboradores
               </ToolbarButton>
-              <ToolbarButton
-                onClick={() => {
-                  goToContact();
-                }}
-              >
-                Contacto
-              </ToolbarButton>
+              <ToolbarButton scrollTo="contacto">Contacto</ToolbarButton>
               <ToolbarButton
                 className="group"
                 hoverBackgroundColor="hover:bg-black"
                 primary={true}
-                onClick={() => {
-                  goToDonations();
-                }}
+                scrollTo="donar"
                 title="Donar"
               >
                 <FontAwesomeIcon

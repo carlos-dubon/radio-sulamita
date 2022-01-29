@@ -4,14 +4,10 @@ import { SectionQuote } from "@lib/molecules";
 import Link from "next/link";
 import bg from "public/sections/sheep.jpg";
 
-interface Props {
-  goToContact: () => void;
-}
-
-const Donations: FC<Props> = ({ goToContact }) => {
+const Donations: FC = () => {
   return (
     <>
-      <div className="h-[745px] relative">
+      <div id="donar" className="h-[745px] relative">
         <div
           className="w-full relative top-0 left-0 -z-10"
           style={{ height: "745px" }}
@@ -63,9 +59,7 @@ const Donations: FC<Props> = ({ goToContact }) => {
       <SectionQuote
         heading="¿Necesitas de oración? Escríbenos, queremos orar por ti."
         buttonText="Contacto"
-        buttonClick={() => {
-          goToContact();
-        }}
+        scrollTo="contacto"
       />
     </>
   );

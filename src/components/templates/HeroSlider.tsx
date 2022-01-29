@@ -9,11 +9,7 @@ import slide1 from "public/slider/slide-1.jpg";
 import slide2 from "public/slider/slide-2.jpg";
 import slide3 from "public/slider/slide-3.jpg";
 
-interface Props {
-  goToDonations: () => void;
-}
-
-export const HeroSlider: FC<Props> = ({ goToDonations }) => {
+export const HeroSlider: FC = () => {
   return (
     <>
       <Swiper
@@ -132,9 +128,7 @@ export const HeroSlider: FC<Props> = ({ goToDonations }) => {
         heading="El que es generoso prospera; el que reanima será reanimado."
         subHeading="Proverbios 11:25"
         buttonText="Donar"
-        buttonClick={() => {
-          goToDonations();
-        }}
+        scrollTo="donar"
       />
     </>
   );

@@ -12,6 +12,7 @@ import { db } from "@app/firebase";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { formatTimestamp } from "@lib/helpers";
 import Image from "next/image";
+import { Spinner } from "@lib/atoms";
 
 const ChatBox: FC = () => {
   const showLast: number = 30;
@@ -29,7 +30,7 @@ const ChatBox: FC = () => {
     limitToLast(showLast)
   );
 
-  const [messages] = useCollectionData(messagesQuery);
+  const [messages, loading] = useCollectionData(messagesQuery);
 
   const chatBoxScrollToBottom = (): void => {
     const chatBox: HTMLDivElement | null = chatBoxRef.current;
@@ -48,11 +49,18 @@ const ChatBox: FC = () => {
       ref={chatBoxRef}
       className="w-full h-[29.4rem] overflow-auto flex flex-col gap-4"
     >
-      <div className="w-full text-xs text-center text-stone-600">
-        Mostrando los últimos {showLast} mensajes
-      </div>
-      {messages &&
-        messages.map((m: Message) => {
+      {loading ? (
+        <div className="w-full h-full flex justify-center items-center">
+          <Spinner />
+        </div>
+      ) : (
+        <div className="w-full text-xs text-center text-stone-600">
+          Mostrando los últimos {showLast} mensajes
+        </div>
+      )}
+
+      {!loading &&
+        messages?.map((m: Message) => {
           return (
             <div
               key={m.id}

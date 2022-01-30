@@ -8,6 +8,7 @@ import { MemoizedVideoPlayer } from "./VideoPlayer";
 import { Input } from "./Input";
 import { TextArea } from "./TextArea";
 import { Column } from "./Column";
+import { Spinner } from "./Spinner";
 
 export {
   ToolbarButton,
@@ -20,4 +21,5 @@ export {
   Input,
   TextArea,
   Column,
+  Spinner,
 };

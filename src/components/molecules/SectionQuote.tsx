@@ -28,7 +28,7 @@ const SectionQuote: FC<Props> = ({
         <div className="flex flex-col gap-1 max-w-3xl">
           <div className="text-xl text-white">{heading}</div>
           {subHeading ? (
-            <div className="text-sm text-stone-200">{subHeading}</div>
+            <div className="text-sm text-stone-200 italic">{subHeading}</div>
           ) : null}
         </div>
         <Button

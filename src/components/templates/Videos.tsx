@@ -34,7 +34,7 @@ const Videos: FC = () => {
           return (
             <div key={video.youtubeId} className="w-4/5">
               <div className="mb-1 font-medium">{video.title}</div>
-              <div className="text-rs-primary text-sm mb-2 h-10">
+              <div className="text-rs-primary text-sm mb-3 h-10">
                 {video.description}
               </div>
               <VideoPlayer title={video.title} videoId={video.youtubeId} />

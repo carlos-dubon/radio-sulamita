@@ -92,7 +92,7 @@ const Contact: FC = () => {
                 name="name"
                 className="mb-1"
               />
-              <div className="text-[0.65rem] mb-2 h-4">
+              <div className="text-xs mb-2 h-4">
                 {form.touched.name ? (
                   <div className="text-stone-600 form-error">
                     {form.errors.name}
@@ -107,7 +107,7 @@ const Contact: FC = () => {
                 name="email"
                 className="mb-1"
               />
-              <div className="text-[0.65rem] mb-2 h-4">
+              <div className="text-xs mb-2 h-4">
                 {form.touched.email ? (
                   <div className="text-stone-600 form-error">
                     {form.errors.email}
@@ -122,7 +122,7 @@ const Contact: FC = () => {
                 name="body"
                 className="mb-1"
               />
-              <div className="text-[0.65rem] mb-2 h-4">
+              <div className="text-xs mb-2 h-4">
                 {form.touched.body ? (
                   <div className="text-stone-600 form-error">
                     {form.errors.body}

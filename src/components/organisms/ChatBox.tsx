@@ -48,7 +48,7 @@ const ChatBox: FC = () => {
       ref={chatBoxRef}
       className="w-full h-[27.2rem] overflow-auto flex flex-col gap-4"
     >
-      <div className="w-full text-xs text-center text-stone-600">
+      <div className="w-full text-sm text-center text-stone-600">
         Mostrando los últimos {showLast} mensajes
       </div>
       {messages &&
@@ -58,7 +58,7 @@ const ChatBox: FC = () => {
               key={m.id}
               className={`flex flex-col ${
                 m.admin ? "bg-rs-primary" : "bg-white"
-              } p-3 text-xs w-11/12 ${m.admin ? "ml-auto" : null}`}
+              } p-3 text-sm w-11/12 ${m.admin ? "ml-auto" : null}`}
             >
               <div
                 className={`flex justify-between ${

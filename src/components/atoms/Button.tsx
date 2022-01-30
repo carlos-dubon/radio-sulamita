@@ -1,5 +1,5 @@
 import { FC, MouseEventHandler } from "react";
-import { Scrollchor, swing } from "react-scrollchor";
+import Link from "next/link";
 
 interface Props {
   text: string;
@@ -31,13 +31,11 @@ const Button: FC<Props> = ({ text, onClick, secondary, scrollTo }) => {
   return (
     <>
       {scrollTo ? (
-        <Scrollchor to={scrollTo} animate={{ duration: 50, easing: swing }}>
-          <ButtonComponent
-            text={text}
-            onClick={onClick}
-            secondary={secondary}
-          />
-        </Scrollchor>
+        <Link href={`/#${scrollTo}`}>
+          <a>
+            <ButtonComponent text={text} secondary={secondary} />
+          </a>
+        </Link>
       ) : (
         <ButtonComponent text={text} onClick={onClick} secondary={secondary} />
       )}

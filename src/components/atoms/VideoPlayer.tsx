@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import Plyr from "plyr-react";
 import "plyr-react/dist/plyr.css";
 
@@ -31,4 +31,4 @@ const VideoPlayer: FC<Props> = ({ title, videoId }) => {
   );
 };
 
-export { VideoPlayer };
+export const MemoizedVideoPlayer = memo(VideoPlayer);

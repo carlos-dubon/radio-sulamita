@@ -48,7 +48,7 @@ const ChatBox: FC = () => {
       ref={chatBoxRef}
       className="w-full h-[29.4rem] overflow-auto flex flex-col gap-4"
     >
-      <div className="w-full text-sm text-center text-stone-600">
+      <div className="w-full text-xs text-center text-stone-600">
         Mostrando los últimos {showLast} mensajes
       </div>
       {messages &&

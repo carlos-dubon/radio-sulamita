@@ -12,7 +12,7 @@ interface Props {
   onClick?: () => void;
   disabled?: boolean;
   title?: string;
-  scrollTo?: string;
+  href?: string;
 }
 
 export const ToolbarButton: FC<Props> = ({
@@ -26,7 +26,7 @@ export const ToolbarButton: FC<Props> = ({
   onClick,
   disabled,
   title,
-  scrollTo,
+  href,
 }) => {
   const classStr: string = `
   transition-all duration-500 ease-in-out
@@ -42,8 +42,8 @@ export const ToolbarButton: FC<Props> = ({
 
   return (
     <>
-      {scrollTo ? (
-        <Link href={`/#${scrollTo}`}>
+      {href ? (
+        <Link href={href}>
           <a className={classStr}>{children}</a>
         </Link>
       ) : (

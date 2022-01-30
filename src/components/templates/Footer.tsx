@@ -55,7 +55,7 @@ const Footer: FC = () => {
               Navegacíon
             </div>
 
-            <div className="flex flex-col gap-4 text-sm text-stone-300">
+            <div className="flex flex-col gap-3 text-sm text-stone-300">
               {navigation.map((link) => (
                 <div
                   key={link.anchor}

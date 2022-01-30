@@ -5,6 +5,7 @@ import robin_sucup from "public/collaborators/robin-sucup.jpg";
 import jose_pop from "public/collaborators/jose-pop.jpg";
 import sindi_pop from "public/collaborators/sindi-pop.jpg";
 import maria_perez from "public/collaborators/maria-perez.jpg";
+import { Fade } from "react-awesome-reveal";
 
 interface CollaboratorsI {
   photoSrc: StaticImageData;
@@ -44,27 +45,32 @@ const Collaborators: FC = () => {
       id="colaboradores"
     >
       <div className="flex justify-center flex-wrap gap-8">
-        {listOfCollaborators.map((collaborator: CollaboratorsI) => {
-          return (
-            <div className="flex flex-col items-center" key={collaborator.name}>
-              <div className="w-60 h-60 rs-inner-shadow flex items-center justify-center rounded-full mb-4 overflow-hidden">
-                <div className="overflow-hidden border-rs-primary border-[3px] rounded-full w-[210px] h-[210px]">
-                  <Image
-                    src={collaborator.photoSrc}
-                    alt={collaborator.name}
-                    width={210}
-                    height={210}
-                    placeholder="blur"
-                  />
+        <Fade duration={400} cascade direction="right" triggerOnce>
+          {listOfCollaborators.map((collaborator: CollaboratorsI) => {
+            return (
+              <div
+                className="flex flex-col items-center"
+                key={collaborator.name}
+              >
+                <div className="w-60 h-60 rs-inner-shadow flex items-center justify-center rounded-full mb-4 overflow-hidden">
+                  <div className="overflow-hidden border-rs-primary border-[3px] rounded-full w-[210px] h-[210px]">
+                    <Image
+                      src={collaborator.photoSrc}
+                      alt={collaborator.name}
+                      width={210}
+                      height={210}
+                      placeholder="blur"
+                    />
+                  </div>
+                </div>
+                <div>{collaborator.name}</div>
+                <div className="text-rs-primary text-sm">
+                  {collaborator.occupation}
                 </div>
               </div>
-              <div>{collaborator.name}</div>
-              <div className="text-rs-primary text-sm">
-                {collaborator.occupation}
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </Fade>
       </div>
     </Section>
   );

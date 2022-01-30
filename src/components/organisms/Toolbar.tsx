@@ -54,17 +54,17 @@ export const Toolbar: FC = () => {
               </a>
             </Link>
             <div className="flex">
-              <ToolbarButton scrollTo=" ">Inicio</ToolbarButton>
-              <ToolbarButton scrollTo="videos">Videos</ToolbarButton>
-              <ToolbarButton scrollTo="colaboradores">
+              <ToolbarButton href="/">Inicio</ToolbarButton>
+              <ToolbarButton href="/#videos">Videos</ToolbarButton>
+              <ToolbarButton href="/#colaboradores">
                 Colaboradores
               </ToolbarButton>
-              <ToolbarButton scrollTo="contacto">Contacto</ToolbarButton>
+              <ToolbarButton href="/#contacto">Contacto</ToolbarButton>
               <ToolbarButton
                 className="group"
                 hoverBackgroundColor="hover:bg-black"
                 primary={true}
-                scrollTo="donar"
+                href="/#donar"
                 title="Donar"
               >
                 <FontAwesomeIcon

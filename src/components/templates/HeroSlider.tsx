@@ -43,7 +43,7 @@ export const HeroSlider: FC = () => {
                 <div className="text-white font-medium text-2xl">
                   Amaras al señor tu Dios con todo
                 </div>
-                <div className="text-white font-extrabold text-6xl">
+                <div className="text-white font-extrabold text-7xl italic">
                   tu corazón
                 </div>
                 <div className="text-white font-light text-base">
@@ -76,7 +76,7 @@ export const HeroSlider: FC = () => {
               <div className="text-white font-medium text-2xl">
                 Transmitiendo desde la puerta del
               </div>
-              <div className="text-white font-extrabold text-6xl">
+              <div className="text-white font-extrabold text-7xl italic">
                 mundo Maya,
               </div>
               <div className="text-white text-base font-light">
@@ -112,7 +112,7 @@ export const HeroSlider: FC = () => {
                 <div className="text-white font-medium text-2xl">
                   En el hogar de mi Padre hay muchas
                 </div>
-                <div className="text-white font-extrabold text-6xl">
+                <div className="text-white font-extrabold text-7xl italic">
                   viviendas;
                 </div>
                 <div className="text-white font-light text-base">

@@ -50,11 +50,7 @@ export const Toolbar: FC = () => {
           <div className="container flex items-center h-full justify-between">
             <Logo />
             <div className="flex">
-              <ToolbarButton>
-                <Link href="/">
-                  <a className="h-full w-full">Inicio</a>
-                </Link>
-              </ToolbarButton>
+              <ToolbarButton scrollTo=" ">Inicio</ToolbarButton>
               <ToolbarButton scrollTo="videos">Videos</ToolbarButton>
               <ToolbarButton scrollTo="colaboradores">
                 Colaboradores

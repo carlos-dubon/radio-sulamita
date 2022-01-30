@@ -39,8 +39,8 @@ const Donations: FC = () => {
               débiles, y recordar las palabras del Señor Jesús, que dijo: “Más
               bienaventurado es dar que recibir.”
             </div>
-            <div className="text-stone-300 text-lg mb-10">Hechos 20:35</div>
-            <div className="text-stone-300 text-center text-sm w-3/5 mb-4">
+            <div className="text-stone-300 text-lg mb-10 italic">Hechos 20:35</div>
+            <div className="text-stone-300 text-center w-3/5 mb-5">
               Si en su corazón desea apoyar a este ministerio económicamente,
               puede hacerlo a través de la cuenta de Banrural No. 3020005791, a
               nombre de Fabiola Migdalia Guerra.

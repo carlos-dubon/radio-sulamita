@@ -20,7 +20,7 @@ const TextArea: FC<Props> = ({
   return (
     <textarea
       rows={10}
-      className={`py-4 resize-none w-full outline-none text-xs merriweather italic px-8 border-b-[3px] transition-all duration-700 border-b-white focus:border-b-rs-primary ${className}`}
+      className={`py-4 resize-none w-full outline-none text-sm italic px-8 border-b-[3px] transition-all duration-700 border-b-white focus:border-b-rs-primary ${className}`}
       placeholder={placeholder}
       onChange={onChange}
       name={name}

@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { Scrollchor, swing } from "react-scrollchor";
+import Link from "next/link";
 
 interface Props {
   children: ReactNode;
@@ -32,7 +32,7 @@ export const ToolbarButton: FC<Props> = ({
   transition-all duration-500 ease-in-out
   h-20 ${primary ? "w-40" : "px-6"}
   flex justify-center items-center
-  font-medium text-sm cursor-pointer
+  text-sm cursor-pointer
   ${backgroundColor ? backgroundColor : "bg-white"}
   ${textColor ? textColor : "text-black"}
   ${hoverBackgroundColor ? hoverBackgroundColor : "hover:bg-rs-primary"}
@@ -43,11 +43,9 @@ export const ToolbarButton: FC<Props> = ({
   return (
     <>
       {scrollTo ? (
-        <Scrollchor to={scrollTo} animate={{ duration: 50, easing: swing }}>
-          <div title={title} className={classStr}>
-            {children}
-          </div>
-        </Scrollchor>
+        <Link href={`/#${scrollTo}`}>
+          <a className={classStr}>{children}</a>
+        </Link>
       ) : (
         <div
           title={title}

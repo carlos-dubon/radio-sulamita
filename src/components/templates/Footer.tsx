@@ -40,22 +40,22 @@ const Footer: FC = () => {
                 <Logo white />
               </a>
             </Link>
-            <div className="text-sm leading-6 text-stone-200">
+            <div className="text-sm text-stone-200">
               Radio Sulamita 90.1 FM, Transmitiendo desde la puerta del Mundo
               Maya, Melchor de Mencos, Peten, Guatemala.
             </div>
-            <div className="text-sm leading-6 text-stone-200">
+            <div className="text-sm text-stone-200">
               © 2020 — {currentYear} Radio Sulamita. Todos los derechos
               reservados.
             </div>
           </div>
 
           <div className="flex flex-col">
-            <div className="uppercase text-rs-primary mb-5 text-sm ">
+            <div className=" text-rs-primary mb-5 text-sm ">
               Navegacíon
             </div>
 
-            <div className="flex flex-col gap-2 text-sm text-stone-200">
+            <div className="flex flex-col gap-1.5 text-sm text-stone-300">
               {navigation.map((link) => (
                 <div
                   key={link.anchor}
@@ -74,8 +74,8 @@ const Footer: FC = () => {
               Contacto
             </div>
 
-            <div className="flex flex-col gap-4">
-              <div className="text-sm text-stone-200 gap-3">
+            <div className="flex flex-col gap-5">
+              <div className="text-sm text-stone-300">
                 <FontAwesomeIcon
                   icon={faMapMarkerAlt}
                   className="w-3 mr-2 inline-block"
@@ -84,18 +84,20 @@ const Footer: FC = () => {
                 Guatemala.
               </div>
 
-              <div className="text-sm text-stone-200 gap-3">
-                <FontAwesomeIcon
-                  icon={faPhoneAlt}
-                  className="w-3 mr-2 inline-block"
-                />
-                Teléfonos
-              </div>
+              <div className="flex flex-col">
+                <div className="text-sm text-stone-300 gap-3 mb-1">
+                  <FontAwesomeIcon
+                    icon={faPhoneAlt}
+                    className="w-3 mr-2 inline-block"
+                  />
+                  Teléfonos
+                </div>
 
-              <div className="flex flex-col text-sm text-stone-200 gap-2">
-                <div>Claro (+502) 7926 5328</div>
-                <div>Tigo (+502) 4685 8545</div>
-                <div>DigiCell (+501) 634 0186</div>
+                <div className="flex flex-col text-sm text-stone-300 gap-1">
+                  <div>Claro (+502) 7926 5328</div>
+                  <div>Tigo (+502) 4685 8545</div>
+                  <div>DigiCell (+501) 634 0186</div>
+                </div>
               </div>
             </div>
           </div>

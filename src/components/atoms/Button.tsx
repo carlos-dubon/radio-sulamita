@@ -12,7 +12,7 @@ const ButtonComponent: FC<Props> = ({ text, onClick, secondary }) => {
   return (
     <div
       onClick={onClick}
-      className={`text-sm flex justify-center items-center text-white ${
+      className={`text-xs tracking-wider uppercase flex justify-center items-center text-white ${
         secondary ? "bg-rs-secondary" : "bg-rs-primary"
       } w-36 h-14 transition duration-500 ${
         secondary ? "hover:bg-rs-primary" : "hover:bg-black"

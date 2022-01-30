@@ -48,7 +48,11 @@ export const Toolbar: FC = () => {
       <div className="sticky top-0 left-0 z-50">
         <div className="h-20 flex justify-center bg-white drop-shadow-2xl">
           <div className="container flex items-center h-full justify-between">
-            <Logo />
+            <Link href="/">
+              <a>
+                <Logo />
+              </a>
+            </Link>
             <div className="flex">
               <ToolbarButton scrollTo=" ">Inicio</ToolbarButton>
               <ToolbarButton scrollTo="videos">Videos</ToolbarButton>

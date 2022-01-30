@@ -32,7 +32,7 @@ export const ToolbarButton: FC<Props> = ({
   transition-all duration-500 ease-in-out
   h-20 ${primary ? "w-40" : "px-6"}
   flex justify-center items-center
-  text-sm cursor-pointer
+  text-xs uppercase tracking-wider cursor-pointer
   ${backgroundColor ? backgroundColor : "bg-white"}
   ${textColor ? textColor : "text-black"}
   ${hoverBackgroundColor ? hoverBackgroundColor : "hover:bg-rs-primary"}

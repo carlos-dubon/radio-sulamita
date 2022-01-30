@@ -19,7 +19,7 @@ const Input: FC<Props> = ({
 }) => {
   return (
     <input
-      className={`h-[52px] w-full outline-none text-sm italic px-8 border-b-[3px] transition-all duration-700 border-b-white focus:border-b-rs-primary ${className}`}
+      className={`h-[52px] w-full outline-none text-sm px-8 border-b-[3px] transition-all duration-700 border-b-white focus:border-b-rs-primary ${className}`}
       placeholder={placeholder}
       type="text"
       onChange={onChange}

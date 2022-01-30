@@ -2729,11 +2729,6 @@ react-is@^16.13.1, react-is@^16.7.0:
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-ready-state-effect@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/react-ready-state-effect/-/react-ready-state-effect-1.0.3.tgz#451f90e5d6a5cd6df8e7c964631fa9560e77425f"
-  integrity sha512-DAd5F9jNPW2e+ZL8C/W3ffA0rFVjh8c/V3YYVZFfOE5bkX79a4fmrrYELmUWWe3ycmhjY0nbm899GAsD0XefMA==
-
 react-redux@^7.2.6:
   version "7.2.6"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.2.6.tgz#49633a24fe552b5f9caf58feb8a138936ddfe9aa"

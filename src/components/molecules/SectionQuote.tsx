@@ -26,9 +26,11 @@ const SectionQuote: FC<Props> = ({
     >
       <div className="container flex justify-between items-center">
         <div className="flex flex-col gap-1 max-w-3xl">
-          <div className="text-xl text-white">{heading}</div>
+          <div className="text-xl text-white font-light">{heading}</div>
           {subHeading ? (
-            <div className="text-sm text-stone-200 italic">{subHeading}</div>
+            <div className="text-sm text-stone-200 font-light">
+              {subHeading}
+            </div>
           ) : null}
         </div>
         <Button

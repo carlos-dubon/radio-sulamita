@@ -31,21 +31,19 @@ const Donations: FC = () => {
               width={47}
               height={42}
             />
-            <div className="text-white text-4xl font-semibold mb-10 mt-10">
-              Donaciones
-            </div>
-            <div className="text-white text-center text-lg w-4/5 mb-2">
+            <div className="text-white text-4xl mb-10 mt-10">Donaciones</div>
+            <div className="text-white text-center text-xl w-4/5 mb-3">
               En todo os mostré que así, trabajando, debéis ayudar a los
               débiles, y recordar las palabras del Señor Jesús, que dijo: “Más
               bienaventurado es dar que recibir.”
             </div>
-            <div className="text-stone-300 text-lg mb-10 italic">Hechos 20:35</div>
-            <div className="text-stone-300 text-center w-3/5 mb-5">
+            <div className="text-stone-300 text-lg mb-16">Hechos 20:35</div>
+            <div className="text-stone-300 text-center w-3/5 mb-6">
               Si en su corazón desea apoyar a este ministerio económicamente,
               puede hacerlo a través de la cuenta de Banrural No. 3020005791, a
               nombre de Fabiola Migdalia Guerra.
             </div>
-            <div className="text-sm flex justify-center items-center text-white bg-rs-primary w-36 h-14 transition duration-500 hover:bg-black cursor-pointer hover:drop-shadow-[0_0_16px_rgba(255,221,200,0.25)]">
+            <div className="text-xs tracking-wider flex justify-center items-center text-white uppercase bg-rs-primary w-48 h-14 transition duration-500 hover:bg-black cursor-pointer hover:drop-shadow-[0_0_16px_rgba(255,221,200,0.25)]">
               <Link href="https://www.banrural.com.gt/cb/pages/jsp-ns/login-cons.jsp">
                 <a className="w-full h-full grid items-center">
                   Ir a banca virtual

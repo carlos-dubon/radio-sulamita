@@ -33,7 +33,7 @@ const Footer: FC = () => {
   return (
     <div className="-mt-28 bg-rs-secondary py-24 flex justify-center">
       <div className="container">
-        <div className="grid grid-cols-3 gap-12">
+        <div className="grid grid-cols-3 gap-14">
           <div className="flex flex-col gap-5">
             <Link href="/">
               <a>
@@ -51,11 +51,11 @@ const Footer: FC = () => {
           </div>
 
           <div className="flex flex-col">
-            <div className=" text-rs-primary mb-5 text-sm ">
+            <div className="uppercase text-rs-primary mb-5 text-sm tracking-wider">
               Navegacíon
             </div>
 
-            <div className="flex flex-col gap-1.5 text-sm text-stone-300">
+            <div className="flex flex-col gap-4 text-sm text-stone-300">
               {navigation.map((link) => (
                 <div
                   key={link.anchor}
@@ -70,7 +70,7 @@ const Footer: FC = () => {
           </div>
 
           <div className="flex flex-col text-sm">
-            <div className="uppercase text-rs-primary mb-5 text-sm">
+            <div className="uppercase text-rs-primary mb-5 text-sm tracking-wider">
               Contacto
             </div>
 

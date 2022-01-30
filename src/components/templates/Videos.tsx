@@ -33,7 +33,7 @@ const Videos: FC = () => {
         {videos.map((video: Video) => {
           return (
             <div key={video.youtubeId} className="w-4/5">
-              <div className="mb-1 font-medium">{video.title}</div>
+              <div className="mb-1">{video.title}</div>
               <div className="text-rs-primary text-sm mb-3 h-10">
                 {video.description}
               </div>

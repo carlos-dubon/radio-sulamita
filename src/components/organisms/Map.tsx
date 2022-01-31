@@ -127,6 +127,7 @@ const Map: FC = () => {
       new google.maps.Marker({
         position: radioSulamita,
         map: map,
+        icon: "/marker.png",
       });
     };
 

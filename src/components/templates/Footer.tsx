@@ -1,8 +1,7 @@
 import { FC } from "react";
-import { Logo } from "@lib/atoms";
+import { IconLink, Logo } from "@lib/atoms";
 import Link from "next/link";
-import { faMapMarkerAlt, faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 const Footer: FC = () => {
   const currentYear: number = new Date().getFullYear();
@@ -33,33 +32,45 @@ const Footer: FC = () => {
   return (
     <div className="-mt-28 bg-rs-secondary py-24 flex justify-center">
       <div className="container">
-        <div className="grid grid-cols-3 gap-14">
-          <div className="flex flex-col gap-5">
+        <div className="grid grid-cols-3 gap-36">
+          <div className="flex flex-col gap-6">
             <Link href="/">
               <a>
                 <Logo white />
               </a>
             </Link>
-            <div className="text-sm text-stone-200">
+
+            <div className="flex gap-4 items-center">
+              <IconLink
+                secondary
+                icon={faFacebook}
+                href="https://www.facebook.com/estereo.sulamita"
+              />
+              <IconLink
+                secondary
+                icon={faWhatsapp}
+                href="https://wa.link/logvtp"
+              />
+            </div>
+
+            <div className="text-xs text-rs-primary">
               Radio Sulamita 90.1 FM, Transmitiendo desde la puerta del Mundo
               Maya, Melchor de Mencos, Peten, Guatemala.
             </div>
-            <div className="text-sm text-stone-200">
+            <div className="text-xs text-rs-primary">
               © 2020 — {currentYear} Radio Sulamita. Todos los derechos
               reservados.
             </div>
           </div>
 
           <div className="flex flex-col">
-            <div className="uppercase text-rs-primary mb-5 text-sm tracking-wider">
-              Navegacíon
-            </div>
+            <div className=" text-white mb-6 tracking-wide">Navegacíon</div>
 
-            <div className="flex flex-col gap-3 text-sm text-stone-300">
+            <div className="flex flex-col gap-3 text-xs text-stone-200">
               {navigation.map((link) => (
                 <div
                   key={link.anchor}
-                  className="hover:text-rs-primary duration-300 w-fit"
+                  className="hover:text-rs-primary duration-300 w-fit border-transparent hover:border-rs-primary border-b-[1px] pb-1"
                 >
                   <Link href={link.anchor}>
                     <a>{link.title}</a>
@@ -69,35 +80,27 @@ const Footer: FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col text-sm">
-            <div className="uppercase text-rs-primary mb-5 text-sm tracking-wider">
-              Contacto
-            </div>
+          <div className="flex flex-col">
+            <div className="text-white mb-6 tracking-wide">Contacto</div>
 
-            <div className="flex flex-col gap-5">
-              <div className="text-sm text-stone-300">
-                <FontAwesomeIcon
-                  icon={faMapMarkerAlt}
-                  className="w-3 mr-2 inline-block"
-                />
+            <div className="flex flex-col gap-5 text-xs text-stone-200">
+              <div className="text-rs-primary border-rs-primary border-b-[1px] pb-1 w-fit">
+                Dirección:
+              </div>
+
+              <div>
                 Calle de la Sulamita, Barrio Fallabón, Melchor de Mencos, Petén,
                 Guatemala.
               </div>
 
-              <div className="flex flex-col">
-                <div className="text-sm text-stone-300 gap-3 mb-1">
-                  <FontAwesomeIcon
-                    icon={faPhoneAlt}
-                    className="w-3 mr-2 inline-block"
-                  />
-                  Teléfonos
-                </div>
+              <div className="text-rs-primary border-rs-primary border-b-[1px] pb-1 w-fit">
+                Teléfonos:
+              </div>
 
-                <div className="flex flex-col text-sm text-stone-300 gap-1">
-                  <div>Claro (+502) 7926 5328</div>
-                  <div>Tigo (+502) 4685 8545</div>
-                  <div>DigiCell (+501) 634 0186</div>
-                </div>
+              <div className="flex flex-col gap-1.5">
+                <div>Claro: (+502) 7926 5328</div>
+                <div>Tigo: (+502) 4685 8545</div>
+                <div>DigiCell: (+501) 634 0186</div>
               </div>
             </div>
           </div>

@@ -10,6 +10,7 @@ import {
   FounderMessage,
   Footer,
 } from "@lib/templates";
+import { WhatsAppFloatingIcon } from "@lib/atoms";
 
 const Home: NextPage = () => {
   return (
@@ -33,6 +34,8 @@ const Home: NextPage = () => {
       <FounderMessage />
       <Contact />
       <Footer />
+
+      <WhatsAppFloatingIcon />
     </>
   );
 };

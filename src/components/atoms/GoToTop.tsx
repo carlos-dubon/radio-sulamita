@@ -8,8 +8,8 @@ const GoToTop: FC = () => {
   return (
     <div
       className={`${
-        scrollY > 1300 ? "flex" : "hidden"
-      } w-10 h-10 justify-center items-center bg-rs-primary shadow-2xl fixed right-12 bottom-12 z-20 hover:bg-rs-secondary duration-500 cursor-pointer`}
+        scrollY > 1000 ? "flex" : "hidden"
+      } w-10 h-10 justify-center items-center bg-rs-primary shadow-2xl fixed right-11 bottom-11 z-20 hover:bg-rs-secondary duration-500 cursor-pointer`}
       onClick={() => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }}

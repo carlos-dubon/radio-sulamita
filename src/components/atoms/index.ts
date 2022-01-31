@@ -9,7 +9,8 @@ import { Input } from "./Input";
 import { TextArea } from "./TextArea";
 import { Column } from "./Column";
 import { Spinner } from "./Spinner";
-import { GoToTop } from "./goToTop";
+import { GoToTop } from "./GoToTop";
+import { WhatsAppFloatingIcon } from "./WhatsAppFloatingIcon";
 
 export {
   ToolbarButton,
@@ -24,4 +25,5 @@ export {
   Column,
   Spinner,
   GoToTop,
+  WhatsAppFloatingIcon,
 };

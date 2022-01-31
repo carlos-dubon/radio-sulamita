@@ -91,6 +91,7 @@ const Contact: FC = () => {
                 value={form.values.name}
                 name="name"
                 className="mb-1"
+                type="text"
               />
               <div className="text-xs mb-2 h-4">
                 {form.touched.name ? (
@@ -106,6 +107,7 @@ const Contact: FC = () => {
                 value={form.values.email}
                 name="email"
                 className="mb-1"
+                type="email"
               />
               <div className="text-xs mb-2 h-4">
                 {form.touched.email ? (

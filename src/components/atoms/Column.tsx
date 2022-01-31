@@ -9,7 +9,7 @@ interface ColumnProps {
 const Column: FC<ColumnProps> = ({ title, children, className }) => {
   return (
     <div className="flex flex-col p-16">
-      <div className="text-lg mb-8">{title}</div>
+      <div className="text-lg mb-8 font-light">{title}</div>
       <div className={className}>{children}</div>
     </div>
   );

@@ -45,7 +45,7 @@ const ChatBox: FC = () => {
   return (
     <div
       ref={chatBoxRef}
-      className="w-full h-[29.4rem] overflow-auto flex flex-col gap-4"
+      className="w-full h-[27.5rem] overflow-auto flex flex-col gap-4"
     >
       {loading ? (
         <div className="w-full h-full flex justify-center items-center">

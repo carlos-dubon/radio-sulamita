@@ -68,12 +68,11 @@ const Footer: FC = () => {
 
             <div className="flex flex-col gap-3 text-xs text-stone-200">
               {navigation.map((link) => (
-                <div
-                  key={link.anchor}
-                  className="hover:text-rs-primary duration-300 w-fit border-transparent hover:border-rs-primary border-b-[1px] pb-1"
-                >
+                <div key={link.anchor} className=" w-fit ">
                   <Link href={link.anchor}>
-                    <a>{link.title}</a>
+                    <a className="hover:text-rs-primary duration-300 w-full h-full border-transparent hover:border-rs-primary border-b-[1px] pb-1">
+                      {link.title}
+                    </a>
                   </Link>
                 </div>
               ))}

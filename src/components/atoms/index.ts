@@ -9,6 +9,7 @@ import { Input } from "./Input";
 import { TextArea } from "./TextArea";
 import { Column } from "./Column";
 import { Spinner } from "./Spinner";
+import { GoToTop } from "./goToTop";
 
 export {
   ToolbarButton,
@@ -22,4 +23,5 @@ export {
   TextArea,
   Column,
   Spinner,
+  GoToTop,
 };

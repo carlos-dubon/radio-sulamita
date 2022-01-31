@@ -38,41 +38,43 @@ const listOfCollaborators: CollaboratorsI[] = [
 
 const Collaborators: FC = () => {
   return (
-    <Section
-      title="Colaboradores"
-      subtitle="Quien quiera servirme, debe seguirme; y donde yo esté, allí también estará mi siervo. A quien me sirva, mi Padre lo honrará."
-      bibleVerse="Juan 12:26"
-      id="colaboradores"
-    >
-      <div className="flex justify-center flex-wrap gap-8">
-        <Fade duration={400} cascade direction="right" triggerOnce>
-          {listOfCollaborators.map((collaborator: CollaboratorsI) => {
-            return (
-              <div
-                className="flex flex-col items-center"
-                key={collaborator.name}
-              >
-                <div className="w-60 h-60 rs-inner-shadow flex items-center justify-center rounded-full mb-4 overflow-hidden">
-                  <div className="overflow-hidden border-rs-primary border-[3px] rounded-full w-[210px] h-[210px]">
-                    <Image
-                      src={collaborator.photoSrc}
-                      alt={collaborator.name}
-                      width={210}
-                      height={210}
-                      placeholder="blur"
-                    />
+    <div className="overflow-hidden">
+      <Section
+        title="Colaboradores"
+        subtitle="Quien quiera servirme, debe seguirme; y donde yo esté, allí también estará mi siervo. A quien me sirva, mi Padre lo honrará."
+        bibleVerse="Juan 12:26"
+        id="colaboradores"
+      >
+        <div className="flex justify-center flex-wrap gap-8">
+          <Fade duration={400} cascade direction="right">
+            {listOfCollaborators.map((collaborator: CollaboratorsI) => {
+              return (
+                <div
+                  className="flex flex-col items-center"
+                  key={collaborator.name}
+                >
+                  <div className="w-60 h-60 rs-inner-shadow flex items-center justify-center rounded-full mb-4 overflow-hidden">
+                    <div className="overflow-hidden border-rs-primary border-[3px] rounded-full w-[210px] h-[210px]">
+                      <Image
+                        src={collaborator.photoSrc}
+                        alt={collaborator.name}
+                        width={210}
+                        height={210}
+                        placeholder="blur"
+                      />
+                    </div>
+                  </div>
+                  <div>{collaborator.name}</div>
+                  <div className="text-rs-primary text-sm">
+                    {collaborator.occupation}
                   </div>
                 </div>
-                <div>{collaborator.name}</div>
-                <div className="text-rs-primary text-sm">
-                  {collaborator.occupation}
-                </div>
-              </div>
-            );
-          })}
-        </Fade>
-      </div>
-    </Section>
+              );
+            })}
+          </Fade>
+        </div>
+      </Section>
+    </div>
   );
 };
 

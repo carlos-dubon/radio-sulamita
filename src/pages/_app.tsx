@@ -12,9 +12,15 @@ const Player = dynamic<{}>(
   { ssr: false }
 );
 
+const GoToTop = dynamic<{}>(
+  import("@lib/atoms").then((module) => module.GoToTop),
+  { ssr: false }
+);
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
+      <GoToTop />
       <Player />
       <Component {...pageProps} />
     </Provider>

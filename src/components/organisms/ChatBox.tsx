@@ -15,8 +15,6 @@ import Image from "next/image";
 import { Spinner } from "@lib/atoms";
 
 const ChatBox: FC = () => {
-  const showLast: number = 30;
-
   const chatBoxRef = useRef<HTMLDivElement | null>(null);
 
   const messagesRef: CollectionReference<Message> = collection(
@@ -27,7 +25,7 @@ const ChatBox: FC = () => {
   const messagesQuery: Query<Message> = query(
     messagesRef,
     orderBy("date", "asc"),
-    limitToLast(showLast)
+    limitToLast(30)
   );
 
   const [messages, loading] = useCollectionData(messagesQuery);
@@ -55,7 +53,7 @@ const ChatBox: FC = () => {
         </div>
       ) : (
         <div className="w-full text-xs text-center text-stone-600">
-          Mostrando los últimos {showLast} mensajes
+          Mostrando los últimos {messages?.length} mensajes
         </div>
       )}
 

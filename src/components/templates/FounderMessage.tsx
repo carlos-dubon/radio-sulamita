@@ -22,7 +22,7 @@ const FounderMessage: FC = () => {
           <div className="text-stone-600 mb-6">
             Ex-Director General y Fundador
           </div>
-          <div className="text-stone-600 leading-8 text-sm">
+          <div className="text-stone-600 leading-7 text-sm">
             “Radio Sulamita 90.1 FM, es una emisora evangélica destinada a
             difundir un mensaje de cambio que permita la restauración,
             edificación, renovación y salvación fundamentada en la palabra de

@@ -9,7 +9,7 @@ const GoToTop: FC = () => {
     <div
       className={`${
         scrollY > 1000 ? "flex" : "hidden"
-      } w-10 h-10 justify-center items-center bg-rs-primary shadow-2xl fixed right-11 bottom-11 z-20 hover:bg-rs-secondary duration-500 cursor-pointer`}
+      } w-10 h-10 justify-center items-center bg-rs-primary shadow-2xl fixed right-11 bottom-11 z-40 hover:bg-rs-secondary duration-500 cursor-pointer`}
       onClick={() => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }}

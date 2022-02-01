@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Logo, ToolbarButton, IconLink } from "@lib/atoms";
+import { Logo, ToolbarButton, IconLink, HamburgerMenu } from "@lib/atoms";
 import { faWhatsapp, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import {
   faHandHoldingHeart,
@@ -53,7 +53,10 @@ export const Toolbar: FC = () => {
                 <Logo />
               </a>
             </Link>
-            <div className="flex">
+            <div className="lg:hidden">
+              <HamburgerMenu />
+            </div>
+            <div className="hidden lg:flex">
               <ToolbarButton href="/">Inicio</ToolbarButton>
               <ToolbarButton href="/#videos">Videos</ToolbarButton>
               <ToolbarButton href="/#colaboradores">

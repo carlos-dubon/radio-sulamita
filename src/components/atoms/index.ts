@@ -11,6 +11,7 @@ import { Column } from "./Column";
 import { Spinner } from "./Spinner";
 import { GoToTop } from "./GoToTop";
 import { WhatsAppFloatingIcon } from "./WhatsAppFloatingIcon";
+import { HamburgerMenu } from "./HamburgerMenu";
 
 export {
   ToolbarButton,
@@ -26,4 +27,5 @@ export {
   Spinner,
   GoToTop,
   WhatsAppFloatingIcon,
+  HamburgerMenu,
 };

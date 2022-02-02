@@ -32,8 +32,8 @@ export const Toolbar: FC = () => {
 
   return (
     <>
-      <div className="relative top-0 left-0 z-30  h-16 flex items-center justify-center bg-rs-secondary">
-        <div className="container flex justify-between">
+      <div className="relative top-0 left-0 z-30 sm:h-16 py-6 sm:py-0 flex items-center justify-center bg-rs-secondary">
+        <div className="container flex flex-col sm:flex-row justify-between gap-2 sm:gap-0">
           <div className="flex gap-4 items-center">
             <IconLink
               icon={faFacebook}

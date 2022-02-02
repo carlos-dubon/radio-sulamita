@@ -28,7 +28,7 @@ export const Countdown: FC = () => {
   };
 
   return (
-    <div className="text-rs-primary text-sm flex">
+    <div className="text-rs-primary text-sm flex flex-col sm:flex-row gap-1 sm:gap-0">
       <div className="mr-5">Siguiente aniversario:</div>
       <ReactCountdown date={aniversary} renderer={renderer} />
     </div>

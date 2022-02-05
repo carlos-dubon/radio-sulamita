@@ -1,13 +1,22 @@
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 import Image from "next/image";
 import { SectionQuote } from "@lib/molecules";
 import carlos_dubon from "public/carlos-dubon.jpg";
+import { useBreakpoint } from "@app/hooks";
 
 const FounderMessage: FC = () => {
+  const tailwind_sm: boolean = useBreakpoint("sm");
+
+  const [photoHeight, setPhotoHeight] = useState<"530px" | "390px">("390px");
+
+  useEffect(() => {
+    tailwind_sm ? setPhotoHeight("530px") : setPhotoHeight("390px");
+  }, [tailwind_sm]);
+
   return (
     <>
-      <div className="grid grid-cols-2 h-[530px] bg-rs-gray">
-        <div className="w-full h-full relative" style={{ height: "530px" }}>
+      <div className="grid grid-cols-1 md:grid-cols-2 md:h-[530px] bg-rs-gray">
+        <div className="w-full h-full relative" style={{ height: photoHeight }}>
           <Image
             src={carlos_dubon}
             alt="Pastor Carlos Dubón"
@@ -17,7 +26,7 @@ const FounderMessage: FC = () => {
             objectPosition="right top"
           />
         </div>
-        <div className="flex flex-col justify-center max-w-[555px] p-14">
+        <div className="flex flex-col justify-center md:max-w-[555px] px-7 py-24 md:p-14">
           <div className="text-3xl mb-1">Carlos Dubón</div>
           <div className="text-stone-600 mb-6">
             Ex-Director General y Fundador

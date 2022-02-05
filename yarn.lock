@@ -578,6 +578,11 @@
   resolved "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
+"@kodingdotninja/use-tailwind-breakpoint@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@kodingdotninja/use-tailwind-breakpoint/-/use-tailwind-breakpoint-0.0.5.tgz#f3319448c33572e2e810700e6f2c4e219cf3b54a"
+  integrity sha512-7h52zL+l+14u9diyjVcGoS5NRIwrc6euIGlHDwtJXlrR3h31RNyTrOfimy7PJTvS4fFdNgbzyrNcGfhj3sDRfQ==
+
 "@next/env@12.0.8":
   version "12.0.8"
   resolved "https://registry.npmjs.org/@next/env/-/env-12.0.8.tgz"
@@ -847,6 +852,11 @@
   version "0.16.2"
   resolved "https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.2.tgz"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
+
+"@types/tailwindcss@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@types/tailwindcss/-/tailwindcss-3.0.5.tgz#c92beac1be399be1335aba3cdb8c56e478b8d09e"
+  integrity sha512-PwkiuWKrwyS8bPVtMMzh+WRUPJ/1Hd+QuQhVbp5XHj0XsQNyDE+jKjpmzz4MgoLVtYTuHJz1BvbOWaAVWKIBqw==
 
 "@types/uuid@^8.3.4":
   version "8.3.4"

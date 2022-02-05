@@ -2,15 +2,24 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { SectionQuote } from "@lib/molecules";
 import Image from "next/image";
 import slide1 from "public/slider/slide-1.jpg";
 import slide2 from "public/slider/slide-2.jpg";
 import slide3 from "public/slider/slide-3.jpg";
 import { Fade } from "react-awesome-reveal";
+import { useBreakpoint } from "@app/hooks";
 
 export const HeroSlider: FC = () => {
+  const tailwind_sm: boolean = useBreakpoint("sm");
+
+  const [sliderHeight, setSliderHeight] = useState<"620px" | "820px">("620px");
+
+  useEffect(() => {
+    tailwind_sm ? setSliderHeight("820px") : setSliderHeight("620px");
+  }, [tailwind_sm]);
+
   return (
     <>
       <Swiper
@@ -19,10 +28,10 @@ export const HeroSlider: FC = () => {
         modules={[Autoplay, Navigation]}
         autoplay={{ delay: 6000 }}
       >
-        <SwiperSlide className="relative" style={{ height: "820px" }}>
+        <SwiperSlide className="relative" style={{ height: sliderHeight }}>
           <div
             className="w-full relative top-0 left-0 -z-10"
-            style={{ height: "820px" }}
+            style={{ height: sliderHeight }}
           >
             <Image
               src={slide1}
@@ -31,7 +40,7 @@ export const HeroSlider: FC = () => {
               placeholder="blur"
               className="brightness-75"
               objectFit="cover"
-              objectPosition="bottom"
+              objectPosition={`${tailwind_sm ? "bottom" : "left bottom"}`}
               priority
             />
           </div>
@@ -42,13 +51,12 @@ export const HeroSlider: FC = () => {
                   <div className="bg-rs-primary px-3 py-2 text-base text-white w-fit mb-6">
                     Mateo 22:37-38
                   </div>
-
                   <div className="text-white text-2xl">
                     Amaras al señor tu Dios con todo
                   </div>
 
-                  <div className="text-white text-6xl">tu corazón</div>
-                  <div className="text-white text-base">
+                  <div className="text-white text-5xl sm:text-6xl">tu corazón</div>
+                  <div className="text-white text-sm sm:text-base">
                     con toda tu alma y con toda tu mente. Este es el primero y
                     grande mandamiento
                   </div>
@@ -58,10 +66,10 @@ export const HeroSlider: FC = () => {
           </div>
         </SwiperSlide>
 
-        <SwiperSlide className="relative" style={{ height: "820px" }}>
+        <SwiperSlide className="relative" style={{ height: sliderHeight }}>
           <div
             className="w-full relative top-0 left-0 -z-10"
-            style={{ height: "820px" }}
+            style={{ height: sliderHeight }}
           >
             <Image
               src={slide2}
@@ -80,8 +88,8 @@ export const HeroSlider: FC = () => {
                 <div className="text-white text-2xl">
                   Transmitiendo desde la puerta del
                 </div>
-                <div className="text-white text-6xl">mundo Maya,</div>
-                <div className="text-white text-base">
+                <div className="text-white text-5xl sm:text-6xl">mundo Maya,</div>
+                <div className="text-white text-sm sm:text-base">
                   para el mundo entero. Somos Radio Sulamita, 90.1 FM — La
                   frecuencia del amor de Dios.
                 </div>
@@ -90,10 +98,10 @@ export const HeroSlider: FC = () => {
           </div>
         </SwiperSlide>
 
-        <SwiperSlide className="relative" style={{ height: "820px" }}>
+        <SwiperSlide className="relative" style={{ height: sliderHeight }}>
           <div
             className="w-full relative top-0 left-0 -z-10"
-            style={{ height: "820px" }}
+            style={{ height: sliderHeight }}
           >
             <Image
               src={slide3}
@@ -116,8 +124,8 @@ export const HeroSlider: FC = () => {
                   <div className="text-white text-2xl">
                     En el hogar de mi Padre hay muchas
                   </div>
-                  <div className="text-white text-6xl">viviendas;</div>
-                  <div className="text-white text-base">
+                  <div className="text-white text-5xl sm:text-6xl">viviendas;</div>
+                  <div className="text-white text-sm sm:text-base">
                     si no fuera así, ya se lo habría dicho a ustedes. Voy a
                     prepararles un lugar.
                   </div>

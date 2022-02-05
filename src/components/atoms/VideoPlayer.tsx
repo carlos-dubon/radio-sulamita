@@ -9,7 +9,7 @@ interface Props {
 
 const VideoPlayer: FC<Props> = ({ title, videoId }) => {
   return (
-    <div className="h-64 w-full">
+    <div className="w-full">
       <Plyr
         source={{
           title,

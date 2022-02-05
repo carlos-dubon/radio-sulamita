@@ -45,7 +45,7 @@ const ChatBox: FC = () => {
   return (
     <div
       ref={chatBoxRef}
-      className="w-full h-[27.5rem] overflow-auto flex flex-col gap-4"
+      className="w-full h-72 md:h-[27.5rem] overflow-auto flex flex-col gap-4"
     >
       {loading ? (
         <div className="w-full h-full flex justify-center items-center">
@@ -67,7 +67,7 @@ const ChatBox: FC = () => {
               } p-3 text-xs w-11/12 ${m.admin ? "ml-auto" : null}`}
             >
               <div
-                className={`flex justify-between ${
+                className={`flex flex-col sm:flex-row justify-between ${
                   m.admin ? "text-stone-200" : "text-stone-500"
                 } mb-1`}
               >

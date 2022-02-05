@@ -29,12 +29,15 @@ const Videos: FC = () => {
       bibleVerse="2 Timoteo 3:16-17"
       id="videos"
     >
-      <div className="grid grid-cols-2 justify-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center">
         {videos.map((video: Video) => {
           return (
-            <div key={video.youtubeId} className="w-4/5">
+            <div
+              key={video.youtubeId}
+              className="w-11/12 sm:w-4/5 mb-7 md:mb-0"
+            >
               <div className="mb-1">{video.title}</div>
-              <div className="text-rs-primary text-sm mb-3 md:h-16 lg:h-16 xl:h-10">
+              <div className="text-rs-primary text-sm mb-4 sm:mb-3 md:h-16 lg:h-16 xl:h-10">
                 {video.description}
               </div>
               <VideoPlayer title={video.title} videoId={video.youtubeId} />

@@ -32,13 +32,15 @@ const Donations: FC = () => {
               height={42}
             />
             <div className="text-white text-4xl mb-10 mt-10">Donaciones</div>
-            <div className="text-white text-center text-xl w-4/5 mb-3">
+            <div className="text-white text-center mb-3 text-base sm:text-xl sm:w-4/5">
               En todo os mostré que así, trabajando, debéis ayudar a los
               débiles, y recordar las palabras del Señor Jesús, que dijo: “Más
               bienaventurado es dar que recibir.”
             </div>
-            <div className="text-stone-300 text-lg mb-16">Hechos 20:35</div>
-            <div className="text-stone-300 text-center w-3/5 mb-6">
+            <div className="text-stone-300 text-base sm:text-lg mb-16">
+              Hechos 20:35
+            </div>
+            <div className="text-stone-300 text-center text-sm sm:text-base w-11/12 md:w-3/5 mb-6">
               Si en su corazón desea apoyar a este ministerio económicamente,
               puede hacerlo a través de la cuenta de Banrural No. 3020005791, a
               nombre de Fabiola Migdalia Guerra.

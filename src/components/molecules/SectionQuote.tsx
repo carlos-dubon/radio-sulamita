@@ -24,9 +24,9 @@ const SectionQuote: FC<Props> = ({
         secondary ? "bg-rs-primary" : "bg-rs-secondary"
       } flex justify-center items-center w-full py-8`}
     >
-      <div className="container flex justify-between items-center">
-        <div className="flex flex-col gap-1 max-w-3xl">
-          <div className="text-xl text-white font-light">{heading}</div>
+      <div className="container flex justify-between md:items-center flex-col md:flex-row">
+        <div className="flex flex-col gap-1 max-w-3xl mb-5 md:mb-0">
+          <div className="text-lg md:text-xl text-white font-light">{heading}</div>
           {subHeading ? (
             <div className="text-sm text-stone-200 font-light">
               {subHeading}

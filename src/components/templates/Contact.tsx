@@ -78,7 +78,7 @@ const Contact: FC = () => {
         removeBottom
         id="contacto"
       >
-        <div className="w-full bg-rs-gray grid grid-cols-2 py-6 relative z-20">
+        <div className="w-full bg-rs-gray grid grid-cols-1 md:grid-cols-2 py-6 relative z-20">
           <Column title="Mensajes recientes">
             <ChatBox />
           </Column>

@@ -32,7 +32,7 @@ const Footer: FC = () => {
   return (
     <div className="-mt-28 bg-rs-secondary py-24 flex justify-center">
       <div className="container">
-        <div className="grid grid-cols-3 gap-36">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-36">
           <div className="flex flex-col gap-6">
             <Link href="/">
               <a>

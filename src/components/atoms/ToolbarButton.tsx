@@ -30,7 +30,7 @@ export const ToolbarButton: FC<Props> = ({
 }) => {
   const classStr: string = `
   transition-all duration-500 ease-in-out
-  h-20 ${primary ? "w-40" : "px-6"}
+  h-20 ${primary ? "w-40" : "px-4"}
   flex justify-center items-center
   text-xs uppercase tracking-wider cursor-pointer
   ${backgroundColor ? backgroundColor : "bg-white"}

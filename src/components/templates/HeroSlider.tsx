@@ -18,6 +18,9 @@ export const HeroSlider: FC = () => {
 
   useEffect(() => {
     tailwind_sm ? setSliderHeight("820px") : setSliderHeight("620px");
+
+    // fix useBreakpoint not working on load see: https://github.com/kodingdotninja/use-tailwind-breakpoint/issues/2#issuecomment-1030703188
+    window.dispatchEvent(new Event("resize"));
   }, [tailwind_sm]);
 
   return (
@@ -55,7 +58,9 @@ export const HeroSlider: FC = () => {
                     Amaras al señor tu Dios con todo
                   </div>
 
-                  <div className="text-white text-5xl sm:text-6xl">tu corazón</div>
+                  <div className="text-white text-5xl sm:text-6xl">
+                    tu corazón
+                  </div>
                   <div className="text-white text-sm sm:text-base">
                     con toda tu alma y con toda tu mente. Este es el primero y
                     grande mandamiento
@@ -88,7 +93,9 @@ export const HeroSlider: FC = () => {
                 <div className="text-white text-2xl">
                   Transmitiendo desde la puerta del
                 </div>
-                <div className="text-white text-5xl sm:text-6xl">mundo Maya,</div>
+                <div className="text-white text-5xl sm:text-6xl">
+                  mundo Maya,
+                </div>
                 <div className="text-white text-sm sm:text-base">
                   para el mundo entero. Somos Radio Sulamita, 90.1 FM — La
                   frecuencia del amor de Dios.
@@ -124,7 +131,9 @@ export const HeroSlider: FC = () => {
                   <div className="text-white text-2xl">
                     En el hogar de mi Padre hay muchas
                   </div>
-                  <div className="text-white text-5xl sm:text-6xl">viviendas;</div>
+                  <div className="text-white text-5xl sm:text-6xl">
+                    viviendas;
+                  </div>
                   <div className="text-white text-sm sm:text-base">
                     si no fuera así, ya se lo habría dicho a ustedes. Voy a
                     prepararles un lugar.

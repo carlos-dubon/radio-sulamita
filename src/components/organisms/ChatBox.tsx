@@ -71,7 +71,7 @@ const ChatBox: FC = () => {
                   m.admin ? "text-stone-200" : "text-stone-500"
                 } mb-1`}
               >
-                <div>
+                <div className="mb-1 sm:m-0">
                   {m.admin ? (
                     "RADIO SULAMITA"
                   ) : (

@@ -5,7 +5,7 @@ import {
   SwipeEventData,
   useSwipeable,
 } from "react-swipeable";
-import { toggle } from "src/state/slices/sidebarSlice";
+import { toggle as toggleMenu } from "src/state/slices/sidebarSlice";
 import { toggle as togglePlayer } from "src/state/slices/playerSlice";
 import Link from "next/link";
 import {
@@ -31,7 +31,7 @@ const Sidebar: FC = () => {
 
   const handlers: SwipeableHandlers = useSwipeable({
     onSwipedLeft: (eventData: SwipeEventData) => {
-      dispatch(toggle());
+      dispatch(toggleMenu());
     },
   });
 
@@ -84,7 +84,7 @@ const Sidebar: FC = () => {
               <Link href={link.target}>
                 <a
                   className="w-full h-16 flex justify-start px-5 transition-all hover:bg-rs-primary hover:text-white duration-500 text-xs uppercase tracking-wider"
-                  onClick={() => dispatch(toggle())}
+                  onClick={() => dispatch(toggleMenu())}
                 >
                   {link.label}
                 </a>
@@ -96,7 +96,7 @@ const Sidebar: FC = () => {
         <Link href="/#donar">
           <a
             className="w-full h-16 flex justify-start px-5 transition-all hover:bg-rs-secondary hover:text-white duration-500 text-xs uppercase tracking-wider"
-            onClick={() => dispatch(toggle())}
+            onClick={() => dispatch(toggleMenu())}
           >
             Donar
             <FontAwesomeIcon
@@ -109,7 +109,7 @@ const Sidebar: FC = () => {
         <button
           className="w-full h-16 flex justify-start items-center px-5 transition-all bg-rs-primary hover:bg-rs-secondary text-white duration-500 text-xs uppercase tracking-wider"
           onClick={() => {
-            dispatch(toggle());
+            dispatch(toggleMenu());
             dispatch(togglePlayer());
           }}
         >

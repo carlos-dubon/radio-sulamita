@@ -31,6 +31,7 @@ const Donations: FC = () => {
               duration={400}
               direction="up"
               className="flex justify-center w-full"
+              triggerOnce
             >
               <Image
                 src="/donation-heart.svg"

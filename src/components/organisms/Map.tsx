@@ -124,10 +124,27 @@ const Map: FC = () => {
         mapOptions
       );
 
-      new google.maps.Marker({
+      const contentString: string = `
+      <div class="flex flex-col">
+        <div class="font-medium">Calle de la Sulamita, Barrio Fallabon, Melchor de Mencos, Petén.</div>
+      </div>`;
+
+      const infowindow: google.maps.InfoWindow = new google.maps.InfoWindow({
+        content: contentString,
+      });
+
+      const marker: google.maps.Marker = new google.maps.Marker({
         position: radioSulamita,
         map: map,
         icon: "/marker.png",
+      });
+
+      marker.addListener("click", () => {
+        infowindow.open({
+          anchor: marker,
+          map,
+          shouldFocus: false,
+        });
       });
     };
 

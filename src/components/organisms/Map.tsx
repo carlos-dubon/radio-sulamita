@@ -170,6 +170,7 @@ const Map: FC = () => {
       const marker: google.maps.Marker = new google.maps.Marker({
         position: radioSulamita,
         map: map,
+        animation: google.maps.Animation.DROP,
         icon: "/marker.png",
       });
 

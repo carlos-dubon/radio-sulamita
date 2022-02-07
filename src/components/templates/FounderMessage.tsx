@@ -1,16 +1,17 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useState } from "react";
 import Image from "next/image";
 import { SectionQuote } from "@lib/molecules";
 import carlos_dubon from "public/carlos-dubon.jpg";
 import { useBreakpoint } from "@app/hooks";
 import { Fade } from "react-awesome-reveal";
+import useIsomorphicLayoutEffect from "use-isomorphic-layout-effect";
 
 const FounderMessage: FC = () => {
   const tailwind_sm: boolean = useBreakpoint("sm");
 
   const [photoHeight, setPhotoHeight] = useState<"530px" | "390px">("390px");
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     tailwind_sm ? setPhotoHeight("530px") : setPhotoHeight("390px");
   }, [tailwind_sm]);
 

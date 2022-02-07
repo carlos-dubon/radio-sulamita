@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { SectionQuote } from "@lib/molecules";
 import Image from "next/image";
 import slide1 from "public/slider/slide-1.jpg";
@@ -10,13 +10,14 @@ import slide2 from "public/slider/slide-2.jpg";
 import slide3 from "public/slider/slide-3.jpg";
 import { Fade } from "react-awesome-reveal";
 import { useBreakpoint } from "@app/hooks";
+import useIsomorphicLayoutEffect from "use-isomorphic-layout-effect";
 
 export const HeroSlider: FC = () => {
   const tailwind_sm: boolean = useBreakpoint("sm");
 
   const [sliderHeight, setSliderHeight] = useState<"620px" | "820px">("620px");
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     tailwind_sm ? setSliderHeight("820px") : setSliderHeight("620px");
 
     // fix useBreakpoint not working on load see: https://github.com/kodingdotninja/use-tailwind-breakpoint/issues/2#issuecomment-1030703188

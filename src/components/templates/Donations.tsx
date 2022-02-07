@@ -3,6 +3,7 @@ import Image from "next/image";
 import { SectionQuote } from "@lib/molecules";
 import Link from "next/link";
 import bg from "public/sections/sheep.jpg";
+import { Fade } from "react-awesome-reveal";
 
 const Donations: FC = () => {
   return (
@@ -25,21 +26,28 @@ const Donations: FC = () => {
 
         <div className="flex justify-center items-center absolute top-0 left-0 h-full w-full">
           <div className="container flex flex-col items-center">
-            <Image
-              src="/donation-heart.svg"
-              alt="donation heart"
-              width={47}
-              height={42}
-            />
-            <div className="text-white text-4xl mb-10 mt-10">Donaciones</div>
-            <div className="text-white text-center mb-3 text-base sm:text-xl sm:w-4/5">
-              En todo os mostré que así, trabajando, debéis ayudar a los
-              débiles, y recordar las palabras del Señor Jesús, que dijo: “Más
-              bienaventurado es dar que recibir.”
-            </div>
-            <div className="text-stone-300 text-base sm:text-lg mb-16">
-              Hechos 20:35
-            </div>
+            <Fade
+              cascade
+              duration={400}
+              direction="up"
+              className="flex justify-center w-full"
+            >
+              <Image
+                src="/donation-heart.svg"
+                alt="donation heart"
+                width={47}
+                height={42}
+              />
+              <div className="text-white text-4xl mb-10 mt-10">Donaciones</div>
+              <div className="text-white text-center mb-3 text-base sm:text-xl sm:w-4/5">
+                En todo os mostré que así, trabajando, debéis ayudar a los
+                débiles, y recordar las palabras del Señor Jesús, que dijo: “Más
+                bienaventurado es dar que recibir.”
+              </div>
+              <div className="text-stone-300 text-base sm:text-lg mb-16">
+                Hechos 20:35
+              </div>
+            </Fade>
             <div className="text-stone-300 text-center text-sm sm:text-base w-11/12 md:w-3/5 mb-6">
               Si en su corazón desea apoyar a este ministerio económicamente,
               puede hacerlo a través de la cuenta de Banrural No. 3020005791, a

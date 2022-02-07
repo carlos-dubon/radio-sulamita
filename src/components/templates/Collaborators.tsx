@@ -46,7 +46,7 @@ const Collaborators: FC = () => {
         id="colaboradores"
       >
         <div className="flex justify-center flex-wrap gap-8">
-          <Fade duration={400} cascade direction="right">
+          <Fade duration={400} cascade direction="right" triggerOnce>
             {listOfCollaborators.map((collaborator: CollaboratorsI) => {
               return (
                 <div

@@ -1,4 +1,5 @@
 import { FC, ReactNode } from "react";
+import { Fade } from "react-awesome-reveal";
 
 interface Props {
   title: string;
@@ -25,11 +26,21 @@ const Section: FC<Props> = ({
       }`}
     >
       <div className="container flex flex-col justify-center items-center">
-        <div className="text-4xl mb-10">{title}</div>
-        <div className="text-base sm:text-lg sm:w-4/5 justify-center text-center mb-3">
-          {subtitle}
-        </div>
-        <div className="text-rs-primary text-base sm:text-lg">{bibleVerse}</div>
+        <Fade
+          cascade
+          duration={400}
+          direction="up"
+          className="flex justify-center w-full"
+          triggerOnce
+        >
+          <div className="text-4xl mb-10">{title}</div>
+          <div className="text-base sm:text-lg sm:w-4/5 justify-center text-center mb-3">
+            {subtitle}
+          </div>
+          <div className="text-rs-primary text-base sm:text-lg">
+            {bibleVerse}
+          </div>
+        </Fade>
         <div className="mt-24 w-full">{children}</div>
       </div>
     </div>

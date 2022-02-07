@@ -1,5 +1,32 @@
 import { FC, MutableRefObject, useEffect, useRef } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
+import ReactDOMServer from "react-dom/server";
+import { Spinner } from "@lib/atoms";
+import wait from "wait";
+
+const LoadingInfoWindow: JSX.Element = (
+  <div className="flex flex-col w-full">
+    <div className="w-full justify-center items-center scale-50">
+      <Spinner />
+    </div>
+  </div>
+);
+
+const LoadedInfoWindow: JSX.Element = (
+  <div className="flex flex-col w-full">
+    <div>
+      <span className="font-medium">Dirección:</span> Calle de la Sulamita,
+      Barrio Fallabon, Melchor de Mencos, Petén.
+    </div>
+    <div className="w-full flex justify-center mt-3">
+      <img
+        src="/radio-sulamita.jpg"
+        alt="Radio Sulamita 90.1FM"
+        className="w-[225px] h-[171px]"
+      />
+    </div>
+  </div>
+);
 
 const Map: FC = () => {
   const mapContainer: MutableRefObject<HTMLDivElement | null> =
@@ -124,13 +151,20 @@ const Map: FC = () => {
         mapOptions
       );
 
-      const contentString: string = `
-      <div class="flex flex-col">
-        <div class="font-medium">Calle de la Sulamita, Barrio Fallabon, Melchor de Mencos, Petén.</div>
-      </div>`;
-
       const infowindow: google.maps.InfoWindow = new google.maps.InfoWindow({
-        content: contentString,
+        content: ReactDOMServer.renderToString(LoadingInfoWindow),
+      });
+
+      const openInfoWindow = (): void => {
+        infowindow.open({
+          anchor: marker,
+          map,
+          shouldFocus: false,
+        });
+      };
+
+      map.addListener("click", () => {
+        infowindow.close();
       });
 
       const marker: google.maps.Marker = new google.maps.Marker({
@@ -139,12 +173,15 @@ const Map: FC = () => {
         icon: "/marker.png",
       });
 
-      marker.addListener("click", () => {
-        infowindow.open({
-          anchor: marker,
-          map,
-          shouldFocus: false,
-        });
+      marker.addListener("click", async () => {
+        openInfoWindow();
+
+        const content: string = ReactDOMServer.renderToString(LoadedInfoWindow);
+
+        await wait(200);
+        infowindow.close();
+        infowindow.setContent(content);
+        openInfoWindow();
       });
     };
 

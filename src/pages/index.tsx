@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Toolbar } from "@lib/organisms";
+import { Sidebar, Toolbar } from "@lib/organisms";
 import {
   HeroSlider,
   Videos,
@@ -26,7 +26,9 @@ const Home: NextPage = () => {
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
 
+      <Sidebar />
       <Toolbar />
+
       <HeroSlider />
       <Videos />
       <Donations />

@@ -53,7 +53,7 @@ const Contact: FC = () => {
       const country: string = await getCountry();
 
       const admin: boolean =
-        values.name.trim().toLowerCase() == "radiosul" ? true : false;
+        values.name.trim().toLowerCase() == "radio sulamita" ? true : false;
 
       await setDoc(doc(db, "chat", id), {
         ...values,

@@ -15,7 +15,7 @@ import useIsomorphicLayoutEffect from "use-isomorphic-layout-effect";
 export const HeroSlider: FC = () => {
   const tailwind_sm: boolean = useBreakpoint("sm");
 
-  const [sliderHeight, setSliderHeight] = useState<"620px" | "820px">("620px");
+  const [sliderHeight, setSliderHeight] = useState<"620px" | "820px">("820px");
 
   useIsomorphicLayoutEffect(() => {
     tailwind_sm ? setSliderHeight("820px") : setSliderHeight("620px");

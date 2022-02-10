@@ -9,10 +9,11 @@ import useIsomorphicLayoutEffect from "use-isomorphic-layout-effect";
 const FounderMessage: FC = () => {
   const tailwind_sm: boolean = useBreakpoint("sm");
 
-  const [photoHeight, setPhotoHeight] = useState<"530px" | "390px">("390px");
+  const [photoHeight, setPhotoHeight] = useState<"530px" | "390px">("530px");
 
   useIsomorphicLayoutEffect(() => {
     tailwind_sm ? setPhotoHeight("530px") : setPhotoHeight("390px");
+    window.dispatchEvent(new Event("resize"));
   }, [tailwind_sm]);
 
   return (

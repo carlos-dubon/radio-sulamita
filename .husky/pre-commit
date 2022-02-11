@@ -1,6 +1,8 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+# used npm.cmd to fix issue with GitHub Desktop. see: https://github.com/desktop/desktop/issues/12562#issuecomment-1007154382
+
 echo '🏗️👷 Styling, testing and building your project before committing'
 
 # Check Prettier standards
@@ -27,16 +29,16 @@ npm.cmd run check-types ||
     false;
 )
 
-# If everything passes... Now we can commit
-echo '🤔🤔🤔🤔... Alright.... Code looks good to me... Trying to build now. 🤔🤔🤔🤔'
+# # If everything passes... Now we can commit
+# echo '🤔🤔🤔🤔... Alright.... Code looks good to me... Trying to build now. 🤔🤔🤔🤔'
 
-npm.cmd run build ||
-(
-    echo '❌👷🔨❌ Better call Bob... Because your build failed ❌👷🔨❌
-            Next build failed: View the errors above to see why. 
-    '
-    false;
-)
+# npm.cmd run build ||
+# (
+#     echo '❌👷🔨❌ Better call Bob... Because your build failed ❌👷🔨❌
+#             Next build failed: View the errors above to see why. 
+#     '
+#     false;
+# )
 
 # If everything passes... Now we can commit
 echo '✅✅✅✅ You win this time... I am committing this now. ✅✅✅✅'

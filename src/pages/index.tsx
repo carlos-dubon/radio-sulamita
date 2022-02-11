@@ -9,10 +9,29 @@ import {
   Contact,
   FounderMessage,
   Footer,
+  SectionRefs,
 } from "@lib/templates";
 import { WhatsAppFloatingIcon } from "@lib/atoms";
+import { MutableRefObject, useRef } from "react";
 
 const Home: NextPage = () => {
+  const videosRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
+  const donationsRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
+  const collaboratorsRef: MutableRefObject<HTMLDivElement | null> =
+    useRef(null);
+  const contactRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
+
+  const refs = {
+    videosRef,
+    donationsRef,
+    collaboratorsRef,
+    contactRef,
+  };
+
+  const scrollTo = (section: SectionRefs): void => {
+    refs[section].current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <Head>
@@ -26,15 +45,23 @@ const Home: NextPage = () => {
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
 
-      <Sidebar />
-      <Toolbar />
+      <Sidebar scrollTo={scrollTo} />
+      <Toolbar scrollTo={scrollTo} />
 
       <HeroSlider />
-      <Videos />
-      <Donations />
-      <Collaborators />
+      <div ref={videosRef}>
+        <Videos />
+      </div>
+      <div ref={donationsRef}>
+        <Donations />
+      </div>
+      <div ref={collaboratorsRef}>
+        <Collaborators />
+      </div>
       <FounderMessage />
-      <Contact />
+      <div ref={contactRef}>
+        <Contact />
+      </div>
       <Footer />
 
       <WhatsAppFloatingIcon />

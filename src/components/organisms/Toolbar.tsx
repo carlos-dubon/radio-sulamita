@@ -12,8 +12,13 @@ import { useAppSelector, useAppDispatch } from "@app/hooks";
 import { toggle } from "src/state/slices/playerSlice";
 import { RootState } from "src/state/store";
 import Link from "next/link";
+import { SectionRefs } from "@lib/templates";
 
-export const Toolbar: FC = () => {
+interface Props {
+  scrollTo: (section: SectionRefs) => void;
+}
+
+export const Toolbar: FC<Props> = ({ scrollTo }) => {
   const playerState: boolean = useAppSelector(
     (state: RootState) => state.player.playing
   );
@@ -58,16 +63,34 @@ export const Toolbar: FC = () => {
             </div>
             <div className="hidden lg:flex">
               <ToolbarButton href="/">Inicio</ToolbarButton>
-              <ToolbarButton href="/#videos">Videos</ToolbarButton>
-              <ToolbarButton href="/#colaboradores">
+              <ToolbarButton
+                onClick={() => {
+                  scrollTo("videosRef");
+                }}
+              >
+                Videos
+              </ToolbarButton>
+              <ToolbarButton
+                onClick={() => {
+                  scrollTo("collaboratorsRef");
+                }}
+              >
                 Colaboradores
               </ToolbarButton>
-              <ToolbarButton href="/#contacto">Contacto</ToolbarButton>
+              <ToolbarButton
+                onClick={() => {
+                  scrollTo("contactRef");
+                }}
+              >
+                Contacto
+              </ToolbarButton>
               <ToolbarButton
                 className="group"
                 hoverBackgroundColor="hover:bg-black"
                 primary={true}
-                href="/#donar"
+                onClick={() => {
+                  scrollTo("donationsRef");
+                }}
                 title="Donar"
               >
                 <FontAwesomeIcon

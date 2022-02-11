@@ -15,8 +15,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Fade } from "react-awesome-reveal";
+import { SectionRefs } from "@lib/templates";
 
-const Sidebar: FC = () => {
+interface Props {
+  scrollTo: (section: SectionRefs) => void;
+}
+
+const Sidebar: FC<Props> = ({ scrollTo }) => {
   const dispatch = useAppDispatch();
 
   const openState: boolean = useAppSelector((state) => state.sidebar.open);
@@ -36,23 +41,19 @@ const Sidebar: FC = () => {
   });
 
   const links: Array<{
-    target: string;
+    ref: SectionRefs;
     label: string;
   }> = [
     {
-      target: "/",
-      label: "Inicio",
-    },
-    {
-      target: "/#videos",
+      ref: "videosRef",
       label: "Videos",
     },
     {
-      target: "/#colaboradores",
+      ref: "collaboratorsRef",
       label: "Colaboradores",
     },
     {
-      target: "/#contacto",
+      ref: "contactRef",
       label: "Contacto",
     },
   ];
@@ -78,17 +79,28 @@ const Sidebar: FC = () => {
       } z-[60] w-9/12 max-w-xs h-full flex flex-col shadow-xl transition-all duration-700 py-3`}
     >
       <Fade duration={450} delay={300}>
+        <Link href="/">
+          <a
+            className="cursor-pointer w-full h-16 flex items-center justify-start px-5 transition-all hover:bg-rs-primary hover:text-white duration-500 text-xs uppercase tracking-wider"
+            onClick={() => {
+              dispatch(toggleMenu());
+            }}
+          >
+            Inicio
+          </a>
+        </Link>
+
         {links.map((link) => {
           return (
-            <div key={link.target}>
-              <Link href={link.target}>
-                <a
-                  className="w-full h-16 flex justify-start px-5 transition-all hover:bg-rs-primary hover:text-white duration-500 text-xs uppercase tracking-wider"
-                  onClick={() => dispatch(toggleMenu())}
-                >
-                  {link.label}
-                </a>
-              </Link>
+            <div
+              key={link.ref}
+              onClick={() => {
+                scrollTo(link.ref);
+                dispatch(toggleMenu());
+              }}
+              className="cursor-pointer w-full h-16 flex items-center justify-start px-5 transition-all hover:bg-rs-primary hover:text-white duration-500 text-xs uppercase tracking-wider"
+            >
+              {link.label}
             </div>
           );
         })}

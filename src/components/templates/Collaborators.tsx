@@ -1,10 +1,10 @@
 import { FC } from "react";
 import { Section } from "@lib/molecules";
 import Image from "next/image";
-import robin_sucup from "public/collaborators/robin-sucup.jpg";
-import jose_pop from "public/collaborators/jose-pop.jpg";
-import sindi_pop from "public/collaborators/sindi-pop.jpg";
-import maria_perez from "public/collaborators/maria-perez.jpg";
+import robinSucup from "public/collaborators/robin-sucup.jpg";
+import josePop from "public/collaborators/jose-pop.jpg";
+import sindiPop from "public/collaborators/sindi-pop.jpg";
+import mariaPerez from "public/collaborators/maria-perez.jpg";
 import { Fade } from "react-awesome-reveal";
 
 interface CollaboratorsI {
@@ -15,22 +15,22 @@ interface CollaboratorsI {
 
 const listOfCollaborators: CollaboratorsI[] = [
   {
-    photoSrc: robin_sucup,
+    photoSrc: robinSucup,
     name: "Robin Sucup",
     occupation: "Locutor",
   },
   {
-    photoSrc: jose_pop,
+    photoSrc: josePop,
     name: "Jose Pop",
     occupation: "Locutor",
   },
   {
-    photoSrc: sindi_pop,
+    photoSrc: sindiPop,
     name: "Sindi Pop",
     occupation: "Locutora",
   },
   {
-    photoSrc: maria_perez,
+    photoSrc: mariaPerez,
     name: "María del Carmen",
     occupation: "Locutora",
   },

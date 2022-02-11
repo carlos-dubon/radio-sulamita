@@ -26,7 +26,9 @@ const SectionQuote: FC<Props> = ({
     >
       <div className="container flex justify-between md:items-center flex-col md:flex-row">
         <div className="flex flex-col gap-1 max-w-3xl mb-5 md:mb-0">
-          <div className="text-lg md:text-xl text-white font-light">{heading}</div>
+          <div className="text-lg md:text-xl text-white font-light">
+            {heading}
+          </div>
           {subHeading ? (
             <div className="text-sm text-stone-200 font-light">
               {subHeading}

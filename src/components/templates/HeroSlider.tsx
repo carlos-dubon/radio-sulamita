@@ -13,16 +13,16 @@ import { useBreakpoint } from "@app/hooks";
 import useIsomorphicLayoutEffect from "use-isomorphic-layout-effect";
 
 export const HeroSlider: FC = () => {
-  const tailwind_sm: boolean = useBreakpoint("sm");
+  const tailwindSm: boolean = useBreakpoint("sm");
 
   const [sliderHeight, setSliderHeight] = useState<"620px" | "820px">("820px");
 
   useIsomorphicLayoutEffect(() => {
-    tailwind_sm ? setSliderHeight("820px") : setSliderHeight("620px");
+    tailwindSm ? setSliderHeight("820px") : setSliderHeight("620px");
 
     // fix useBreakpoint not working on load see: https://github.com/kodingdotninja/use-tailwind-breakpoint/issues/2#issuecomment-1030703188
     window.dispatchEvent(new Event("resize"));
-  }, [tailwind_sm]);
+  }, [tailwindSm]);
 
   return (
     <>
@@ -44,7 +44,7 @@ export const HeroSlider: FC = () => {
               placeholder="blur"
               className="brightness-75"
               objectFit="cover"
-              objectPosition={`${tailwind_sm ? "bottom" : "left bottom"}`}
+              objectPosition={`${tailwindSm ? "bottom" : "left bottom"}`}
               priority
             />
           </div>

@@ -5,6 +5,14 @@ interface NumberProps {
   children: ReactNode;
 }
 
+interface CountdownProps {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  completed: boolean;
+}
+
 const Number: FC<NumberProps> = ({ children }) => {
   return <div className="text-white">{children}</div>;
 };
@@ -18,7 +26,7 @@ export const Countdown: FC = () => {
     minutes,
     seconds,
     completed,
-  }) => {
+  }: CountdownProps) => {
     return (
       <div className="flex text-stone-400 gap-1">
         <Number>{days}</Number> días <Number>{hours}</Number> horas{" "}

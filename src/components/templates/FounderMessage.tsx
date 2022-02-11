@@ -1,27 +1,27 @@
 import { FC, useState } from "react";
 import Image from "next/image";
 import { SectionQuote } from "@lib/molecules";
-import carlos_dubon from "public/carlos-dubon.jpg";
+import carlosDubon from "public/carlos-dubon.jpg";
 import { useBreakpoint } from "@app/hooks";
 import { Fade } from "react-awesome-reveal";
 import useIsomorphicLayoutEffect from "use-isomorphic-layout-effect";
 
 const FounderMessage: FC = () => {
-  const tailwind_sm: boolean = useBreakpoint("sm");
+  const tailwindSm: boolean = useBreakpoint("sm");
 
   const [photoHeight, setPhotoHeight] = useState<"530px" | "390px">("530px");
 
   useIsomorphicLayoutEffect(() => {
-    tailwind_sm ? setPhotoHeight("530px") : setPhotoHeight("390px");
+    tailwindSm ? setPhotoHeight("530px") : setPhotoHeight("390px");
     window.dispatchEvent(new Event("resize"));
-  }, [tailwind_sm]);
+  }, [tailwindSm]);
 
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 md:h-[530px] bg-rs-gray">
         <div className="w-full h-full relative" style={{ height: photoHeight }}>
           <Image
-            src={carlos_dubon}
+            src={carlosDubon}
             alt="Pastor Carlos Dubón"
             layout="fill"
             placeholder="blur"

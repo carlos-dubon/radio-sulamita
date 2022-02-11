@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { FC, MutableRefObject, useEffect, useRef } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
 import ReactDOMServer from "react-dom/server";

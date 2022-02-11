@@ -18,7 +18,7 @@ const GoToTop = dynamic<{}>(
   { ssr: false }
 );
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <Provider store={store}>
       <GoToTop />
@@ -26,6 +26,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Component {...pageProps} />
     </Provider>
   );
-}
+};
 
 export default MyApp;

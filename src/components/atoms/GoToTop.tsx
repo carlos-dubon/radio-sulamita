@@ -14,7 +14,7 @@ const GoToTop: FC = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }}
     >
-      <div className="rotate-90">
+      <div className="rotate-90 flex justify-center items-center">
         <Image
           src="/slider/navigation.svg"
           alt="arrow"

@@ -1,11 +1,12 @@
 import { FC, MouseEventHandler } from "react";
-import Link from "next/link";
+import { SectionRefs } from "@lib/templates";
+import { useScrollTo } from "@app/context";
 
 interface Props {
   text: string;
   onClick?: MouseEventHandler<HTMLDivElement>;
   secondary?: boolean;
-  scrollTo?: string;
+  scrollTo?: SectionRefs;
 }
 
 const ButtonComponent: FC<Props> = ({ text, onClick, secondary }) => {
@@ -28,14 +29,18 @@ const ButtonComponent: FC<Props> = ({ text, onClick, secondary }) => {
 };
 
 const Button: FC<Props> = ({ text, onClick, secondary, scrollTo }) => {
+  const scrollToContext = useScrollTo();
+
   return (
     <>
       {scrollTo ? (
-        <Link href={`/#${scrollTo}`}>
-          <a>
-            <ButtonComponent text={text} secondary={secondary} />
-          </a>
-        </Link>
+        <ButtonComponent
+          text={text}
+          onClick={() => {
+            scrollToContext?.scrollTo!(scrollTo);
+          }}
+          secondary={secondary}
+        />
       ) : (
         <ButtonComponent text={text} onClick={onClick} secondary={secondary} />
       )}

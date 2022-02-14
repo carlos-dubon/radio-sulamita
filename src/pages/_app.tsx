@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import { store } from "@state/store";
 import dynamic from "next/dynamic";
+import { ScrollToProvider } from "@app/context";
 
 // fix to: Audio is not defined
 const Player = dynamic<{}>(
@@ -18,9 +19,11 @@ const GoToTop = dynamic<{}>(
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <Provider store={store}>
-      <GoToTop />
-      <Player />
-      <Component {...pageProps} />
+      <ScrollToProvider>
+        <GoToTop />
+        <Player />
+        <Component {...pageProps} />
+      </ScrollToProvider>
     </Provider>
   );
 };

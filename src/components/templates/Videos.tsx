@@ -27,7 +27,6 @@ const Videos: FC = () => {
       title="Videos"
       subtitle="“Cada acontecimiento, grande y pequeño, es una parábola por medio de la cual Dios nos habla y el arte de vivir es recibir el mensaje.”"
       bibleVerse="2 Timoteo 3:16-17"
-      id="videos"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center">
         {videos.map((video: Video) => {

@@ -24,7 +24,8 @@
       "@lib/helpers": ["./src/helpers"],
       "@state/store": ["./src/state"],
       "@app/hooks": ["./src/hooks"],
-      "@app/firebase": ["./src/firebase"]
+      "@app/firebase": ["./src/firebase"],
+      "@app/context": ["./src/context/index.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

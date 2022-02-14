@@ -49,7 +49,7 @@ const FounderMessage: FC = () => {
         heading="Jesús le respondió: — Escrito está: “No sólo de pan vive el hombre, sino de toda palabra que sale de la boca de Dios.”"
         buttonText="Donar"
         subHeading="Mateo 4:4"
-        scrollTo="donar"
+        scrollTo="donationsRef"
       />
     </>
   );

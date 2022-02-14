@@ -16,13 +16,12 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Fade } from "react-awesome-reveal";
 import { SectionRefs } from "@lib/templates";
+import { useScrollTo } from "@app/context";
 
-interface Props {
-  scrollTo: (section: SectionRefs) => void;
-}
-
-const Sidebar: FC<Props> = ({ scrollTo }) => {
+const Sidebar: FC = () => {
   const dispatch = useAppDispatch();
+
+  const scrollToContext = useScrollTo();
 
   const openState: boolean = useAppSelector((state) => state.sidebar.open);
 
@@ -95,7 +94,7 @@ const Sidebar: FC<Props> = ({ scrollTo }) => {
             <div
               key={link.ref}
               onClick={() => {
-                scrollTo(link.ref);
+                scrollToContext?.scrollTo!(link.ref);
                 dispatch(toggleMenu());
               }}
               className="cursor-pointer w-full h-16 flex items-center justify-start px-5 transition-all hover:bg-rs-primary hover:text-white duration-500 text-xs uppercase tracking-wider"
@@ -105,18 +104,19 @@ const Sidebar: FC<Props> = ({ scrollTo }) => {
           );
         })}
 
-        <Link href="/#donar">
-          <a
-            className="w-full h-16 flex justify-start px-5 transition-all hover:bg-rs-secondary hover:text-white duration-500 text-xs uppercase tracking-wider"
-            onClick={() => dispatch(toggleMenu())}
-          >
-            Donar
-            <FontAwesomeIcon
-              icon={faHandHoldingHeart}
-              className={"group-hover:text-white w-4 ml-3"}
-            />
-          </a>
-        </Link>
+        <div
+          className="w-full h-16 flex justify-start items-center cursor-pointer px-5 transition-all hover:bg-rs-secondary hover:text-white duration-500 text-xs uppercase tracking-wider"
+          onClick={() => {
+            scrollToContext?.scrollTo!("donationsRef");
+            dispatch(toggleMenu());
+          }}
+        >
+          Donar
+          <FontAwesomeIcon
+            icon={faHandHoldingHeart}
+            className={"group-hover:text-white w-4 ml-3"}
+          />
+        </div>
 
         <button
           className="w-full h-16 flex justify-start items-center px-5 transition-all bg-rs-primary hover:bg-rs-secondary text-white duration-500 text-xs uppercase tracking-wider"

@@ -8,7 +8,7 @@ import { Fade } from "react-awesome-reveal";
 const Donations: FC = () => {
   return (
     <>
-      <div id="donar" className="h-[745px] relative">
+      <div className="h-[745px] relative">
         <div
           className="w-full relative top-0 left-0 -z-10"
           style={{ height: "745px" }}
@@ -68,7 +68,7 @@ const Donations: FC = () => {
       <SectionQuote
         heading="¿Necesitas de oración? Escríbenos, queremos orar por ti."
         buttonText="Contacto"
-        scrollTo="contacto"
+        scrollTo="contactRef"
       />
     </>
   );

@@ -12,25 +12,31 @@ import {
   SectionRefs,
 } from "@lib/templates";
 import { WhatsAppFloatingIcon } from "@lib/atoms";
-import { MutableRefObject, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
+import { useScrollTo } from "@app/context";
 
 const Home: NextPage = () => {
-  const videosRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
-  const donationsRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
-  const collaboratorsRef: MutableRefObject<HTMLDivElement | null> =
-    useRef(null);
-  const contactRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
+  const videosRef = useRef<HTMLDivElement>(null);
+  const donationsRef = useRef<HTMLDivElement>(null);
+  const collaboratorsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
-  const refs = {
-    videosRef,
-    donationsRef,
-    collaboratorsRef,
-    contactRef,
-  };
+  const refs = useMemo(() => {
+    return { videosRef, donationsRef, collaboratorsRef, contactRef };
+  }, []);
 
-  const scrollTo = (section: SectionRefs): void => {
-    refs[section].current?.scrollIntoView({ behavior: "smooth" });
-  };
+  const scrollTo = useCallback(
+    (section: SectionRefs): void => {
+      refs[section]?.current?.scrollIntoView({ behavior: "smooth" });
+    },
+    [refs]
+  );
+
+  const scrollToContext = useScrollTo();
+
+  useEffect(() => {
+    scrollToContext?.setScrollTo(() => scrollTo);
+  }, [scrollTo, scrollToContext]);
 
   return (
     <>
@@ -45,8 +51,8 @@ const Home: NextPage = () => {
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
 
-      <Sidebar scrollTo={scrollTo} />
-      <Toolbar scrollTo={scrollTo} />
+      <Sidebar />
+      <Toolbar />
 
       <HeroSlider />
       <div ref={videosRef}>

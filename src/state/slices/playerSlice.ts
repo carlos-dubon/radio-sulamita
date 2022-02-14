@@ -16,15 +16,9 @@ export const playerSlice = createSlice({
   initialState,
   reducers: {
     toggle: (state: PlayerState) => {
-      if (state.playing) {
-        // pause
-        state.loading = false;
-        state.playing = false;
-      } else {
-        // play
-        state.loading = true;
-        state.playing = true;
-      }
+      const next: boolean = state.playing ? false : true;
+      state.loading = next;
+      state.playing = next;
     },
     loading: (state: PlayerState, action: LoadingAction) => {
       state.loading = action.payload;

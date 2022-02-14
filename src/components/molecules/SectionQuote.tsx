@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Button } from "@lib/atoms";
+import { SectionRefs } from "@lib/templates";
 
 interface Props {
   heading: string;
@@ -7,7 +8,7 @@ interface Props {
   buttonText: string;
   buttonClick?: () => void;
   secondary?: boolean;
-  scrollTo?: string;
+  scrollTo?: SectionRefs;
 }
 
 const SectionQuote: FC<Props> = ({

@@ -12,13 +12,11 @@ import { useAppSelector, useAppDispatch } from "@app/hooks";
 import { toggle } from "src/state/slices/playerSlice";
 import { RootState } from "src/state/store";
 import Link from "next/link";
-import { SectionRefs } from "@lib/templates";
+import { useScrollTo } from "@app/context";
 
-interface Props {
-  scrollTo: (section: SectionRefs) => void;
-}
+export const Toolbar: FC = () => {
+  const scrollToContext = useScrollTo();
 
-export const Toolbar: FC<Props> = ({ scrollTo }) => {
   const playerState: boolean = useAppSelector(
     (state: RootState) => state.player.playing
   );
@@ -65,21 +63,21 @@ export const Toolbar: FC<Props> = ({ scrollTo }) => {
               <ToolbarButton href="/">Inicio</ToolbarButton>
               <ToolbarButton
                 onClick={() => {
-                  scrollTo("videosRef");
+                  scrollToContext?.scrollTo!("videosRef");
                 }}
               >
                 Videos
               </ToolbarButton>
               <ToolbarButton
                 onClick={() => {
-                  scrollTo("collaboratorsRef");
+                  scrollToContext?.scrollTo!("collaboratorsRef");
                 }}
               >
                 Colaboradores
               </ToolbarButton>
               <ToolbarButton
                 onClick={() => {
-                  scrollTo("contactRef");
+                  scrollToContext?.scrollTo!("contactRef");
                 }}
               >
                 Contacto
@@ -89,7 +87,7 @@ export const Toolbar: FC<Props> = ({ scrollTo }) => {
                 hoverBackgroundColor="hover:bg-black"
                 primary={true}
                 onClick={() => {
-                  scrollTo("donationsRef");
+                  scrollToContext?.scrollTo!("donationsRef");
                 }}
                 title="Donar"
               >

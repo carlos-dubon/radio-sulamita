@@ -3,7 +3,10 @@ import playerReducer from "./slices/playerSlice";
 import sidebarReducer from "./slices/sidebarSlice";
 
 const store = configureStore({
-  reducer: { player: playerReducer, sidebar: sidebarReducer },
+  reducer: {
+    player: playerReducer,
+    sidebar: sidebarReducer,
+  },
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

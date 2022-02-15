@@ -25,7 +25,8 @@
       "@state/store": ["./src/state"],
       "@app/hooks": ["./src/hooks"],
       "@app/firebase": ["./src/firebase"],
-      "@app/context": ["./src/context/index.ts"]
+      "@app/context": ["./src/context/index.ts"],
+      "@app/analytics": ["./src/analytics/analyticsConfig.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

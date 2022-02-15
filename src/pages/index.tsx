@@ -14,6 +14,8 @@ import {
 import { WhatsAppFloatingIcon } from "@lib/atoms";
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import { useScrollTo } from "@app/context";
+import ReactGA from "react-ga4";
+import { analyticsConfig } from "@app/analytics";
 
 const Home: NextPage = () => {
   const videosRef = useRef<HTMLDivElement>(null);
@@ -37,6 +39,11 @@ const Home: NextPage = () => {
   useEffect(() => {
     scrollToContext?.setScrollTo(() => scrollTo);
   }, [scrollTo, scrollToContext]);
+
+  useEffect(() => {
+    ReactGA.initialize(analyticsConfig.trackingId);
+    ReactGA.send("pageview");
+  });
 
   return (
     <>

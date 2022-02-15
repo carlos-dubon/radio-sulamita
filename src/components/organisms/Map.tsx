@@ -2,19 +2,12 @@
 import { FC, MutableRefObject, useEffect, useRef } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
 import ReactDOMServer from "react-dom/server";
-import { Spinner } from "@lib/atoms";
-import wait from "wait";
+import ReactGA from "react-ga4";
+import { analyticsConfig } from "@app/analytics";
 
-const LoadingInfoWindow: JSX.Element = (
+const InfoWindow: JSX.Element = (
   <div className="flex flex-col w-full">
-    <div className="w-full justify-center items-center scale-50">
-      <Spinner />
-    </div>
-  </div>
-);
-
-const LoadedInfoWindow: JSX.Element = (
-  <div className="flex flex-col w-full">
+    <div className="font-medium text-sm">Radio Sulamita 90.1 FM</div>
     <div>
       <span className="font-medium">Dirección:</span> Calle de la Sulamita,
       Barrio Fallabon, Melchor de Mencos, Petén.
@@ -153,7 +146,7 @@ const Map: FC = () => {
       );
 
       const infowindow: google.maps.InfoWindow = new google.maps.InfoWindow({
-        content: ReactDOMServer.renderToString(LoadingInfoWindow),
+        content: ReactDOMServer.renderToString(InfoWindow),
       });
 
       const openInfoWindow = (): void => {
@@ -178,12 +171,7 @@ const Map: FC = () => {
       marker.addListener("click", async () => {
         openInfoWindow();
 
-        const content: string = ReactDOMServer.renderToString(LoadedInfoWindow);
-
-        await wait(200);
-        infowindow.close();
-        infowindow.setContent(content);
-        openInfoWindow();
+        ReactGA.event(analyticsConfig.customEvents.mapInfoWindowOpened);
       });
     };
 

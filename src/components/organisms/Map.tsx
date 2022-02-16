@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { FC, MutableRefObject, useEffect, useRef } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
 import ReactDOMServer from "react-dom/server";
@@ -7,18 +6,11 @@ import { analyticsConfig } from "@app/analytics";
 
 const InfoWindow: JSX.Element = (
   <div className="flex flex-col w-full">
-    <div className="font-medium text-sm">Radio Sulamita 90.1 FM</div>
-    <div>
-      <span className="font-medium">Dirección:</span> Calle de la Sulamita,
-      Barrio Fallabon, Melchor de Mencos, Petén.
-    </div>
-    <div className="w-full flex justify-center mt-3">
-      <img
-        src="/radio-sulamita.jpg"
-        alt="Radio Sulamita 90.1FM"
-        className="w-[225px] h-[171px]"
-      />
-    </div>
+    <div className="font-medium text-[14px]">Radio Sulamita 90.1 FM</div>
+    <div>Calle de la Sulamita</div>
+    <div>Barrio Fallabon</div>
+    <div>Melchor de Mencos</div>
+    <div>Guatemala</div>
   </div>
 );
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { SectionQuote } from "@lib/molecules";
 import carlosDubon from "public/carlos-dubon.jpg";
 import { useBreakpoint } from "@app/hooks";
-import { Fade } from "react-awesome-reveal";
+import { Faded } from "baby-i-am-faded";
 import useIsomorphicLayoutEffect from "use-isomorphic-layout-effect";
 
 const FounderMessage: FC = () => {
@@ -30,7 +30,7 @@ const FounderMessage: FC = () => {
           />
         </div>
         <div className="flex flex-col justify-center md:max-w-[555px] px-7 py-24 md:p-14">
-          <Fade cascade duration={400} direction="up" triggerOnce>
+          <Faded cascade whenInView triggerOnce>
             <div className="text-3xl mb-1">Carlos Dubón</div>
             <div className="text-stone-600">Ex-Director General y Fundador</div>
             <div className="text-stone-600 leading-7 text-sm mt-6">
@@ -41,7 +41,7 @@ const FounderMessage: FC = () => {
               las veinticuatro horas del día, llegando a casas y lugares
               recónditos del planeta a través de su señal online.”
             </div>
-          </Fade>
+          </Faded>
         </div>
       </div>
       <SectionQuote

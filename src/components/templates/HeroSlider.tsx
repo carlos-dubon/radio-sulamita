@@ -8,7 +8,7 @@ import Image from "next/image";
 import slide1 from "public/slider/slide-1.jpg";
 import slide2 from "public/slider/slide-2.jpg";
 import slide3 from "public/slider/slide-3.jpg";
-import { Fade } from "react-awesome-reveal";
+import { Faded } from "baby-i-am-faded";
 import { useBreakpoint } from "@app/hooks";
 import useIsomorphicLayoutEffect from "use-isomorphic-layout-effect";
 
@@ -50,8 +50,14 @@ export const HeroSlider: FC = () => {
           </div>
           <div className="flex justify-center items-center absolute top-0 left-0 h-full w-full">
             <div className="container flex justify-end px-28">
-              <div className="flex gap-4 flex-col">
-                <Fade direction="right" cascade duration={400}>
+              <div>
+                <Faded
+                  cascade
+                  whenInView
+                  animationName="babyFadeInRight"
+                  className="flex gap-4 flex-col"
+                  duration={350}
+                >
                   <div className="bg-rs-primary px-3 py-2 text-base text-white w-fit mb-6">
                     Mateo 22:37-38
                   </div>
@@ -66,7 +72,7 @@ export const HeroSlider: FC = () => {
                     con toda tu alma y con toda tu mente. Este es el primero y
                     grande mandamiento
                   </div>
-                </Fade>
+                </Faded>
               </div>
             </div>
           </div>
@@ -90,7 +96,13 @@ export const HeroSlider: FC = () => {
           </div>
           <div className="flex justify-center items-center absolute top-0 left-0 h-full w-full">
             <div className="container flex px-28 gap-4 flex-col">
-              <Fade direction="right" cascade duration={400}>
+              <Faded
+                cascade
+                whenInView
+                animationName="babyFadeInRight"
+                className="flex gap-4 flex-col"
+                duration={450}
+              >
                 <div className="text-white text-2xl">
                   Transmitiendo desde la puerta del
                 </div>
@@ -101,7 +113,7 @@ export const HeroSlider: FC = () => {
                   para el mundo entero. Somos Radio Sulamita, 90.1 FM — La
                   frecuencia del amor de Dios.
                 </div>
-              </Fade>
+              </Faded>
             </div>
           </div>
         </SwiperSlide>
@@ -125,7 +137,13 @@ export const HeroSlider: FC = () => {
           <div className="flex justify-center items-center absolute top-0 left-0 h-full w-full">
             <div className="container flex justify-end px-28">
               <div className="flex gap-4 flex-col">
-                <Fade direction="right" cascade duration={400}>
+                <Faded
+                  cascade
+                  whenInView
+                  animationName="babyFadeInRight"
+                  className="flex gap-4 flex-col"
+                  duration={350}
+                >
                   <div className="bg-rs-primary px-3 py-2 text-base text-white w-fit mb-6">
                     Juan 14:2
                   </div>
@@ -139,7 +157,7 @@ export const HeroSlider: FC = () => {
                     si no fuera así, ya se lo habría dicho a ustedes. Voy a
                     prepararles un lugar.
                   </div>
-                </Fade>
+                </Faded>
               </div>
             </div>
           </div>

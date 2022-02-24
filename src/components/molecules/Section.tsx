@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { Fade } from "react-awesome-reveal";
+import { Faded } from "baby-i-am-faded";
 
 interface Props {
   title: string;
@@ -23,11 +23,10 @@ const Section: FC<Props> = ({
       }`}
     >
       <div className="container flex flex-col justify-center items-center">
-        <Fade
+        <Faded
           cascade
-          duration={400}
-          direction="up"
-          className="flex justify-center w-full"
+          whenInView
+          className="flex flex-col justify-center items-center w-full"
           triggerOnce
         >
           <div className="text-4xl mb-10">{title}</div>
@@ -37,7 +36,7 @@ const Section: FC<Props> = ({
           <div className="text-rs-primary text-base sm:text-lg">
             {bibleVerse}
           </div>
-        </Fade>
+        </Faded>
         <div className="mt-24 w-full">{children}</div>
       </div>
     </div>

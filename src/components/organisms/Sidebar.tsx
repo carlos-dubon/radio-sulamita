@@ -61,12 +61,12 @@ const Sidebar: FC = () => {
     if (openState) {
       setTimeout(() => {
         setOpen(true);
-      }, 300);
+      }, 20);
     } else {
       setOpen(false);
       setTimeout(() => {
         setOpen(false);
-      }, 300);
+      }, 20);
     }
   }, [openState]);
 

@@ -5,7 +5,7 @@ import robinSucup from "public/collaborators/robin-sucup.jpg";
 import josePop from "public/collaborators/jose-pop.jpg";
 import sindiPop from "public/collaborators/sindi-pop.jpg";
 import mariaPerez from "public/collaborators/maria-perez.jpg";
-import { Fade } from "react-awesome-reveal";
+import { Faded } from "baby-i-am-faded";
 
 interface CollaboratorsI {
   photoSrc: StaticImageData;
@@ -44,8 +44,16 @@ const Collaborators: FC = () => {
         subtitle="Quien quiera servirme, debe seguirme; y donde yo esté, allí también estará mi siervo. A quien me sirva, mi Padre lo honrará."
         bibleVerse="Juan 12:26"
       >
-        <div className="flex justify-center flex-wrap gap-8">
-          <Fade duration={400} cascade direction="right" triggerOnce>
+        <div>
+          <Faded
+            duration={400}
+            delay={100}
+            cascade
+            whenInView
+            triggerOnce
+            animationName="babyFadeInRight"
+            className="flex justify-center flex-wrap gap-8"
+          >
             {listOfCollaborators.map((collaborator: CollaboratorsI) => {
               return (
                 <div
@@ -70,7 +78,7 @@ const Collaborators: FC = () => {
                 </div>
               );
             })}
-          </Fade>
+          </Faded>
         </div>
       </Section>
     </div>

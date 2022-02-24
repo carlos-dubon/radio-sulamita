@@ -59,3 +59,13 @@ a {
     transform: rotateX(0deg) translateY(0px);
   }
 }
+
+@keyframes babyFadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(25em, 0px, 0px);
+  }
+  to {
+    transform: none;
+  }
+}

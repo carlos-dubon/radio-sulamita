@@ -56,7 +56,7 @@ export const HeroSlider: FC = () => {
                   whenInView
                   animationName="babyFadeInRight"
                   className="flex gap-4 flex-col"
-                  duration={350}
+                  duration={300}
                 >
                   <div className="bg-rs-primary px-3 py-2 text-base text-white w-fit mb-6">
                     Mateo 22:37-38
@@ -101,7 +101,7 @@ export const HeroSlider: FC = () => {
                 whenInView
                 animationName="babyFadeInRight"
                 className="flex gap-4 flex-col"
-                duration={450}
+                duration={300}
               >
                 <div className="text-white text-2xl">
                   Transmitiendo desde la puerta del
@@ -142,7 +142,7 @@ export const HeroSlider: FC = () => {
                   whenInView
                   animationName="babyFadeInRight"
                   className="flex gap-4 flex-col"
-                  duration={350}
+                  duration={300}
                 >
                   <div className="bg-rs-primary px-3 py-2 text-base text-white w-fit mb-6">
                     Juan 14:2

@@ -119,7 +119,7 @@ const Map: FC = () => {
       };
 
       const loader: Loader = new Loader({
-        apiKey: "AIzaSyD371NP3PWp4akEJB0HfE6hGDXN7AjItvI",
+        apiKey: "AIzaSyD-y8LO4esqXCgd5Lrv31R92JNhSwN7pxQ",
         version: "weekly",
         libraries: ["places"],
       });

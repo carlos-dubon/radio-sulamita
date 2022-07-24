@@ -47,6 +47,8 @@ $ yarn dev
 ## 📸 Screenshots
 
 ![2022-07-23-20_30_12](.github/readme/2022-07-23-20_30_12.png)
+![2022-07-23-20_33_34](.github/readme/2022-07-23-20_33_34.png)
+![image_1](.github/readme/image_1.png)
 
 ## ☀️ License
 

@@ -1,10 +1,29 @@
-![radio-sulamita](https://socialify.git.ci/carlos-dubon/radio-sulamita/image?description=1&font=Raleway&forks=1&language=1&logo=https%3A%2F%2Fraw.githubusercontent.com%2Fcarlos-dubon%2Fradio-sulamita%2Fad2d9deaeeaa9fae8a5565682d81bbf3e6b07455%2Fpublic%2Fisotype.svg&name=1&owner=1&pattern=Brick%20Wall&pulls=1&stargazers=1&theme=Light)
+<h1 align="center">Radio Sulamita 🕊️</h1>
 
-<h3 align="center">
-   <a href="https://radiosulamita.org/" >
- Project site
+<p align="center" style="font-size: 1.2rem">
+  Radio Sulamita, is a Christian radio station destined to spread a message of change that allows edification, renewal and salvation based on the word of God.
+</p>
+
+<div align="center">
+  <a href="https://radiosulamita.org/">
+    <b style="font-size: 1.2rem">Project site</b>
   </a>
-</h3>
+</div>
+
+<hr />
+
+<img
+  src="https://img.shields.io/github/stars/carlos-dubon/radio-sulamita?style=flat-square"
+  alt="Stars"
+/>
+<img
+  src="https://img.shields.io/github/forks/carlos-dubon/radio-sulamita?style=flat-square"
+  alt="Forks"
+/>
+<img
+  src="https://img.shields.io/github/issues-pr/carlos-dubon/radio-sulamita?style=flat-square"
+  alt="Pulls"
+/>
 
 ## 📦 Packages
 
@@ -20,7 +39,7 @@
 
 ## 🚀 Getting started
 
-You need:
+Prerequisites:
 
 - [Node.js 16+](https://nodejs.org/en/)
 - [Yarn](https://yarnpkg.com/)
@@ -29,7 +48,7 @@ You need:
 1. Clone the repository:
 
 ```bash
-$ gh repo clone carlos-dubon/radio-sulamita
+$ git@github.com:carlos-dubon/radio-sulamita.git
 ```
 
 2. Install the dependencies:
@@ -44,12 +63,10 @@ $ yarn install
 $ yarn dev
 ```
 
+## 🔑 License
+
+[MIT](./LICENSE)
+
 ## 📸 Screenshots
 
 ![2022-07-23-20_30_12](.github/readme/2022-07-23-20_30_12.png)
-![2022-07-23-20_33_34](.github/readme/2022-07-23-20_33_34.png)
-![image_1](.github/readme/image_1.png)
-
-## ☀️ License
-
-[MIT](./LICENSE)

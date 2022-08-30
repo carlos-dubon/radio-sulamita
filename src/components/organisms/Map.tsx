@@ -119,7 +119,7 @@ const Map: FC = () => {
       };
 
       const loader: Loader = new Loader({
-        apiKey: "AIzaSyD-y8LO4esqXCgd5Lrv31R92JNhSwN7pxQ",
+        apiKey: process.env.GOOGLE_MAPS_API_KEY!,
         version: "weekly",
         libraries: ["places"],
       });

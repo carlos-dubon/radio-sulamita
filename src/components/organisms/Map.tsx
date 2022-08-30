@@ -118,8 +118,12 @@ const Map: FC = () => {
         lng: -89.155815,
       };
 
+      if (!process.env.GOOGLE_MAPS_API_KEY) {
+        return;
+      }
+
       const loader: Loader = new Loader({
-        apiKey: process.env.GOOGLE_MAPS_API_KEY!,
+        apiKey: process.env.GOOGLE_MAPS_API_KEY,
         version: "weekly",
         libraries: ["places"],
       });

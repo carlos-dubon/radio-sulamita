@@ -86,7 +86,7 @@ const ChatBox: FC = () => {
                   {m.email ? <div>{m.email}</div> : <div>-</div>}
                   <div>
                     <Image
-                      src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${m.country}.svg`}
+                      src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${m.country}.svg`}
                       alt={`${m.country} flag`}
                       title={`${m.country}`}
                       width={20.37}

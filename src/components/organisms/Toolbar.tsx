@@ -12,11 +12,8 @@ import { useAppSelector, useAppDispatch } from "@app/hooks";
 import { toggle } from "src/state/slices/playerSlice";
 import { RootState } from "src/state/store";
 import Link from "next/link";
-import { useScrollTo } from "@app/context";
 
 export const Toolbar: FC = () => {
-  const scrollToContext = useScrollTo();
-
   const playerState: boolean = useAppSelector(
     (state: RootState) => state.player.playing
   );
@@ -61,34 +58,16 @@ export const Toolbar: FC = () => {
             </div>
             <div className="hidden lg:flex">
               <ToolbarButton href="/">Inicio</ToolbarButton>
-              <ToolbarButton
-                onClick={() => {
-                  scrollToContext?.scrollTo!("videosRef");
-                }}
-              >
-                Videos
-              </ToolbarButton>
-              <ToolbarButton
-                onClick={() => {
-                  scrollToContext?.scrollTo!("collaboratorsRef");
-                }}
-              >
+              <ToolbarButton href="/#videos">Videos</ToolbarButton>
+              <ToolbarButton href="/#collaborators">
                 Colaboradores
               </ToolbarButton>
-              <ToolbarButton
-                onClick={() => {
-                  scrollToContext?.scrollTo!("contactRef");
-                }}
-              >
-                Contacto
-              </ToolbarButton>
+              <ToolbarButton href="/#contact">Contacto</ToolbarButton>
               <ToolbarButton
                 className="group"
                 hoverBackgroundColor="hover:bg-black"
                 primary={true}
-                onClick={() => {
-                  scrollToContext?.scrollTo!("donationsRef");
-                }}
+                href="/#donate"
                 title="Donar"
               >
                 <FontAwesomeIcon

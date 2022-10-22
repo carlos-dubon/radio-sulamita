@@ -8,7 +8,7 @@ import { Faded } from "baby-i-am-faded";
 const Donations: FC = () => {
   return (
     <>
-      <div className="h-[745px] relative">
+      <div className="h-[745px] relative" id="donate">
         <div
           className="w-full relative top-0 left-0 -z-10"
           style={{ height: "745px" }}
@@ -67,7 +67,7 @@ const Donations: FC = () => {
       <SectionQuote
         heading="¿Necesitas de oración? Escríbenos, queremos orar por ti."
         buttonText="Contacto"
-        scrollTo="contactRef"
+        href="/#contact"
       />
     </>
   );

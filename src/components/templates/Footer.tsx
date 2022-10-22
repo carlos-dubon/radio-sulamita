@@ -16,15 +16,15 @@ const Footer: FC = () => {
       title: "Videos",
     },
     {
-      anchor: "/#colaboradores",
+      anchor: "/#collaborators",
       title: "Colaboradores",
     },
     {
-      anchor: "/#contacto",
+      anchor: "/#contact",
       title: "Contacto",
     },
     {
-      anchor: "/#donar",
+      anchor: "/#donate",
       title: "Donar",
     },
   ];

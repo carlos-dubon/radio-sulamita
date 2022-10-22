@@ -7,6 +7,7 @@ interface Props {
   bibleVerse: string;
   children: ReactNode;
   removeBottom?: boolean;
+  id: string;
 }
 
 const Section: FC<Props> = ({
@@ -15,9 +16,11 @@ const Section: FC<Props> = ({
   bibleVerse,
   children,
   removeBottom,
+  id,
 }) => {
   return (
     <div
+      id={id}
       className={`bg-white flex justify-center ${
         removeBottom ? "pt-24" : "py-24"
       }`}

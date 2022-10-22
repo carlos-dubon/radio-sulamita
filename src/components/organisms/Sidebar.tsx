@@ -15,13 +15,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Fade } from "react-awesome-reveal";
-import { SectionRefs } from "@lib/templates";
-import { useScrollTo } from "@app/context";
 
 const Sidebar: FC = () => {
   const dispatch = useAppDispatch();
-
-  const scrollToContext = useScrollTo();
 
   const openState: boolean = useAppSelector((state) => state.sidebar.open);
 
@@ -40,19 +36,19 @@ const Sidebar: FC = () => {
   });
 
   const links: Array<{
-    ref: SectionRefs;
+    id: string;
     label: string;
   }> = [
     {
-      ref: "videosRef",
+      id: "videos",
       label: "Videos",
     },
     {
-      ref: "collaboratorsRef",
+      id: "collaborators",
       label: "Colaboradores",
     },
     {
-      ref: "contactRef",
+      id: "contact",
       label: "Contacto",
     },
   ];
@@ -91,32 +87,37 @@ const Sidebar: FC = () => {
 
         {links.map((link) => {
           return (
-            <div
-              key={link.ref}
-              onClick={() => {
-                scrollToContext?.scrollTo!(link.ref);
-                dispatch(toggleMenu());
-              }}
-              className="cursor-pointer w-full h-16 flex items-center justify-start px-5 transition-all hover:bg-rs-primary hover:text-white duration-500 text-xs uppercase tracking-wider"
-            >
-              {link.label}
-            </div>
+            <Link href={`/#${link.id}`} passHref key={link.id}>
+              <a>
+                <div
+                  onClick={() => {
+                    dispatch(toggleMenu());
+                  }}
+                  className="cursor-pointer w-full h-16 flex items-center justify-start px-5 transition-all hover:bg-rs-primary hover:text-white duration-500 text-xs uppercase tracking-wider"
+                >
+                  {link.label}
+                </div>
+              </a>
+            </Link>
           );
         })}
 
-        <div
-          className="w-full h-16 flex justify-start items-center cursor-pointer px-5 transition-all hover:bg-rs-secondary hover:text-white duration-500 text-xs uppercase tracking-wider"
-          onClick={() => {
-            scrollToContext?.scrollTo!("donationsRef");
-            dispatch(toggleMenu());
-          }}
-        >
-          Donar
-          <FontAwesomeIcon
-            icon={faHandHoldingHeart}
-            className={"group-hover:text-white w-4 ml-3"}
-          />
-        </div>
+        <Link href={"/#donate"} passHref>
+          <a>
+            <div
+              className="w-full h-16 flex justify-start items-center cursor-pointer px-5 transition-all hover:bg-rs-secondary hover:text-white duration-500 text-xs uppercase tracking-wider"
+              onClick={() => {
+                dispatch(toggleMenu());
+              }}
+            >
+              Donar
+              <FontAwesomeIcon
+                icon={faHandHoldingHeart}
+                className={"group-hover:text-white w-4 ml-3"}
+              />
+            </div>
+          </a>
+        </Link>
 
         <button
           className="w-full h-16 flex justify-start items-center px-5 transition-all bg-rs-primary hover:bg-rs-secondary text-white duration-500 text-xs uppercase tracking-wider"

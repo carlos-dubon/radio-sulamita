@@ -167,7 +167,7 @@ export const HeroSlider: FC = () => {
         heading="El que es generoso prospera; el que reanima será reanimado."
         subHeading="Proverbios 11:25"
         buttonText="Donar"
-        scrollTo="donationsRef"
+        href="/#donate"
       />
     </>
   );

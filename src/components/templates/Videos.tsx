@@ -25,6 +25,7 @@ const Videos: FC = () => {
   return (
     <Section
       title="Videos"
+      id="videos"
       subtitle="“Cada acontecimiento, grande y pequeño, es una parábola por medio de la cual Dios nos habla y el arte de vivir es recibir el mensaje.”"
       bibleVerse="2 Timoteo 3:16-17"
     >

@@ -9,37 +9,13 @@ import {
   Contact,
   FounderMessage,
   Footer,
-  SectionRefs,
 } from "@lib/templates";
 import { WhatsAppFloatingIcon } from "@lib/atoms";
-import { useCallback, useEffect, useMemo, useRef } from "react";
-import { useScrollTo } from "@app/context";
+import { useEffect } from "react";
 import ReactGA from "react-ga4";
 import { analyticsConfig } from "@app/analytics";
 
 const Home: NextPage = () => {
-  const videosRef = useRef<HTMLDivElement>(null);
-  const donationsRef = useRef<HTMLDivElement>(null);
-  const collaboratorsRef = useRef<HTMLDivElement>(null);
-  const contactRef = useRef<HTMLDivElement>(null);
-
-  const refs = useMemo(() => {
-    return { videosRef, donationsRef, collaboratorsRef, contactRef };
-  }, []);
-
-  const scrollTo = useCallback(
-    (section: SectionRefs): void => {
-      refs[section]?.current?.scrollIntoView({ behavior: "smooth" });
-    },
-    [refs]
-  );
-
-  const scrollToContext = useScrollTo();
-
-  useEffect(() => {
-    scrollToContext?.setScrollTo(() => scrollTo);
-  }, [scrollTo, scrollToContext]);
-
   useEffect(() => {
     ReactGA.initialize(analyticsConfig.trackingId);
     ReactGA.send("pageview");
@@ -62,19 +38,11 @@ const Home: NextPage = () => {
       <Toolbar />
 
       <HeroSlider />
-      <div ref={videosRef}>
-        <Videos />
-      </div>
-      <div ref={donationsRef}>
-        <Donations />
-      </div>
-      <div ref={collaboratorsRef}>
-        <Collaborators />
-      </div>
+      <Videos />
+      <Donations />
+      <Collaborators />
       <FounderMessage />
-      <div ref={contactRef}>
-        <Contact />
-      </div>
+      <Contact />
       <Footer />
 
       <WhatsAppFloatingIcon />

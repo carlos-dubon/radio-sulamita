@@ -25,7 +25,6 @@
       "@state/store": ["./src/state"],
       "@app/hooks": ["./src/hooks"],
       "@app/firebase": ["./src/firebase"],
-      "@app/context": ["./src/context/index.ts"],
       "@app/analytics": ["./src/analytics/analyticsConfig.ts"]
     }
   },

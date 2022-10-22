@@ -73,6 +73,7 @@ const Contact: FC = () => {
     <>
       <Section
         title="Contacto"
+        id="contact"
         subtitle="Y todo lo que pidiereis al Padre en mi nombre, lo haré, para que el Padre sea glorificado en el Hijo."
         bibleVerse="Juan 14:13"
         removeBottom

@@ -41,6 +41,7 @@ const Collaborators: FC = () => {
     <div className="overflow-hidden">
       <Section
         title="Colaboradores"
+        id="collaborators"
         subtitle="Quien quiera servirme, debe seguirme; y donde yo esté, allí también estará mi siervo. A quien me sirva, mi Padre lo honrará."
         bibleVerse="Juan 12:26"
       >

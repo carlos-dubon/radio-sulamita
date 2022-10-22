@@ -6,12 +6,6 @@ import { FounderMessage } from "./FounderMessage";
 import { Contact } from "./Contact";
 import { Footer } from "./Footer";
 
-export type SectionRefs =
-  | "videosRef"
-  | "donationsRef"
-  | "collaboratorsRef"
-  | "contactRef";
-
 export {
   HeroSlider,
   Videos,

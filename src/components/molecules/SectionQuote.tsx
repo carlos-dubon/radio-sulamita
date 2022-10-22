@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Button } from "@lib/atoms";
-import { SectionRefs } from "@lib/templates";
+import Link from "next/link";
 
 interface Props {
   heading: string;
@@ -8,7 +8,7 @@ interface Props {
   buttonText: string;
   buttonClick?: () => void;
   secondary?: boolean;
-  scrollTo?: SectionRefs;
+  href?: string;
 }
 
 const SectionQuote: FC<Props> = ({
@@ -17,7 +17,7 @@ const SectionQuote: FC<Props> = ({
   buttonText,
   buttonClick,
   secondary,
-  scrollTo,
+  href,
 }) => {
   return (
     <div
@@ -36,14 +36,22 @@ const SectionQuote: FC<Props> = ({
             </div>
           ) : null}
         </div>
-        <Button
-          text={buttonText}
-          onClick={() => {
-            buttonClick && buttonClick();
-          }}
-          scrollTo={scrollTo}
-          secondary={secondary}
-        />
+
+        {href ? (
+          <Link href={href} passHref>
+            <a>
+              <Button text={buttonText} secondary={secondary} />
+            </a>
+          </Link>
+        ) : (
+          <Button
+            text={buttonText}
+            onClick={() => {
+              buttonClick && buttonClick();
+            }}
+            secondary={secondary}
+          />
+        )}
       </div>
     </div>
   );

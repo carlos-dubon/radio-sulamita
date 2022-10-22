@@ -71,7 +71,7 @@ const Sidebar: FC = () => {
       {...handlers}
       className={`bg-white text-black fixed top-0 ${
         open ? "left-0" : "-left-full"
-      } z-[60] w-9/12 max-w-xs h-full flex flex-col shadow-xl transition-all duration-700 py-3`}
+      } z-[60] w-9/12 max-w-xs h-full flex flex-col shadow-xl transition-all duration-300 py-3`}
     >
       <Fade duration={450} delay={300}>
         <Link href="/">
@@ -88,34 +88,30 @@ const Sidebar: FC = () => {
         {links.map((link) => {
           return (
             <Link href={`/#${link.id}`} passHref key={link.id}>
-              <a>
-                <div
-                  onClick={() => {
-                    dispatch(toggleMenu());
-                  }}
-                  className="cursor-pointer w-full h-16 flex items-center justify-start px-5 transition-all hover:bg-rs-primary hover:text-white duration-500 text-xs uppercase tracking-wider"
-                >
-                  {link.label}
-                </div>
+              <a
+                onClick={() => {
+                  dispatch(toggleMenu());
+                }}
+                className="cursor-pointer w-full h-16 flex items-center justify-start px-5 transition-all hover:bg-rs-primary hover:text-white duration-500 text-xs uppercase tracking-wider"
+              >
+                {link.label}
               </a>
             </Link>
           );
         })}
 
         <Link href={"/#donate"} passHref>
-          <a>
-            <div
-              className="w-full h-16 flex justify-start items-center cursor-pointer px-5 transition-all hover:bg-rs-secondary hover:text-white duration-500 text-xs uppercase tracking-wider"
-              onClick={() => {
-                dispatch(toggleMenu());
-              }}
-            >
-              Donar
-              <FontAwesomeIcon
-                icon={faHandHoldingHeart}
-                className={"group-hover:text-white w-4 ml-3"}
-              />
-            </div>
+          <a
+            className="w-full h-16 flex justify-start items-center cursor-pointer px-5 transition-all hover:bg-rs-secondary hover:text-white duration-500 text-xs uppercase tracking-wider"
+            onClick={() => {
+              dispatch(toggleMenu());
+            }}
+          >
+            Donar
+            <FontAwesomeIcon
+              icon={faHandHoldingHeart}
+              className={"group-hover:text-white w-4 ml-3"}
+            />
           </a>
         </Link>
 

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Input, TextArea, Column } from "@lib/atoms";
+import { Input, TextArea, Column, Spinner } from "@lib/atoms";
 import { Section } from "@lib/molecules";
 import { ChatBox, Map } from "@lib/organisms";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -92,6 +92,7 @@ const Contact: FC = () => {
                 name="name"
                 className="mb-1"
                 type="text"
+                disabled={form.isSubmitting}
               />
               <div className="text-xs mb-2 h-4">
                 {form.touched.name ? (
@@ -108,6 +109,7 @@ const Contact: FC = () => {
                 name="email"
                 className="mb-1"
                 type="email"
+                disabled={form.isSubmitting}
               />
               <div className="text-xs mb-2 h-4">
                 {form.touched.email ? (
@@ -123,6 +125,7 @@ const Contact: FC = () => {
                 value={form.values.body}
                 name="body"
                 className="mb-1"
+                disabled={form.isSubmitting}
               />
               <div className="text-xs mb-2 h-4">
                 {form.touched.body ? (
@@ -134,15 +137,24 @@ const Contact: FC = () => {
               <button
                 disabled={!form.isValid || form.isSubmitting}
                 type="submit"
-                className={`text-sm flex justify-center items-center w-36 h-14 transition duration-500 
+                className={`text-sm flex justify-center items-center gap-3 w-36 h-14 transition duration-500 
               ${
                 form.isValid && !form.isSubmitting
                   ? "text-white bg-rs-primary hover:bg-black cursor-pointer hover:drop-shadow-[0_0_16px_rgba(255,221,200,0.25)]"
                   : "text-gray-100 bg-gray-300"
               }`}
               >
-                {form.isSubmitting ? "Enviando..." : "Enviar"}
-                <FontAwesomeIcon icon={faPaperPlane} className="w-4 ml-3" />
+                {form.isSubmitting ? (
+                  <>
+                    <p>Enviando...</p>
+                    <Spinner width="1rem" borderWidth={1} />
+                  </>
+                ) : (
+                  <>
+                    <p>Enviar</p>
+                    <FontAwesomeIcon icon={faPaperPlane} className="w-4" />
+                  </>
+                )}
               </button>
             </form>
           </Column>

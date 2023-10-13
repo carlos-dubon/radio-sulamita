@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { Section } from "@lib/molecules";
 import Image from "next/image";
-import robinSucup from "public/collaborators/robin-sucup.jpg";
+// import robinSucup from "public/collaborators/robin-sucup.jpg";
 import josePop from "public/collaborators/jose-pop.jpg";
-import sindiPop from "public/collaborators/sindi-pop.jpg";
+// import sindiPop from "public/collaborators/sindi-pop.jpg";
 import mariaPerez from "public/collaborators/maria-perez.jpg";
 import { Faded } from "baby-i-am-faded";
 

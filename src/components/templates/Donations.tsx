@@ -50,8 +50,8 @@ const Donations: FC = () => {
             </Faded>
             <div className="text-stone-300 text-center text-sm sm:text-base w-11/12 md:w-3/5 mb-6">
               Si en su corazón desea apoyar a este ministerio económicamente,
-              puede hacerlo a través de la cuenta de Banrural No. 3020005791, a
-              nombre de Fabiola Migdalia Guerra.
+              puede hacerlo a través de la cuenta de Banrural No. 300615803, a
+              nombre de Vivian Aracely Dubon Guerra.
             </div>
             <div className="text-xs tracking-wider flex justify-center items-center text-white uppercase bg-rs-primary w-48 h-14 transition duration-500 hover:bg-black cursor-pointer hover:drop-shadow-[0_0_16px_rgba(255,221,200,0.25)]">
               <Link href="https://www.banrural.com.gt/cb/pages/jsp-ns/login-cons.jsp">

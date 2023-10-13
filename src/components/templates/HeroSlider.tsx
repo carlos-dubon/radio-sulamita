@@ -5,6 +5,7 @@ import "swiper/css/navigation";
 import { FC, useState } from "react";
 import { SectionQuote } from "@lib/molecules";
 import Image from "next/image";
+import slide0 from "public/slider/slide-0.jpg";
 import slide1 from "public/slider/slide-1.jpg";
 import slide2 from "public/slider/slide-2.jpg";
 import slide3 from "public/slider/slide-3.jpg";
@@ -32,6 +33,52 @@ export const HeroSlider: FC = () => {
         modules={[Autoplay, Navigation]}
         autoplay={{ delay: 6000 }}
       >
+        <SwiperSlide className="relative" style={{ height: sliderHeight }}>
+          <div
+            className="w-full relative top-0 left-0 -z-10"
+            style={{ height: sliderHeight }}
+          >
+            <Image
+              src={slide0}
+              alt="slide-0"
+              layout="fill"
+              placeholder="blur"
+              className="brightness-50"
+              objectFit="cover"
+              objectPosition="center"
+              priority
+            />
+          </div>
+          <div className="flex justify-center items-center absolute top-0 left-0 h-full w-full">
+            <div className="container flex px-28 gap-4 flex-col">
+              <Faded
+                cascade
+                whenInView
+                animationName="babyFadeInRight"
+                className="flex gap-4 flex-col"
+                duration={300}
+              >
+                <div className="text-white text-2xl">
+                  Cordialmente invitados a
+                </div>
+                <div className="text-white text-5xl sm:text-6xl">
+                  Gloriosos días de Ayuno y Oración
+                </div>
+                <div className="text-white text-sm sm:text-base">
+                  Del día lunes 16 al viernes 20 de Octubre 2023
+                </div>
+                <div className="text-white text-sm sm:text-base">
+                  Primer ayuno en instalaciones de Radio Sulamita, con un
+                  Glorioso culto desde las 6:00AM en adelante.
+                </div>
+                <div className="text-white text-sm sm:text-base">
+                  Los días 17, 18 y 19 desde nuestros hogares.
+                </div>
+              </Faded>
+            </div>
+          </div>
+        </SwiperSlide>
+
         <SwiperSlide className="relative" style={{ height: sliderHeight }}>
           <div
             className="w-full relative top-0 left-0 -z-10"

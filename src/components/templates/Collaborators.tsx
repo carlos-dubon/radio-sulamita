@@ -14,21 +14,21 @@ interface CollaboratorsI {
 }
 
 const listOfCollaborators: CollaboratorsI[] = [
-  {
-    photoSrc: robinSucup,
-    name: "Robin Sucup",
-    occupation: "Locutor",
-  },
+  // {
+  //   photoSrc: robinSucup,
+  //   name: "Robin Sucup",
+  //   occupation: "Locutor",
+  // },
   {
     photoSrc: josePop,
     name: "Jose Pop",
     occupation: "Locutor",
   },
-  {
-    photoSrc: sindiPop,
-    name: "Sindi Pop",
-    occupation: "Locutora",
-  },
+  // {
+  //   photoSrc: sindiPop,
+  //   name: "Sindi Pop",
+  //   occupation: "Locutora",
+  // },
   {
     photoSrc: mariaPerez,
     name: "María del Carmen",

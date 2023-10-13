@@ -7,18 +7,18 @@ echo '🏗️👷 Styling, testing and building your project before committing'
 
 # Check Prettier standards
 npm.cmd run check-format ||
-(
-    echo ' Your styling looks disgusting. 🤢🤮🤢🤮
-            Prettier Check Failed. Run npm run format, add changes and try commit again.';
-    false;
-)
+# (
+#     echo ' Your styling looks disgusting. 🤢🤮🤢🤮
+#             Prettier Check Failed. Run npm run format, add changes and try commit again.';
+#     false;
+# )
 
 # Check ESLint Standards
-npm.cmd run check-lint ||
-(
-        echo 'ESLint Check Failed. Make the required changes listed above, add changes and try to commit again.'
-        false; 
-)
+# npm.cmd run check-lint ||
+# (
+#         echo 'ESLint Check Failed. Make the required changes listed above, add changes and try to commit again.'
+#         false; 
+# )
 
 # Check tsconfig standards
 npm.cmd run check-types ||

@@ -5,7 +5,7 @@ import "swiper/css/navigation";
 import { FC, useState } from "react";
 import { SectionQuote } from "@lib/molecules";
 import Image from "next/image";
-import slide0 from "public/slider/slide-0.jpg";
+import slide0 from "public/slider/slide-00.jpg";
 import slide1 from "public/slider/slide-1.jpg";
 import slide2 from "public/slider/slide-2.jpg";
 import slide3 from "public/slider/slide-3.jpg";
@@ -43,7 +43,7 @@ export const HeroSlider: FC = () => {
               alt="slide-0"
               layout="fill"
               placeholder="blur"
-              className="brightness-50"
+              className="brightness-75"
               objectFit="cover"
               objectPosition="center"
               priority
@@ -62,17 +62,17 @@ export const HeroSlider: FC = () => {
                   Cordialmente invitados a
                 </div>
                 <div className="text-white text-5xl sm:text-6xl">
-                  Gloriosos días de Ayuno y Oración
+                  Gran Noche de Vigilia
                 </div>
                 <div className="text-white text-sm sm:text-base">
-                  Del día lunes 16 al viernes 20 de Octubre 2023
+                  El día Viernes 1 de Diciembre del 2023
                 </div>
                 <div className="text-white text-sm sm:text-base">
-                  Primer ayuno en instalaciones de Radio Sulamita, con un
-                  Glorioso culto desde las 6:00AM en adelante.
+                  La Vigilia dará inicio desde las 7:00PM hasta media noche
                 </div>
                 <div className="text-white text-sm sm:text-base">
-                  Los días 17, 18 y 19 desde nuestros hogares.
+                  Ubicación: Centro de Convenciones de Radio Sulamita 90.1FM,
+                  Melchor de Mencos
                 </div>
               </Faded>
             </div>
